@@ -1,0 +1,380 @@
+{
+  "date": "2026-09-24T03:01:14.242Z",
+  "node": "v24.17.0",
+  "sha256": "79d0143412c41114244ee1e18335f89d81a0690bbbc256202ef7963b6ccd1efa",
+  "coreSha256": "fc5de70f76af16dd6b90f4ade5dd0f1fa735610910356dc30dee07e4678e14b5",
+  "checks": [
+    {
+      "name": "Offline packaging and exposed core",
+      "pass": true,
+      "ms": 20,
+      "evidence": {
+        "embeddedOnly": true,
+        "quickChecks": 6
+      }
+    },
+    {
+      "name": "Force and both parameter derivatives / two models",
+      "pass": true,
+      "ms": 0,
+      "evidence": {
+        "worst": 2.2914079522706743e-9
+      }
+    },
+    {
+      "name": "Periodic seam and translation invariance",
+      "pass": true,
+      "ms": 0,
+      "evidence": {
+        "continuous": true
+      }
+    },
+    {
+      "name": "Repeated elastic wall reflections preserve kinetic energy",
+      "pass": true,
+      "ms": 0,
+      "evidence": {
+        "cases": 8
+      }
+    },
+    {
+      "name": "Seed reproducibility and exact JSON continuation",
+      "pass": true,
+      "ms": 69,
+      "evidence": {
+        "modes": 2
+      }
+    },
+    {
+      "name": "Invalid coupled configuration and malformed import rejected",
+      "pass": true,
+      "ms": 1,
+      "evidence": {
+        "rejections": 4
+      }
+    },
+    {
+      "name": "Duration endpoints and scan ranges remain valid after normalization",
+      "pass": true,
+      "ms": 2,
+      "evidence": {
+        "ramp": 119.994,
+        "hold": 39.998,
+        "ledgerTamperRejected": true
+      }
+    },
+    {
+      "name": "Equilibrium Maxwell, Gaussian and equipartition statistics",
+      "pass": true,
+      "ms": 2303,
+      "evidence": {
+        "meanX": 11.99754619373701,
+        "varX": 1.0027477316927693,
+        "meanV": -0.0006862556613664655,
+        "vx2": 1.9735578070565671,
+        "vy2": 2.014677246182013,
+        "K": 1.9941175266192868,
+        "U": 1.0048140882505063
+      }
+    },
+    {
+      "name": "Independent OU velocity relaxation",
+      "pass": true,
+      "ms": 6,
+      "evidence": [
+        {
+          "t": 0.2,
+          "measured": 0.9240373742356899,
+          "expected": 0.989039861893082
+        },
+        {
+          "t": 0.6,
+          "measured": 2.168276790400134,
+          "expected": 2.096417364263394
+        },
+        {
+          "t": 1.2,
+          "measured": 2.7197744388313314,
+          "expected": 2.7278461401317626
+        }
+      ]
+    },
+    {
+      "name": "Positive work from 20 independent dynamical repeats",
+      "pass": true,
+      "ms": 4655,
+      "evidence": {
+        "mean": 1.2791576221002365,
+        "ci95": 0.021426294638931167,
+        "meanQH": 4.875365381086111,
+        "eta": 0.2623716423517107
+      }
+    },
+    {
+      "name": "Finite-time work and heat vs independent moment ODE",
+      "pass": true,
+      "ms": 29,
+      "evidence": {
+        "measuredWork": 1.2791576221002365,
+        "momentWork": 1.2734703351496757,
+        "measuredQH": 4.875365381086111,
+        "momentQH": 4.794841906639405
+      }
+    },
+    {
+      "name": "Translation work vs independent moment ODE",
+      "pass": true,
+      "ms": 2778,
+      "evidence": {
+        "mean": -2.8043473657302407,
+        "ci95": 0.1870498718111735,
+        "momentWork": -2.7884944479486347
+      }
+    },
+    {
+      "name": "First law is independent of bath heat; residual shrinks with dt",
+      "pass": true,
+      "ms": 2485,
+      "evidence": [
+        {
+          "dt": 0.04,
+          "work": 1.2937608178169415,
+          "sem": 0.03613195709417941,
+          "residual": -0.0012285845785076324
+        },
+        {
+          "dt": 0.02,
+          "work": 1.2488687364529991,
+          "sem": 0.05462224280522894,
+          "residual": -0.00028032784237989417
+        },
+        {
+          "dt": 0.01,
+          "work": 1.2509127565340168,
+          "sem": 0.019144691974355067,
+          "residual": -0.0000737599396915102
+        }
+      ]
+    },
+    {
+      "name": "Mechanical error and bath ledger closure",
+      "pass": true,
+      "ms": 360,
+      "evidence": {
+        "modes": 2
+      }
+    },
+    {
+      "name": "Finite wall partition integral agrees with independent Gaussian CDF",
+      "pass": true,
+      "ms": 1,
+      "evidence": {
+        "computed": 5.139863582276269,
+        "direct": 5.139863582276045
+      }
+    },
+    {
+      "name": "Weak periodic trap matches Bessel-series partition function",
+      "pass": true,
+      "ms": 1,
+      "evidence": {
+        "computed": 7.020989025952326,
+        "expected": 7.020989025952326
+      }
+    },
+    {
+      "name": "Zero temperature difference does not produce systematic positive work",
+      "pass": true,
+      "ms": 2146,
+      "evidence": {
+        "mean": -0.063846523250065,
+        "ci95": 0.010190462187465329
+      }
+    },
+    {
+      "name": "No curvature change and no translation means zero control work",
+      "pass": true,
+      "ms": 126,
+      "evidence": {
+        "cycles": 4
+      }
+    },
+    {
+      "name": "Large container periodic model approaches harmonic theory",
+      "pass": true,
+      "ms": 2,
+      "evidence": {
+        "L24": 1.4475907897165006,
+        "L64": 1.3936694128377862,
+        "ideal": 1.3862943611198906
+      }
+    },
+    {
+      "name": "Maximum particle count and parameter corner complete a cycle",
+      "pass": true,
+      "ms": 39,
+      "evidence": {
+        "N": 512,
+        "steps": 400,
+        "work": -76.71216451989076
+      }
+    },
+    {
+      "name": "Bounded scan runner completes all experiment definitions",
+      "pass": true,
+      "ms": 314,
+      "evidence": {
+        "temperature": 7,
+        "ratio": 6,
+        "rate": 6,
+        "scale": 5,
+        "translation": 5,
+        "boundary": 10
+      }
+    },
+    {
+      "name": "Formal linearity scans: 20 independent repeats per point",
+      "pass": true,
+      "ms": 70369,
+      "evidence": {
+        "temperature": {
+          "slope": 0.6857855322222712,
+          "intercept": -0.014593010417614405,
+          "r2": 0.9998270788777561,
+          "idealSlope": 0.6931471805599453
+        },
+        "ratio": {
+          "slope": 0.9769445526608586,
+          "intercept": 0.005238570281702937,
+          "r2": 0.999945048420774,
+          "idealSlope": 1
+        }
+      }
+    }
+  ],
+  "positiveWork": {
+    "work": {
+      "n": 20,
+      "mean": 1.2791576221002365,
+      "sd": 0.04578179772440459,
+      "sem": 0.010237121184391384,
+      "ci": 0.021426294638931167
+    },
+    "qh": {
+      "n": 20,
+      "mean": 4.875365381086111,
+      "sd": 0.3002455535842057,
+      "sem": 0.06713694677563395,
+      "ci": 0.14051762960140185
+    },
+    "residual": {
+      "n": 20,
+      "mean": -0.00029163459534370015,
+      "sd": 0.00001627391512078605,
+      "sem": 0.0000036389580470139305,
+      "ci": 0.000007616339192400156
+    },
+    "reps": [
+      {
+        "w": 1.3404150137637645,
+        "qh": 4.912253333267339,
+        "residual": -0.00030426690093188213
+      },
+      {
+        "w": 1.340080020527358,
+        "qh": 5.311072537220992,
+        "residual": -0.00030751458269939747
+      },
+      {
+        "w": 1.300918187271271,
+        "qh": 4.865907592526364,
+        "residual": -0.00029582212644433764
+      },
+      {
+        "w": 1.2257947214062053,
+        "qh": 4.675326249845083,
+        "residual": -0.0002722649945224494
+      },
+      {
+        "w": 1.2727224881330867,
+        "qh": 4.832277160026589,
+        "residual": -0.0002720601503458653
+      },
+      {
+        "w": 1.2587331716812642,
+        "qh": 4.689271155072752,
+        "residual": -0.0002684951339125459
+      },
+      {
+        "w": 1.2182665049122863,
+        "qh": 5.37129608735715,
+        "residual": -0.00027501842844509145
+      },
+      {
+        "w": 1.2588741468458786,
+        "qh": 4.341667486424191,
+        "residual": -0.00029627254709341244
+      },
+      {
+        "w": 1.2597341528332189,
+        "qh": 4.825426305820936,
+        "residual": -0.0002729269633848415
+      },
+      {
+        "w": 1.2481300089696494,
+        "qh": 4.3772759817538365,
+        "residual": -0.0002844458702105553
+      },
+      {
+        "w": 1.2965332156218081,
+        "qh": 4.830435492836691,
+        "residual": -0.0003215845251531846
+      },
+      {
+        "w": 1.3150422257366199,
+        "qh": 4.468384277064891,
+        "residual": -0.0003015532975663149
+      },
+      {
+        "w": 1.2958162385986474,
+        "qh": 5.105619426022822,
+        "residual": -0.0003091844989517867
+      },
+      {
+        "w": 1.3578498988670722,
+        "qh": 5.14001518401231,
+        "residual": -0.0003128963426175524
+      },
+      {
+        "w": 1.2612695787945067,
+        "qh": 4.6533053380913145,
+        "residual": -0.0002912807974057389
+      },
+      {
+        "w": 1.2109111749358819,
+        "qh": 4.686484861964407,
+        "residual": -0.00028493613247112154
+      },
+      {
+        "w": 1.2906077495233195,
+        "qh": 5.039788046477121,
+        "residual": -0.0003060785248475047
+      },
+      {
+        "w": 1.2408406390357771,
+        "qh": 5.111876883099012,
+        "residual": -0.0002793497006517616
+      },
+      {
+        "w": 1.3584042745956983,
+        "qh": 5.322356233094313,
+        "residual": -0.00030300495839519215
+      },
+      {
+        "w": 1.2322090299514188,
+        "qh": 4.947267989744098,
+        "residual": -0.0002737354308234667
+      }
+    ]
+  }
+}

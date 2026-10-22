@@ -1,8 +1,8 @@
 {
   "date": "2026-10-22",
   "pages": 2,
-  "pdfBytes": 226380,
-  "pdfSha256": "738c4bd978aeb32f26dac96bc0cf20307538633a0908965fc9beeb80f242b41b",
+  "pdfBytes": 271667,
+  "pdfSha256": "22b54c55e077d71d40766627876dce3a1b63b1cf882d3a26e53c1fdd1d12f89d",
   "coreSha256": "5243daaf1f84a06b25326e84a354ce294512067c28fa19f1394519f731af98d4",
   "htmlSha256": "2a1347b770330f60498832f54fdde4e5bc025a6abad7ec56f70bacf37dcbd3c1",
   "newScanPoints": 26,
@@ -13,27 +13,35 @@
     "Per-repeat means verified against recorded cycles",
     "Paired translation differences verified"
   ],
-  "revision": "Chinese monochrome academic layout; saved simulation data unchanged",
+  "revision": "Traditional Chinese academic report, DFKai-SB, single-column body, no abstract; saved simulation data unchanged",
   "latex": {
     "engine": "Tectonic 0.17.0 (XeTeX)",
     "source": "latex/main.tex",
     "generator": "generate_report.py",
     "figureEngine": "PGFPlots",
-    "embeddedFontCount": 15,
+    "embeddedFontCount": 18,
     "allFontsEmbedded": true,
     "nativeEditorPreview": "Not rerun; previous revision exposed system font access limits in app preview. Current CLI compilation succeeded.",
     "bodyFonts": [
-      "Songti TC",
+      "DFKai-SB (標楷體)",
       "Times New Roman"
     ]
   },
   "checks": [
-    "Two A4 pages; Chinese title, abstract, references and key numerical results extracted",
-    "Both delivered pages rendered at 150 dpi and visually inspected, including column flow and numbered equations",
+    "Two A4 pages; no abstract; Chinese title, references and key numerical results extracted",
+    "Single-column body checked in source and rendered pages",
+    "Both delivered pages rendered at 145 dpi and visually inspected, including formulas, table and reference placement",
     "Both rendered pages contain only grayscale pixels",
     "Formal generator completed with no missing-glyph or overfull-box diagnostics",
-    "All 15 PDF fonts are embedded",
+    "All 18 PDF fonts are embedded, including DFKai-SB",
     "index.html, plot CSV files and saved numerical datasets unchanged; no simulations rerun",
-    "Compiler temporary directories automatically removed after generation"
-  ]
+    "Compiler temporary directory automatically removed after generation"
+  ],
+  "layout": {
+    "columns": 1,
+    "abstract": false,
+    "bodyFontPt": 11,
+    "bodyLeadingPt": 15.2,
+    "color": "grayscale"
+  }
 }

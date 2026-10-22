@@ -1,0 +1,50 @@
+{
+  "engine": "webkit",
+  "date": "2026-10-22T08:36:43.602Z",
+  "sha256": "13b544fba7443ec082b0de2ef872a1deefd8185821ecce077955c311ac281c7d",
+  "coreSha256": "5243daaf1f84a06b25326e84a354ce294512067c28fa19f1394519f731af98d4",
+  "checks": [
+    {
+      "name": "Final export draws natively at twice CSS resolution on a 1x display",
+      "pass": true,
+      "evidence": {
+        "source": [
+          [
+            2200,
+            940
+          ],
+          [
+            2200,
+            940
+          ]
+        ],
+        "output": [
+          2200,
+          1440
+        ]
+      }
+    },
+    {
+      "name": "Final mobile title and light/dark page layouts",
+      "pass": true,
+      "evidence": {
+        "widths": [
+          375,
+          768,
+          1440
+        ],
+        "themes": 2
+      }
+    },
+    {
+      "name": "Final deliverable keeps cycle bookkeeping and offline isolation",
+      "pass": true,
+      "evidence": {
+        "work": 1.156512913403307
+      }
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "browserVersion": "26.4"
+}

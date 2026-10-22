@@ -2,18 +2,19 @@
 
 熱統計物理一的單檔互動實驗室。以真正的 Langevin 動力學，探索曲率控制、熱浴、平移成本、有限速度與週期邊界。
 
-**提交與執行只需 `index.html`。直接用瀏覽器開啟，首次完全離線也可使用；不需安裝、build、伺服器或帳號。**
+**執行只需 `index.html`。直接用瀏覽器開啟，首次完全離線也可使用；不需安裝、build、伺服器或帳號。新版作業另外要求一份自行撰寫說明與作圖的 PDF；本次更新網站與資料工具，PDF 另行準備。**
 
-![微觀引擎實驗台：實際執行四圈後的畫面](docs/verification/preview-desktop.png)
+![微觀引擎實驗台：新版實驗台](docs/verification/2026-10-22/preview-desktop.png)
 
 ## 快速開始
 
 1. 開啟 `index.html`，按第一屏的「啟動熱機」。
 2. 前 2 圈為暖機；之後觀察每粒子循環功與平均功。按「完成一循環」可精確停在循環端點。
 3. 按「加入位能搬運」，查看曲率功、平移功與淨功；搬運過快可能使淨功變負。
-4. 「掃描與比較」提供溫差、曲率比、操作時間、曲率尺度、搬運速度及邊界六組實驗。
-5. 「物理與可信度」可啟動固定阱平衡實驗，對比位置／速度分布及理論。
-6. 關閉前到「實驗紀錄」儲存 JSON。CSV 保存逐循環原始資料，PNG 保存圖表。
+4. 第一屏「驗證正功」執行 20 次獨立重複；「兩張線性圖」依序執行溫差與 ln 曲率比的正式掃描。完成結果自動保存在「作業證據」，切換掃描不會丟失。
+5. 「掃描與比較」另提供操作時間、曲率尺度、搬運速度及邊界實驗。
+6. 「物理與可信度」可啟動固定阱平衡實驗，對比位置／速度分布及理論。
+7. 關閉前到「實驗紀錄」儲存 JSON。CSV 保存逐循環原始資料，PNG 保存圖表。「作業證據」的兩張圖可輸出 2200×1440 白底 PNG，包含擬合與條件，並可切換每粒子／整個系統的功。
 
 ## 模型與重要區別
 
@@ -33,7 +34,8 @@
 - 曲率循環圖、溫度／功熱曲線、位置與速度分布、掃描與殘差圖。
 - 暗／亮模式、展示模式、手機排版、鍵盤分頁、圖表鍵盤讀值、三分鐘導覽。
 - POE、可複製探究提示詞、CSV／PNG／JSON、最多 6 組比較快照。
-- JSON 包含粒子、積分相位、功熱帳本、PRNG 當前狀態與高斯備用樣本，載入後可沿同一軌跡續跑。
+- 「作業證據」保留每種實驗最近一組完成結果，另有最多 6 個比較快照；未完成資料不會覆蓋完成結果。
+- JSON 包含作業證據、粒子、積分相位、功熱帳本、PRNG 當前狀態與高斯備用樣本，載入後可沿同一軌跡續跑。
 - 背景頁面自動暫停主實驗；已啟動的批次掃描仍可在 Worker 執行。Worker 不可用時採同一核心的分批備援。
 - 取消保留已完成的掃描點，未完成點不進入擬合。每點的種子、排程、dt 與原始循環皆能匯出。
 
@@ -43,7 +45,8 @@
 
 - [物理模型](docs/physics-models.md)
 - [數值與統計](docs/numerical-methods.md)
-- [評分對照](docs/rubric-mapping.md)
+- [新版評分對照](docs/rubric-mapping.md)
+- [介面設計與版本變更](docs/ui-design.md)
 - [驗證結果與限制](docs/validation.md)
 - [三分鐘展示](docs/demo-script.md)
 - [來源與授權](docs/third-party-notices.md)
@@ -53,6 +56,8 @@
 ```sh
 node tests/numerical.cjs
 PLAYWRIGHT_MODULE=/absolute/path/to/playwright node tests/browser.cjs
+PLAYWRIGHT_MODULE=/absolute/path/to/playwright node tests/evidence-browser.cjs
+PLAYWRIGHT_MODULE=/absolute/path/to/playwright node tests/polish-browser.cjs
 PLAYWRIGHT_MODULE=/absolute/path/to/compatible/playwright ENGINE_BROWSER=webkit node tests/browser.cjs
 ```
 

@@ -1,0 +1,131 @@
+{
+  "engine": "webkit",
+  "sha256": "67bdda9e6b642f92d8027794e929db779c4c6cf776ddda660f6618a3ce518a04",
+  "checks": [
+    {
+      "name": "Fresh file:// offline initialization",
+      "pass": true,
+      "ms": 138,
+      "evidence": {
+        "isolation": "HTTP(S) interception; file navigation online flag"
+      }
+    },
+    {
+      "name": "Primary control is visible without scrolling",
+      "pass": true,
+      "ms": 19
+    },
+    {
+      "name": "Single step and pause do not add unrequested physics",
+      "pass": true,
+      "ms": 198
+    },
+    {
+      "name": "Cycle completion flushes actual UI and ledger",
+      "pass": true,
+      "ms": 518,
+      "evidence": {
+        "firstCycleWork": 1.2773368941828436
+      }
+    },
+    {
+      "name": "Manual pause flushes current state",
+      "pass": true,
+      "ms": 428
+    },
+    {
+      "name": "Invalid joint parameters roll back atomically",
+      "pass": true,
+      "ms": 48
+    },
+    {
+      "name": "Boundary and translation controls directly apply models",
+      "pass": true,
+      "ms": 530,
+      "evidence": {
+        "translationWork": -4.0378388519425465
+      }
+    },
+    {
+      "name": "Compact configuration, warm-up exclusion and record table",
+      "pass": true,
+      "ms": 462
+    },
+    {
+      "name": "CSV rows match completed cycles",
+      "pass": true,
+      "ms": 26
+    },
+    {
+      "name": "JSON saving and exact continuation through UI",
+      "pass": true,
+      "ms": 369
+    },
+    {
+      "name": "Malformed import preserves current experiment",
+      "pass": true,
+      "ms": 41
+    },
+    {
+      "name": "PNG exports a populated chart with metadata",
+      "pass": true,
+      "ms": 85
+    },
+    {
+      "name": "POE, snapshots and clipboard fallback",
+      "pass": true,
+      "ms": 106
+    },
+    {
+      "name": "Worker scan finishes with point table and regression",
+      "pass": true,
+      "ms": 458
+    },
+    {
+      "name": "Scan exports preserve independent repetitions",
+      "pass": true,
+      "ms": 47
+    },
+    {
+      "name": "Scan snapshots survive JSON roundtrip without duplicate data",
+      "pass": true,
+      "ms": 145
+    },
+    {
+      "name": "Cancellation rejects stale Worker results",
+      "pass": true,
+      "ms": 666,
+      "evidence": {
+        "retainedPoints": 1
+      }
+    },
+    {
+      "name": "Quick physics checks and live equilibrium distributions",
+      "pass": true,
+      "ms": 545
+    },
+    {
+      "name": "Tour, keyboard navigation and display mode",
+      "pass": true,
+      "ms": 213
+    },
+    {
+      "name": "Mobile, tablet, light theme and reduced motion",
+      "pass": true,
+      "ms": 1100
+    },
+    {
+      "name": "No external requests or uncaught errors",
+      "pass": true,
+      "ms": 1
+    },
+    {
+      "name": "No-Worker bounded fallback produces the same experiment",
+      "pass": true,
+      "ms": 559
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "browserVersion": "26.4"
+}

@@ -15,24 +15,50 @@ button,input,select,textarea{font:inherit}select{height:44px}button,select,input
 @media(max-width:420px){.app{padding:17px 12px}.controls .form-grid{grid-template-columns:1fr 1fr}.logo{display:none}.metric{padding:12px}.metric .label{font-size:.8rem}.metric .value{font-size:1.6rem}.metric .detail{font-size:.7rem}.card-head{padding:16px}.canvas-zone{padding:0 8px}.transport{padding:12px}.transport button{padding:9px 11px;font-size:.85rem}.particle-canvas{height:255px}.stage-strip{padding:10px}.stage{padding:7px 3px}.readout{padding:12px;gap:6px}.scan-toolbar{padding:16px}.scan-summary{grid-template-columns:1fr}.scan-summary div{display:flex;justify-content:space-between;align-items:center}.scan-card{padding:14px}.chart-card canvas{height:230px}.scan-toolbar .field{max-width:calc(50% - 8px)}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 @media print{body{--bg:white;--surface:white;--surface2:#eee;--text:#111;--muted:#444;--line:#bbb;background:white}.top-actions,.nav,.quick,.transport,.controls,.export-bar,.footer,.toast{display:none!important}.panel[hidden]{display:block!important}.card{break-inside:avoid;box-shadow:none}.app{padding:0}.lab-grid,.physics-grid,.chart-grid{display:block}.card{margin-bottom:16px}.table-wrap{max-height:none}.journal-grid{display:block}}
+/* 2026-10 scientific field-notebook design, no external assets. */
+:root{--bg:#111a19;--surface:#182523;--surface2:#20312d;--surface3:#2a4039;--text:#f0f2e9;--muted:#b0c1b9;--line:#3a4e45;--accent:#a6e2c6;--hot:#ffb183;--cold:#91bbf4;--gold:#e9cf8a;--purple:#c8b5ed;--danger:#ffb0a4;--radius:12px;--shadow:0 4px 20px #0000000a}
+body.light{--bg:#f5f3ec;--surface:#fffefa;--surface2:#eeeee4;--surface3:#e1e8dc;--text:#18392f;--muted:#59685f;--line:#d2d6c9;--accent:#22694e;--hot:#aa481e;--cold:#2a5fa2;--gold:#85620e;--purple:#755196;--danger:#a02e28;--shadow:0 4px 22px #233a2206}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif;line-height:1.7}
+.app{max-width:1500px;padding:26px 48px 40px}.top{padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:0}.brand{gap:12px}.logo{width:40px;height:40px}.eyebrow{color:var(--muted);font-size:.68rem;letter-spacing:.18em}.brand h1{font-size:1.38rem;letter-spacing:.08em}.brand .intro{display:none}.brand .eyebrow{font-size:.6rem;margin:0 0 2px}.top-actions .badge{border:0}.top-actions button{background:transparent;border-color:transparent;font-size:.8rem;padding:8px 10px}.top-actions button:hover{background:var(--surface2);border-color:var(--line)}
+.nav{margin:0 0 26px;padding:12px 0 0;gap:24px;border-bottom:1px solid var(--line)}.nav button{padding:12px 0 15px;border-radius:0;border:0;border-bottom:3px solid transparent;font-size:.88rem;min-height:48px;color:var(--muted)}.nav button[role=tab][aria-selected=true]{background:transparent;border-bottom-color:var(--accent);color:var(--text);font-weight:700}.nav button .num{font:11px ui-monospace,monospace;opacity:.7;margin-right:8px}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center;margin:32px 0}.hero h2{font-family:"Songti TC","Noto Serif TC",Georgia,serif;font-size:clamp(2.5rem,4.7vw,4.15rem);font-weight:600;letter-spacing:-.035em;line-height:1.2}.hero h2 em{font-style:normal;color:var(--accent)}.hero p{font-size:.94rem;color:var(--muted);max-width:41em;margin-top:15px}.hero-theory{padding:14px 0 14px 34px;border-left:1px solid var(--line)}.hero-equation{font:clamp(1.4rem,2.2vw,2.1rem) Georgia,serif;color:var(--text);margin:9px 0 13px;line-height:1.6}.hero-theory .eyebrow{color:var(--accent)}.cycle-key{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:.75rem;flex-wrap:wrap}.cycle-key span{padding:3px 7px;border-radius:4px}.cycle-key span.active{background:var(--surface3);color:var(--text)}.hero-theory small{font-size:.72rem;color:var(--muted)}
+button{border-radius:6px;transition:background .18s,border-color .18s,color .18s,box-shadow .18s;touch-action:manipulation}button:hover{box-shadow:0 2px 7px #0000000a}button.primary{font-weight:650}.quick{gap:8px;margin:0 0 22px;padding:0 0 22px;border-bottom:1px solid var(--line)}.quick button{background:var(--surface);font-size:.82rem;padding:10px 13px}.quick #play-top{min-width:126px}.quick .evidence-link{margin-left:auto;border-color:var(--accent);color:var(--accent)}
+.metrics{gap:0;margin:0 0 22px;border-bottom:1px solid var(--line);padding-bottom:20px}.metric{border:0;border-right:1px solid var(--line);border-radius:0;background:none;padding:0 24px}.metric:first-child{padding-left:0}.metric:last-child{border-right:0}.metric .label{font-size:.79rem;letter-spacing:.025em}.metric .value{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:clamp(1.8rem,3vw,2.7rem);letter-spacing:-.06em;line-height:1.3;margin:7px 0}.metric .detail{font-size:.72rem}.statusline{display:flex;align-items:center;font-size:.78rem;margin-bottom:12px;min-height:20px}.statusline::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:9px;flex:none}
+.lab-grid{grid-template-columns:minmax(0,1.8fr) minmax(320px,1fr);gap:24px}.card{border-radius:var(--radius)}.card-head{padding:18px 22px}.card-head h2{font-size:1rem}.card-head .sub{font-size:.72rem}.controls{box-shadow:none}.controls .card-head{background:var(--surface2)}.controls .card-pad{padding:20px}.controls input{background:var(--surface);border-radius:5px;font-size:1rem}.segmented{border-radius:6px;padding:3px}.segmented button{border-radius:4px;font-size:.78rem}.form-actions .primary{font-size:.9rem}details summary{min-height:44px;display:flex;align-items:center}details summary::before{content:"+";font-family:ui-monospace,monospace;margin-right:8px;font-weight:700}details[open]>summary::before{content:"−"}.field small{font-size:.75rem}.notice{font-size:.78rem;line-height:1.7}
+.instrument{--surface:#152c26;--surface2:#1c382f;--surface3:#294a3e;--bg:#10231d;--text:#f0f4ec;--muted:#b9cdc0;--line:#385247;--accent:#ace2c4;--hot:#ffb181;--cold:#98c2ff;--gold:#ead292;color:var(--text);border-color:#284b3b;box-shadow:0 12px 32px #0f2d2014}.instrument .canvas-zone{background:var(--surface);padding:8px 18px 0}.instrument .particle-canvas{height:340px}.instrument .card-head{border-color:var(--line)}.instrument .transport button.primary{color:#15382b}.instrument .transport select{background:var(--surface2);color:var(--text)}.instrument .stage.active{border-color:var(--accent)}.instrument .stage b{color:var(--muted)}.instrument .micro-footer{padding-top:8px}.instrument .readout{padding:14px 20px}.stage{border-radius:4px}.stage-strip{gap:8px}.instrument .transport{padding:14px 18px}
+.chart-grid{gap:24px;margin-top:24px}.chart-card{padding:24px}.chart-card canvas{height:270px}.chart-top h3{font-size:1.03rem}.chart-top p{font-size:.76rem}.chart-help{font-size:.79rem;line-height:1.8}.chart-tooltip{min-height:22px}.section-head{margin-bottom:24px;align-items:center}.section-head h2{font-family:"Songti TC","Noto Serif TC",Georgia,serif;font-size:1.9rem;letter-spacing:0}.section-head p{margin-top:8px}.section-head .eyebrow{margin-bottom:4px}.scan-cards{grid-template-columns:repeat(3,1fr);gap:12px}.scan-card{border-radius:7px;padding:18px;min-height:114px;position:relative}.scan-card.selected{box-shadow:inset 3px 0 0 var(--accent)}.scan-card .index{font:11px ui-monospace,monospace;color:var(--muted)}.scan-card strong{font-size:1.04rem}.scan-card small{font-size:.78rem}.scan-toolbar{padding:22px}.scan-summary b{font-size:1.15rem}.table-wrap{border:1px solid var(--line);border-radius:6px}.table-wrap caption{padding:12px}.table-wrap th{font-size:.74rem}.table-wrap td{font-size:.8rem}.physics-grid{gap:24px;margin-top:24px}.physics-stack{gap:24px}.prose h2{font-family:"Songti TC",Georgia,serif;font-size:1.35rem}.formula{background:var(--surface2);border-radius:0;font-size:1.1rem}.callout{border-radius:5px}.journal-grid .card{box-shadow:none}.journal-grid textarea{background:var(--surface);font-size:1rem}.journal-grid label{letter-spacing:.03em}.footer{font-size:.7rem;letter-spacing:.03em;margin-top:36px}
+.lab-roadmap{margin-top:32px;padding-top:25px;border-top:1px solid var(--line)}.roadmap-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:16px}.roadmap-grid button{text-align:left;border:0;border-left:2px solid var(--line);border-radius:0;background:none;padding:7px 14px}.roadmap-grid strong{display:block;font-size:.92rem}.roadmap-grid span{font:11px ui-monospace,monospace;color:var(--accent);display:block;margin-bottom:5px}.roadmap-grid small{font-size:.76rem;color:var(--muted)}
+.evidence-intro{display:flex;gap:30px;justify-content:space-between;align-items:end;margin-bottom:28px}.evidence-intro h2{font:2.6rem "Songti TC",Georgia,serif;line-height:1.3}.evidence-intro p{color:var(--muted);font-size:.88rem;max-width:620px;margin-top:12px}.rubric-score{font:3rem Georgia,serif;white-space:nowrap}.rubric-score small{font:12px -apple-system,sans-serif;display:block;color:var(--muted)}.evidence-section{border-top:1px solid var(--line);padding:27px 0}.evidence-title{display:flex;gap:18px;align-items:start;justify-content:space-between;margin-bottom:18px}.evidence-title h3{font:1.35rem "Songti TC",Georgia,serif;line-height:1.4}.evidence-title p{font-size:.85rem;color:var(--muted);max-width:740px;margin-top:7px}.weight{flex:none;border:1px solid var(--line);padding:4px 12px;font:13px ui-monospace,monospace;line-height:2;border-radius:4px;color:var(--accent)}.evidence-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.evidence-result{padding:22px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:0 7px 7px 0;margin:16px 0}.evidence-result strong{font:1.5rem ui-monospace,monospace;display:block;margin:6px 0;color:var(--accent)}.evidence-result p{font-size:.82rem;color:var(--muted)}.evidence-result .verdict{font-size:.85rem;color:var(--text);font-weight:600}.evidence-status{font-size:.8rem;color:var(--muted);margin:10px 0}.evidence-figure canvas{height:300px}.evidence-figure .empty-label{color:var(--muted);font-size:.8rem}.evidence-figure .figure-meta{font-size:.74rem;color:var(--muted);line-height:1.8;margin-top:10px;white-space:pre-line}.evidence-figure .figure-fit{font:13px ui-monospace,monospace;color:var(--accent);margin:10px 0}.evidence-figure .export-bar button{font-size:.75rem;padding:8px 10px}.evidence-figure .chart-top{min-height:60px}.suite-banner{display:flex;justify-content:space-between;gap:20px;align-items:center;background:var(--surface2);padding:20px 22px;border-radius:7px;margin:18px 0}.suite-banner p{font-size:.8rem;color:var(--muted);margin-top:5px}.suite-banner .field{min-width:150px}.suite-banner select{background:var(--surface)}.evidence-links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.evidence-links button{text-align:left;padding:15px;background:var(--surface)}.evidence-links button strong{font-size:.9rem;display:block}.evidence-links button small{font-size:.77rem;color:var(--muted);display:block;margin-top:5px}.evidence-summary{font-size:.8rem;color:var(--muted);line-height:1.8}.evidence-summary table{margin-top:12px}.writing-note{font-size:.85rem;line-height:1.85;border-left:3px solid var(--gold);padding:14px 20px;background:var(--surface2);margin-top:20px}.writing-note b{color:var(--text)}.scan-heading-tools{display:flex;gap:8px;flex-wrap:wrap}.global-job{font-size:.74rem;color:var(--accent)}.positive-callout{display:flex;gap:20px;justify-content:space-between;align-items:center;padding:18px 22px;background:var(--surface2);border:1px solid var(--line);border-radius:8px;margin-bottom:20px}.positive-callout p{font-size:.82rem;color:var(--muted)}
+@media(min-width:1101px){.controls{position:sticky;top:24px}.presentation .hero{margin:16px 0}.presentation .hero h2{font-size:2.6rem}}
+@media(max-width:1100px){.app{padding:24px}.nav{gap:20px}.hero{gap:30px}.hero h2{font-size:3.3rem}.lab-grid{gap:18px;grid-template-columns:minmax(0,1.4fr) minmax(290px,1fr)}.metric{padding:0 15px}.metric .value{font-size:2rem}.quick .evidence-link{margin-left:0}.hero-equation{font-size:1.65rem}.roadmap-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){.app{padding:18px 20px}.top{flex-direction:row;align-items:center;gap:10px;padding-bottom:16px}.top-actions{width:auto;gap:0}.top-actions .optional,.top-actions .badge{display:none}.top-actions button{font-size:.72rem;padding:7px}.brand h1{font-size:1.2rem}.brand .eyebrow{font-size:.5rem}.brand h1 span{display:none}.logo{width:32px;height:32px}.nav{gap:0;justify-content:space-between;margin-bottom:22px}.nav button{flex:none;font-size:.78rem;padding:10px 3px 13px}.nav .num{display:none}.hero{margin:24px 0;grid-template-columns:1fr;gap:0}.hero h2{font-size:2.7rem;line-height:1.22}.hero p{font-size:.85rem;margin-top:12px;max-width:32em}.hero-theory{display:none}.quick{padding-bottom:18px;gap:8px}.quick button{font-size:.78rem;padding:9px 11px}.quick #play-top{min-width:113px}.metrics{row-gap:20px}.metric{padding:0 14px}.metric:nth-child(3){padding-left:0}.metric:nth-child(even){border-right:0}.metric .value{font-size:2.1rem}.metric .label{font-size:.76rem}.metric .detail{font-size:.72rem}.lab-grid,.physics-grid{grid-template-columns:1fr}.instrument .particle-canvas{height:290px}.chart-card{padding:20px}.chart-card canvas{height:270px}.chart-grid{gap:18px}.section-head{align-items:start;gap:12px;flex-wrap:wrap}.section-head h2{font-size:1.65rem}.evidence-intro{align-items:start;gap:16px}.evidence-intro h2{font-size:2.1rem}.rubric-score{font-size:2.2rem}.evidence-title h3{font-size:1.2rem}.suite-banner{flex-wrap:wrap;padding:18px}.evidence-links{grid-template-columns:1fr}.evidence-links button{padding:14px}.evidence-figure canvas{height:280px}.positive-callout{align-items:start;flex-wrap:wrap}.scan-cards{grid-template-columns:repeat(2,1fr)}.controls .form-grid{grid-template-columns:repeat(3,1fr)}.journal-grid label{font-size:.9rem}}
+@media(max-width:440px){.app{padding:14px}.logo{display:none}.top-actions #presentation{display:none}.top-actions .optional{display:block}.top-actions #tour-open{font-size:.7rem}.brand h1{font-size:1.1rem}.nav button{font-size:.71rem}.nav{margin-bottom:18px}.hero{margin:20px 0}.hero h2{font-size:2.4rem}.hero p{font-size:.8rem}.quick button{font-size:.75rem;padding:9px 10px}.quick #play-top{min-width:100px}.metric .value{font-size:1.85rem}.metric .detail{font-size:.71rem}.instrument .particle-canvas{height:270px}.instrument .canvas-zone{padding:4px 8px 0}.controls .form-grid{grid-template-columns:1fr 1fr}.stage-strip{gap:4px;padding:12px 8px}.stage{font-size:.72rem;padding:8px 3px}.stage b{font-size:.65rem}.transport button{font-size:.8rem}.chart-card{padding:16px}.chart-card canvas{height:255px}.roadmap-grid{gap:14px 8px}.roadmap-grid button{padding:6px 10px}.roadmap-grid strong{font-size:.8rem}.roadmap-grid small{font-size:.73rem}.evidence-intro h2{font-size:1.8rem}.rubric-score{font-size:1.8rem}.rubric-score small{font-size:.64rem}.weight{padding:3px 8px;font-size:.72rem}.evidence-title{gap:12px}.evidence-result{padding:18px}.evidence-result strong{font-size:1.25rem}.evidence-figure canvas{height:260px}.scan-card{padding:14px;min-height:118px}.scan-card strong{font-size:.92rem}.scan-card small{font-size:.75rem}.scan-toolbar .field{max-width:calc(50% - 8px)}.suite-banner .field{min-width:0;width:100%}.writing-note{padding:12px 15px;font-size:.8rem}.scan-summary{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+@media print{.hero,.lab-roadmap,.evidence-actions,.suite-banner,.positive-callout{display:none!important}.evidence-section{break-inside:avoid}.instrument{--surface:#fff;--text:#111;--muted:#444}.evidence-figure{break-inside:avoid}.metrics{display:grid;grid-template-columns:repeat(4,1fr)}}
+
+@media(max-width:440px){.evidence-intro{display:block}.rubric-score{display:flex;align-items:baseline;gap:8px;margin-top:14px}.rubric-score small{font-size:.72rem}}
+
 </style>
 </head>
-<body>
+<body class="light">
 <a class="skip" href="#main">跳至實驗內容</a>
 <div class="app">
 <header class="top">
  <div class="brand"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="17" fill="var(--surface3)"/><path d="M12 15 Q32 84 52 15" fill="none" stroke="var(--accent)" stroke-width="2.8"/><circle cx="33" cy="38" r="5" fill="var(--hot)"/><path d="M10 53H54" stroke="var(--line)"/></svg><div><div class="eyebrow">THERMAL PHYSICS / EXPERIMENT 02</div><h1>微觀引擎<span class="muted" style="font-size:.55em;font-weight:400;margin-left:12px">實驗室</span></h1><p class="intro">放鬆與收緊之間，熱如何成為功。</p></div></div>
- <div class="top-actions"><span class="badge">離線 · 可重現</span><button class="small optional" id="tour-open">三分鐘導覽</button><button class="small" id="presentation" aria-pressed="false">展示模式</button><button class="small" id="theme-toggle" aria-label="切換亮色模式">亮色模式</button></div>
+ <div class="top-actions"><span class="badge">單檔離線</span><span id="global-job" class="global-job"></span><button class="small optional" id="tour-open">三分鐘導覽</button><button class="small" id="presentation" aria-pressed="false">展示模式</button><button class="small" id="theme-toggle" aria-label="切換深色模式">深色模式</button></div>
 </header>
 <nav class="nav" role="tablist" aria-label="實驗工作區">
  <button role="tab" id="tab-lab" data-tab="lab" aria-controls="panel-lab" aria-selected="true"><span class="num">01</span>熱機實驗台</button>
  <button role="tab" id="tab-scan" data-tab="scan" aria-controls="panel-scan" aria-selected="false" tabindex="-1"><span class="num">02</span>掃描與比較</button>
  <button role="tab" id="tab-physics" data-tab="physics" aria-controls="panel-physics" aria-selected="false" tabindex="-1"><span class="num">03</span>物理與可信度</button>
  <button role="tab" id="tab-notes" data-tab="notes" aria-controls="panel-notes" aria-selected="false" tabindex="-1"><span class="num">04</span>實驗紀錄</button>
+ <button role="tab" id="tab-evidence" data-tab="evidence" aria-controls="panel-evidence" aria-selected="false" tabindex="-1"><span class="num">05</span>作業證據</button>
 </nav>
 <main id="main">
 <section id="panel-lab" class="panel" role="tabpanel" aria-labelledby="tab-lab">
- <div class="quick"><button id="play-top" class="primary">啟動熱機</button><button id="preset-base">基準熱機</button><button data-open-scan="rate">快慢操作比較 ↗</button><button data-open-scan="temperature">溫差／曲率比掃描 ↗</button><button id="quick-boundary">雙週期邊界</button><button id="quick-move">加入位能搬運</button></div>
+ <div class="hero"><div><div class="eyebrow">MICROSCOPIC ENGINE / INTERACTIVE LAB</div><h2>從熱擾動，<br>取出<em>有序的功。</em></h2><p>改變位能阱的鬆緊，觀察粒子如何交換熱與功。從一個微觀循環，走向可以驗證的熱力學。</p></div><div class="hero-theory"><div class="eyebrow">THE QUASISTATIC LIMIT</div><div class="hero-equation">W<sub>out</sub> / N = ½ k<sub>B</sub> ΔT ln(κ<sub>max</sub> / κ<sub>min</sub>)</div><div class="cycle-key"><span data-stage="0" class="active">01 加熱</span>／<span data-stage="1">02 放鬆</span>／<span data-stage="2">03 冷卻</span>／<span data-stage="3">04 收緊</span></div><small>無限域諧和阱的慢速極限。實際結果由粒子動力學決定。</small></div></div>
+
+ <div class="quick"><button id="play-top" class="primary">啟動熱機</button><button id="preset-base">基準熱機</button><button id="quick-positive">驗證正功</button><button data-open-scan="rate">快慢操作比較 ↗</button><button id="quick-suite">兩張線性圖 ↗</button><button id="quick-boundary">雙週期邊界</button><button id="quick-move">加入位能搬運</button><button data-open-evidence class="evidence-link">作業證據 ↗</button></div>
  <div class="metrics">
   <div class="metric"><div class="label">本循環輸出功 / 粒子</div><div class="value accent" id="metric-work">0.000</div><div class="detail" id="work-detail">曲率功 + 平移功</div></div>
   <div class="metric"><div class="label">記錄循環的平均功</div><div class="value" id="metric-mean">—</div><div class="detail" id="mean-detail">先完成 2 個暖機循環</div></div>
@@ -41,7 +67,7 @@ button,input,select,textarea{font:inherit}select{height:44px}button,select,input
  </div>
  <div id="lab-status" class="statusline" role="status">準備就緒。啟動熱機，觀察第一個循環。</div>
  <div class="lab-grid">
-  <div class="card">
+  <div class="card instrument">
    <div class="card-head"><div><h2>粒子與位能阱</h2><div class="sub" id="model-label">x 硬牆 · y 週期 · 非交互作用粒子</div></div><span class="badge mono" id="time-label">t = 0.00</span></div>
    <div class="canvas-zone"><canvas id="particles" class="particle-canvas" role="img" aria-label="二維粒子位置與位能剖面。粒子顏色表示速率，底部曲線是 x 方向位能。"></canvas></div>
    <div class="micro-footer"><span id="particle-caption">128 粒子</span><span>速率　<span class="cold">低</span> ━ <span class="hot">高</span>　｜　下圖：位能 V(x)</span></div>
@@ -84,9 +110,11 @@ button,input,select,textarea{font:inherit}select{height:44px}button,select,input
   <div class="card chart-card"><div class="chart-top"><div><h3 id="timeline-title">溫度如何跟上熱浴</h3><p>以最近一個完整循環或目前循環顯示</p></div><div class="chart-switch"><button id="plot-temp" aria-pressed="true">溫度</button><button id="plot-energy" aria-pressed="false">功熱</button></div></div><canvas id="timeline-chart" role="img" aria-label="熱浴溫度與實測動能溫度，或累積功熱的時間曲線"></canvas><div class="chart-tooltip" id="timeline-chart-tip" aria-live="polite"></div><p class="chart-help" id="timeline-help">換浴後粒子逐漸熱化。Tₖ 含整體漂移；速度散布估計另列於儀表。</p></div>
  </div>
  <div class="card" style="margin-top:18px"><div class="readout"><div><span>平均功率 / 粒子</span><b id="mean-power">—</b></div><div><span>效率 ⟨Wout⟩ / ⟨Qʜ⟩</span><b id="mean-efficiency">—</b></div><div><span>最近循環數值殘差 / 粒子</span><b id="energy-residual">—</b></div></div><p class="notice" style="padding:0 20px 15px;margin:0">無再生器；高溫吸熱包含升溫與高溫放鬆。效率是有限資料估計，需檢查同相位能量是否穩定。循環功的標準差不等於獨立重複的信賴區間。</p></div>
+<div class="lab-roadmap"><div class="eyebrow">FOLLOW THE EXPERIMENT</div><div class="roadmap-grid"><button data-open-evidence><span>01 / 1%</span><strong>控溫與正功驗證</strong><small>從熱浴到可檢驗的平均功</small></button><button data-open-scan="rate"><span>02 / 0.5%</span><strong>探索準靜態條件</strong><small>曲率、改變速度與搬運</small></button><button data-open-evidence><span>03 / 0.5%</span><strong>保留兩張線性圖</strong><small>平均、誤差棒與殘差</small></button><button data-open-scan="boundary"><span>04 / BONUS 0.5%</span><strong>雙週期的物理有效性</strong><small>邊界與位能一起檢查</small></button></div></div>
 </section>
 <section id="panel-scan" class="panel" role="tabpanel" aria-labelledby="tab-scan" hidden>
  <div class="section-head"><div><h2>從一次運轉，到一組證據</h2><p>每個點都重新演化粒子；暖機後記錄完整循環，再跨獨立重複取平均。</p></div></div>
+ <div class="positive-callout"><div><b>先確認：這部熱機能輸出正功嗎？</b><p>20 次獨立基準實驗，用平均與 95% CI 檢查。完成後自動保留在作業證據。</p></div><button id="scan-positive">執行正功驗證</button></div>
  <div class="scan-cards">
   <button class="scan-card selected" data-scan="temperature"><span class="index">EXPERIMENT A</span><strong>溫差與輸出功</strong><small>固定曲率比，改變 Tʜ − Tᴄ</small></button>
   <button class="scan-card" data-scan="ratio"><span class="index">EXPERIMENT B</span><strong>曲率比與輸出功</strong><small>固定溫差，檢驗 ln(κₘₐₓ / κₘᵢₙ)</small></button>
@@ -127,8 +155,33 @@ button,input,select,textarea{font:inherit}select{height:44px}button,select,input
  <div class="card card-pad"><div class="section-head"><h2>比較快照</h2><span class="muted small-text">最多保留 6 組；存入 JSON 一起帶走</span></div><div id="snapshots" class="snapshot-list"><p class="muted">尚無快照。可比較不同參數的功、熱與排程。</p></div></div>
  <div class="card card-pad" style="margin-top:18px"><div class="section-head"><h2>逐循環數據</h2><span class="badge" id="record-count">0 個循環</span></div><div class="table-wrap"><table id="cycles-table"><caption>暖機資料保留但不納入平均。顯示最近 200 圈，CSV 匯出全部。</caption><thead><tr><th>循環</th><th>狀態</th><th>輸出功</th><th>曲率功</th><th>平移功</th><th>Qʜ</th><th>Qᴄ</th><th>ΔE</th><th>數值殘差</th></tr></thead><tbody></tbody></table></div></div>
 </section>
+<section id="panel-evidence" class="panel" role="tabpanel" aria-labelledby="tab-evidence" hidden>
+ <div class="evidence-intro"><div><div class="eyebrow">EXPERIMENT NOTEBOOK / 2026.10</div><h2>把實驗，留下證據。</h2><p>從控溫與正功，到有限速率和線性關係。每張圖都保留實際參數、獨立重複與誤差；完成的結果會自動收在這裡。</p></div><div class="rubric-score">2<span style="font-size:.55em">%</span><small>必做項目 + 0.5% Bonus</small></div></div>
+ <div class="writing-note"><b>先完成實驗，再用自己的話說明。</b>新版作業須提交 HTML 與 PDF；這裡準備圖表與原始資料。文字論述請依自己的理解撰寫，圖表與資料可從下方匯出。</div>
+ <article class="evidence-section"><div class="evidence-title"><div><div class="eyebrow">01 / TEMPERATURE & WORK</div><h3>控溫方式與正功</h3><p>用摩擦與隨機踢擊交換能量。熱浴設定 Tᵦ 與粒子動能估計 Tₖ 是兩個量；判斷能否輸出正功，使用多次獨立重複的平均與區間。</p></div><span class="weight">1%</span></div>
+  <div class="evidence-actions"><button class="primary" id="evidence-positive">執行基準正功驗證</button><button data-open-physics>查看控溫與分布</button><button id="evidence-bath-step">觀察換浴後的熱化</button></div>
+  <p class="evidence-status">基準：N=64、Tʜ/Tᴄ=3/1、κ=1→4、曲率段 30、熱化段 10、Δt=.02。20 次獨立重複，各捨棄 2 圈再平均 5 圈。</p>
+  <div class="evidence-result" id="positive-evidence"><span class="verdict">尚無獨立重複的正功驗證</span><strong>等待實驗</strong><p>單次循環可以波動。區間下界大於零時，這組資料才支持平均正功。</p></div>
+  <button class="small" data-evidence-view="positive">查看正功原始結果</button>
+ </article>
+ <article class="evidence-section"><div class="evidence-title"><div><div class="eyebrow">02 / FINITE-TIME RESPONSE</div><h3>準靜態需要多慢？</h3><p>分別改變曲率尺度、曲率操作時間與搬運速度。先固定其他條件，再比較每圈功、功率、效率與準靜態參考的差距。</p></div><span class="weight">0.5%</span></div>
+  <div class="evidence-links"><button data-open-scan="scale"><strong>曲率尺度</strong><small>相同曲率比，改變振動與鬆弛尺度</small></button><button data-open-scan="rate"><strong>曲率改變速度</strong><small>端點固定，改變每段操作時間</small></button><button data-open-scan="translation"><strong>位能移動速度</strong><small>含同時序固定中心對照與平移功</small></button></div><div id="quasistatic-evidence" class="evidence-summary"></div>
+ </article>
+ <article class="evidence-section"><div class="evidence-title"><div><div class="eyebrow">03 / TWO LINEAR RELATIONS</div><h3>用兩張圖檢驗循環功</h3><p>Wout/N 對溫差、對 ln 曲率比作圖。點是動力學結果，誤差棒是 95% CI；擬合保留截距，理論參考獨立計算。</p></div><span class="weight">0.5%</span></div>
+  <div class="suite-banner"><div><b>一次執行兩組正式掃描</b><p>N=32、硬牆、固定中心；曲率段 100、熱化段 20、Δt=.02。每點 20 次重複，暖機 2 圈後記錄 3 圈。會依序執行並保留兩張圖。</p><div class="evidence-actions"><button id="evidence-suite" class="primary">產生兩張線性圖</button><button id="evidence-cancel" disabled>停止批次</button></div></div><div class="field"><label for="evidence-unit">圖表功的單位</label><select id="evidence-unit"><option value="particle">每粒子 Wout / N</option><option value="total">整個系統 Wout</option></select></div></div>
+  <p id="evidence-progress" class="evidence-status" role="status">尚未啟動；預估時間依裝置效能而異，可隨時停止。</p>
+  <div class="chart-grid">
+   <article class="card chart-card evidence-figure"><div class="chart-top"><div><div class="eyebrow">FIGURE A</div><h3>溫差與循環輸出功</h3></div><span class="badge" id="evidence-temperature-state">尚無資料</span></div><canvas id="evidence-temperature-chart" role="img" aria-label="溫差與循環輸出功，實測平均、95% CI、擬合及理論"></canvas><div id="evidence-temperature-chart-tip" class="chart-tooltip" aria-live="polite"></div><p class="figure-fit" id="evidence-temperature-fit">完成掃描後顯示斜率、截距與 R²。</p><p class="figure-meta" id="evidence-temperature-meta">固定冷浴溫度與曲率比。</p><div class="export-bar"><button data-evidence-png="temperature">圖 A PNG</button><button data-evidence-csv="temperature">資料 CSV</button><button data-evidence-view="temperature">檢查殘差</button></div></article>
+   <article class="card chart-card evidence-figure"><div class="chart-top"><div><div class="eyebrow">FIGURE B</div><h3>ln 曲率比與循環輸出功</h3></div><span class="badge" id="evidence-ratio-state">尚無資料</span></div><canvas id="evidence-ratio-chart" role="img" aria-label="曲率比對數與循環輸出功，實測平均、95% CI、擬合及理論"></canvas><div id="evidence-ratio-chart-tip" class="chart-tooltip" aria-live="polite"></div><p class="figure-fit" id="evidence-ratio-fit">完成掃描後顯示斜率、截距與 R²。</p><p class="figure-meta" id="evidence-ratio-meta">固定兩浴溫度與最小曲率。</p><div class="export-bar"><button data-evidence-png="ratio">圖 B PNG</button><button data-evidence-csv="ratio">資料 CSV</button><button data-evidence-view="ratio">檢查殘差</button></div></article>
+  </div>
+  <p class="notice">完成的最近一組結果自動保留，不會因切換掃描消失。不同圖可來自不同條件，請比較圖下設定；R² 高不等於已證明準靜態。儲存 JSON 會一併保存這些資料。</p>
+ </article>
+ <article class="evidence-section"><div class="evidence-title"><div><div class="eyebrow">04 / PERIODIC SPACE</div><h3>讓邊界與位能一起連續</h3><p>雙週期採平滑餘弦位能，跨界的力、位能及控制功一致。與硬牆比較時，同時改變了全域位能形狀，因此各自使用相應的配分函數參考。</p></div><span class="weight">Bonus 0.5%</span></div><div class="evidence-actions"><button data-open-scan="boundary">比較兩種邊界</button><button data-open-physics>查看跨界模型</button></div><p id="boundary-evidence" class="evidence-status">尚無完成的邊界掃描。</p></article>
+ <div class="card card-pad"><div class="section-head"><div><h2>保留圖，也保留條件</h2><p>圖表用於呈現，原始重複用於檢查。文字內容請用自己的話整理。</p></div><button id="evidence-save">儲存全部實驗 JSON</button></div><p class="notice">JSON 包含本頁結果、原始循環、種子與目前粒子狀態。匯出圖 A / B 前須先完成相應掃描；頁面不會預填示範數據。</p></div>
+</section>
+
 </main>
-<footer class="footer"><span>MICROSCOPIC ENGINE LAB · 熱統計物理一</span><span>v1.0.0 · 二維 Langevin · 無再生器 · 單檔離線</span></footer>
+<footer class="footer"><span>MICROSCOPIC ENGINE LAB · 熱統計物理一</span><span>v1.1.0 · 二維 Langevin · 無再生器 · 單檔離線</span></footer>
 </div>
 <dialog id="tour-dialog" aria-labelledby="tour-title"><div class="eyebrow" id="tour-step">GUIDED EXPERIMENT</div><h2 id="tour-title">從粒子到熱機</h2><p id="tour-text"></p><div class="dialog-actions"><button id="tour-close">結束導覽</button><div><button id="tour-prev">上一步</button><button id="tour-next" class="primary">下一步</button></div></div></dialog>
 <dialog id="copy-dialog" aria-labelledby="copy-title"><h2 id="copy-title">選取並複製提示詞</h2><p>瀏覽器未開放剪貼簿。下方文字可直接選取複製。</p><textarea id="copy-text" readonly style="height:270px"></textarea><div class="dialog-actions"><button id="copy-close">關閉</button></div></dialog>
@@ -326,6 +379,7 @@ const Engine = (() => {
   function makeScan(type,base){
     const b=validate({...base,N:Math.min(base.N,64)}),cases=[];
     const add=(x,p,group='實測',controlP=null)=>cases.push({x,p:validate(p),group,controlP:controlP?validate(controlP):null});
+    if(type==='positive')add(1,{...b},'獨立重複');
     if(type==='temperature'){for(const d of [0,.5,1,1.5,2,3,4])if(b.Tc+d<=10)add(d,{...b,Th:b.Tc+d,D:0});}
     if(type==='ratio')for(const r of [1,1.4,2,3,4,6])if(b.kmin*r<=16)add(Math.log(r),{...b,kmax:b.kmin*r,D:0});
     if(type==='rate')for(const t of [4,8,15,30,60,100])add(t,{...b,ramp:t,D:0});
@@ -407,23 +461,23 @@ if(typeof module!=='undefined')module.exports=EngineJob;
  const $=id=>document.getElementById(id),all=s=>Array.from(document.querySelectorAll(s));
  const fmt=(x,n=3)=>typeof x==='number'&&Number.isFinite(x)?x.toFixed(n):'—';
  const phaseNames=['升溫／搬運','高溫放鬆','降溫／返回','低溫收緊'];
- const scanNames={temperature:'溫差',ratio:'曲率比',rate:'操作時間',scale:'曲率尺度',translation:'搬運速度',boundary:'邊界'};
- const scanAxes={temperature:'ΔT = Tʜ − Tᴄ',ratio:'ln(κₘₐₓ / κₘᵢₙ)',rate:'曲率段時間 τ',scale:'最小曲率 κₘᵢₙ',translation:'平均搬運速率 D / τ',boundary:'容器長度 Lₓ'};
- const state={sim:new Engine.Sim(Engine.defaults),running:false,target:null,tab:'lab',theme:'dark',timeline:'temp',snapshots:[],scan:{type:'temperature',points:[],status:'idle',job:null},worker:null,runner:null,revision:0,tour:0};
+ const scanNames={positive:'正功驗證',temperature:'溫差',ratio:'曲率比',rate:'操作時間',scale:'曲率尺度',translation:'搬運速度',boundary:'邊界'};
+ const scanAxes={positive:'基準實驗',temperature:'ΔT = Tʜ − Tᴄ',ratio:'ln(κₘₐₓ / κₘᵢₙ)',rate:'曲率段時間 τ',scale:'最小曲率 κₘᵢₙ',translation:'平均搬運速率 D / τ',boundary:'容器長度 Lₓ'};
+ const state={sim:new Engine.Sim(Engine.defaults),running:false,target:null,tab:'lab',theme:'light',timeline:'temp',snapshots:[],evidence:{},suite:[],scan:{type:'temperature',points:[],status:'idle',job:null},worker:null,runner:null,revision:0,tour:0};
  let reference=Engine.theory(state.sim.p),lastRender=0,previousFrame=0,toastTimer=0,workerURL=null;
  const chartModels=new Map();
  window.MicroLab={state,Engine};
  function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,4500);}
- function palette(){const s=getComputedStyle(document.body),out={};for(const k of ['bg','surface','surface2','surface3','text','muted','line','accent','hot','cold','gold','purple','danger'])out[k]=s.getPropertyValue('--'+k).trim();return out;}
- function dimensions(canvas){
-   const rect=canvas.getBoundingClientRect(),w=rect.width||600,h=rect.height||240,dpr=Math.min(devicePixelRatio||1,2);
+ function palette(element=document.body){const s=getComputedStyle(element),out={};for(const k of ['bg','surface','surface2','surface3','text','muted','line','accent','hot','cold','gold','purple','danger'])out[k]=s.getPropertyValue('--'+k).trim();return out;}
+ function dimensions(canvas,scale=null){
+   const rect=canvas.getBoundingClientRect(),w=rect.width||600,h=rect.height||240,dpr=scale??Math.min(devicePixelRatio||1,2);
    if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}
    const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);return {ctx,w,h,dpr};
  }
- function drawChart(id,model){
+ function drawChart(id,model,target=null,colors=null){
    chartModels.set(id,model);
-   const cv=$(id);if(!cv.getBoundingClientRect().width)return;
-   const {ctx,w,h}=dimensions(cv),p=palette(),m={l:58,r:16,t:39,b:42};
+   const cv=target||$(id);if(!cv.getBoundingClientRect().width)return;
+   const {ctx,w,h}=dimensions(cv,target?2:null),p=colors||palette(),m={l:58,r:16,t:39,b:42};
    ctx.clearRect(0,0,w,h);ctx.fillStyle=p.surface;ctx.fillRect(0,0,w,h);
    const finite=model.series.flatMap(s=>s.data.filter(q=>Number.isFinite(q.x)&&Number.isFinite(q.y)));
    ctx.font='12px -apple-system,sans-serif';ctx.fillStyle=p.muted;
@@ -455,7 +509,7 @@ if(typeof module!=='undefined')module.exports=EngineJob;
  }
  function particles(){
    if(state.tab!=='lab')return;
-   const s=state.sim,p=s.p,{ctx,w,h}=dimensions($('particles')),C=palette(),x0=24,x1=w-18,y0=28,y1=h*.64,potTop=h*.71,potBottom=h-28;
+   const s=state.sim,p=s.p,{ctx,w,h}=dimensions($('particles')),C=palette($('particles')),x0=24,x1=w-18,y0=28,y1=h*.64,potTop=h*.71,potBottom=h-28;
    const X=x=>x0+x/p.L*(x1-x0),Y=y=>y0+(1-y/p.Ly)*(y1-y0);
    ctx.clearRect(0,0,w,h);ctx.fillStyle=C.surface;ctx.fillRect(0,0,w,h);
    const heat=s.bath>=(p.Th+p.Tc)/2?C.hot:C.cold;
@@ -467,7 +521,7 @@ if(typeof module!=='undefined')module.exports=EngineJob;
    ctx.fillStyle=C.muted;ctx.font='11px -apple-system,sans-serif';ctx.textAlign='left';ctx.fillText('y · 週期',x0,16);ctx.textAlign='right';ctx.fillStyle=heat;ctx.fillText('熱浴 Tᵦ = '+fmt(s.bath,2),x1,16);
    ctx.strokeStyle=C.accent;ctx.globalAlpha=.5;ctx.setLineDash([3,5]);ctx.beginPath();ctx.moveTo(X(s.c),y0);ctx.lineTo(X(s.c),potBottom);ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;
    const count=Math.min(p.N,160);
-   for(let j=0;j<count;j++){const i=Math.floor(j*p.N/count),v=Math.hypot(s.vx[i],s.vy[i]),t=Math.min(1,v/(3*Math.sqrt(p.Th)));ctx.fillStyle='hsl('+(195-165*t)+', '+(state.theme==='dark'?75:70)+'%, '+(state.theme==='dark'?68:43)+'%)';ctx.beginPath();ctx.arc(X(s.x[i]),Y(s.y[i]),p.N>200?2.5:3,0,2*Math.PI);ctx.fill();}
+   for(let j=0;j<count;j++){const i=Math.floor(j*p.N/count),v=Math.hypot(s.vx[i],s.vy[i]),t=Math.min(1,v/(3*Math.sqrt(p.Th)));ctx.fillStyle='hsl('+(195-165*t)+', '+(state.theme==='dark'?75:70)+'%, '+68+'%)';ctx.beginPath();ctx.arc(X(s.x[i]),Y(s.y[i]),p.N>200?2.5:3,0,2*Math.PI);ctx.fill();}
    const maxV=Math.max(6*p.Th,1),PV=v=>potBottom-Math.min(v,maxV)/maxV*(potBottom-potTop);
    ctx.fillStyle=C.muted;ctx.textAlign='left';ctx.fillText('V(x)',x0,potTop-4);ctx.textAlign='right';ctx.fillText('κ = '+fmt(s.k,2)+'   x₀ = '+fmt(s.c,2),x1,potTop-4);
    ctx.beginPath();ctx.moveTo(x0,potBottom);for(let j=0;j<=180;j++){const x=p.L*j/180;ctx.lineTo(X(x),PV(Engine.potential(x,s.k,s.c,p)));}ctx.lineTo(x1,potBottom);ctx.closePath();ctx.fillStyle=C.accent;ctx.globalAlpha=.08;ctx.fill();ctx.globalAlpha=1;
@@ -537,7 +591,7 @@ if(typeof module!=='undefined')module.exports=EngineJob;
      const val=document.createElement('p');val.textContent=snap.kind==='scan'?'保留各點與完整獨立重複資料':snap.count+' 個記錄循環 · 平均輸出功 '+fmt(snap.mean,4)+' / 粒子';
      const remove=document.createElement('button');remove.className='small ghost';remove.textContent='移除此快照';remove.onclick=()=>{state.snapshots.splice(i,1);renderRecords();};
      card.append(title,desc,val,remove);
-     if(snap.kind==='scan'){const view=document.createElement('button');view.className='small';view.textContent='查看這組掃描';view.disabled=!!state.worker||!!state.runner;view.onclick=()=>{state.scan=structuredClone(snap.scan);switchTab('scan');renderScan();};card.append(view);}
+     if(snap.kind==='scan'){const view=document.createElement('button');view.className='small';view.textContent='查看這組掃描';view.disabled=!!state.worker||!!state.runner||state.suite.length>0;view.onclick=()=>{state.scan=structuredClone(snap.scan);switchTab('scan');renderScan();};card.append(view);}
      $('snapshots').append(card);
    });
  }
@@ -556,6 +610,8 @@ if(typeof module!=='undefined')module.exports=EngineJob;
  function safeApply(p){try{applyConfig(p);}catch(e){$('config-error').textContent=e.message;writeForm();}}
  function renderScan(){
    const scan=state.scan,points=scan.points,metric=$('scan-metric').value,linear=['temperature','ratio'].includes(scan.type),fit=linear?Engine.regression(points.map(p=>({x:p.x,y:p.mean}))):null;
+   if(scan.job){const p=scan.job.p;$('scan-config').textContent='N = '+Math.min(p.N,64)+' · Δt = '+p.dt+' · 曲率段 '+p.ramp+' · 升降溫段 '+p.hold+' · 至少 '+Math.max(2,p.burn)+' 圈暖機 · '+scan.job.R+' 次獨立重複';}
+   else $('scan-config').textContent='尚無執行資料；開始時將記錄完整參數。';
    all('[data-scan]').forEach(el=>el.classList.toggle('selected',el.dataset.scan===scan.type));
    $('scan-start').textContent='開始'+scanNames[scan.type]+'掃描';$('scan-chart-title').textContent=scanNames[scan.type]+'與'+({mean:'每循環輸出功',power:'平均功率',eta:'效率'}[metric]);
    const xlabel=scanAxes[scan.type],groups=[...new Set(points.map(p=>p.group))],colors=['accent','cold'];
@@ -576,6 +632,7 @@ if(typeof module!=='undefined')module.exports=EngineJob;
    const body=$('scan-table').tBodies[0];body.replaceChildren();
    points.forEach(p=>{const tr=document.createElement('tr');[p.group,fmt(p.x,4),fmt(p.mean,5),fmt(p.ci,5),fmt(p.theory,5),fmt(p.wk,5),fmt(p.wx,5),fmt(p.qh,5),fmt(p.de,5)].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.append(td);});body.append(tr);});
    const explanations={
+     positive:'每次重複先捨棄暖機，再平均多個循環。95% CI 下界大於零表示這組資料支持平均正功；不保證每一圈皆為正。',
      temperature:'固定冷浴與曲率比。理想諧和斜率為 ½ ln r；有限速度可產生非零截距。',
      ratio:'固定兩浴溫度及最小曲率。理想諧和斜率為 ½ ΔT；每點採相同曲率段時間。',
      rate:'時間拉長不一定讓功率提高。改選縱軸比較功、功率與效率。',
@@ -597,31 +654,35 @@ if(typeof module!=='undefined')module.exports=EngineJob;
    $('equilibrium-status').textContent=(state.running?'運轉中':'暫停')+' · '+phaseNames[s.phase]+' · t = '+fmt(s.steps*p.dt,2);
    $('equilibrium-values').textContent='Tᵦ = '+fmt(T)+' · K/N = '+fmt(a.K/p.N)+' · V/N = '+fmt(a.U/p.N)+' · v̄ₓ = '+fmt(a.vx)+'。無漂移、局部諧和平衡時 K/N ≈ Tᵦ，V/N ≈ Tᵦ/2。所有粒子都納入直方圖。';
  }
- function renderAll(){if(state.tab==='lab')renderLab();if(state.tab==='scan')renderScan();if(state.tab==='notes')renderRecords();if(state.tab==='physics')renderDiagnostics();}
- function selectScan(type){if(state.worker||state.runner){toast('先完成或取消目前掃描，再切換實驗。');return;}if(state.scan.points.length)saveScanSnapshot(true);state.scan={type,points:[],status:'idle',job:null};$('scan-progress').value=0;$('scan-status').textContent='尚未開始。每個點都由獨立重複演化取得。';renderScan();}
- function scanBusy(yes){$('scan-start').disabled=yes;$('scan-cancel').disabled=!yes;all('[data-scan]').forEach(b=>b.disabled=yes);['scan-R','scan-K','scan-slow'].forEach(id=>$(id).disabled=yes);}
+ function renderAll(){if(state.tab==='lab')renderLab();if(state.tab==='scan')renderScan();if(state.tab==='notes')renderRecords();if(state.tab==='physics')renderDiagnostics();if(state.tab==='evidence')renderEvidence();}
+ function selectScan(type){if(state.worker||state.runner||state.suite.length){toast('先完成或取消目前掃描，再切換實驗。');return;}if(state.scan.points.length)saveScanSnapshot(true);state.scan={type,points:[],status:'idle',job:null};$('scan-progress').value=0;$('scan-status').textContent='尚未開始。每個點都由獨立重複演化取得。';renderScan();}
+ function scanBusy(yes){updateEvidenceProgress();$('scan-start').disabled=yes;$('scan-cancel').disabled=!yes;all('[data-scan]').forEach(b=>b.disabled=yes);['scan-R','scan-K','scan-slow'].forEach(id=>$(id).disabled=yes);}
  function stopWorker(){if(state.worker){state.worker.terminate();state.worker=null;}state.runner=null;if(workerURL){URL.revokeObjectURL(workerURL);workerURL=null;}scanBusy(false);}
  function cancelScan(notify=true){
-   if(!state.worker&&!state.runner)return;
-   state.revision++;stopWorker();state.scan.status='cancelled';$('scan-status').textContent='已取消。保留 '+state.scan.points.length+' 個完成點；未完成點不納入擬合。';if(notify)toast('掃描已停止，完成資料仍保留。');
+   if(!state.worker&&!state.runner&&!state.suite.length)return;
+   state.suite=[];state.revision++;stopWorker();state.scan.status='cancelled';updateEvidenceProgress();$('scan-status').textContent='已取消。保留 '+state.scan.points.length+' 個完成點；未完成點不納入擬合。';if(notify)toast('掃描已停止，完成資料仍保留。');
  }
  function receiveScan(message,token){
    if(token!==state.revision)return;
-   if(message.kind==='progress'){$('scan-progress').value=message.fraction;$('scan-status').textContent='第 '+Math.min(message.point,message.points)+' / '+message.points+' 點 · 重複 '+Math.min(message.repeat,message.R)+' / '+message.R+' · '+fmt(100*message.fraction,1)+'%';}
+   if(message.kind==='progress'){updateEvidenceProgress(message);$('scan-progress').value=message.fraction;$('scan-status').textContent='第 '+Math.min(message.point,message.points)+' / '+message.points+' 點 · 重複 '+Math.min(message.repeat,message.R)+' / '+message.R+' · '+fmt(100*message.fraction,1)+'%';}
    if(message.kind==='point'){state.scan.points.push(message.point);if(state.tab==='scan')renderScan();}
-   if(message.kind==='done'){state.scan.status='complete';$('scan-progress').value=1;stopWorker();$('scan-status').textContent='完成 '+state.scan.points.length+' 點。誤差棒：獨立重複平均的 95% 信賴區間。';renderAll();toast('掃描完成。圖表、資料表與匯出已同步。');}
-   if(message.kind==='error'){state.scan.status='failed';stopWorker();$('scan-status').textContent='掃描失敗：'+message.message;}
+   if(message.kind==='done'){
+     state.scan.status='complete';archiveEvidence(state.scan);$('scan-progress').value=1;stopWorker();$('scan-status').textContent='完成 '+state.scan.points.length+' 點。誤差棒：獨立重複平均的 95% 信賴區間。';renderAll();
+     if(state.suite.length){setTimeout(()=>{if(token!==state.revision||!state.suite.length)return;const job=state.suite.shift();state.scan={type:job.type,points:[],status:'idle',job:null};startScan(job);},0);}
+     else{updateEvidenceProgress();toast('掃描完成，結果已保存到作業證據。');}
+   }
+   if(message.kind==='error'){state.scan.status='failed';state.suite=[];stopWorker();$('scan-status').textContent='掃描失敗：'+message.message;}
  }
  function startFallback(job,token){
    try{state.runner=new EngineJob(job,m=>receiveScan(m,token));$('scan-status').textContent='使用分批計算備援，仍可取消。';const tick=()=>{if(token!==state.revision||!state.runner)return;const runner=state.runner;try{runner.tick(7);if(state.runner){receiveScan(runner.progress(),token);setTimeout(tick,0);}}catch(e){receiveScan({kind:'error',message:e.message},token);}};setTimeout(tick,0);}
    catch(e){receiveScan({kind:'error',message:e.message},token);}
  }
- function startScan(){
+ function startScan(overrides=null){
    pause();
    if(state.scan.points.length)saveScanSnapshot(true);
    let p={...state.sim.p};
    if($('scan-slow').checked&&['temperature','ratio','boundary'].includes(state.scan.type))p={...p,ramp:100,hold:20};
-   const job={type:state.scan.type,p,R:Number($('scan-R').value),K:Number($('scan-K').value)};
+   const job=overrides||{type:state.scan.type,p,R:Number($('scan-R').value),K:Number($('scan-K').value)};p=job.p;
    try{Engine.makeScan(job.type,p);}catch(e){toast(e.message);return;}
    state.scan={type:job.type,points:[],status:'running',job};scanBusy(true);state.revision++;const token=state.revision;
    $('scan-config').textContent='N = '+Math.min(p.N,64)+' · Δt = '+p.dt+' · 曲率段 '+p.ramp+' · 升降溫段 '+p.hold+' · 至少 '+Math.max(2,p.burn)+' 圈暖機 · '+job.R+' 次獨立重複'+(job.type==='translation'?' · 含配對固定中心對照':'');
@@ -631,7 +692,7 @@ if(typeof module!=='undefined')module.exports=EngineJob;
      workerURL=URL.createObjectURL(new Blob([workerCode],{type:'text/javascript'}));state.worker=new Worker(workerURL);
      state.worker.onmessage=e=>receiveScan(e.data,token);
      state.worker.onerror=e=>{e.preventDefault();if(token!==state.revision)return;stopWorker();state.scan.points=[];scanBusy(true);startFallback(job,token);};
-     state.worker.postMessage(job);
+     state.worker.postMessage(job);updateEvidenceProgress();
    }catch(e){stopWorker();scanBusy(true);startFallback(job,token);}
  }
  function saveScanSnapshot(auto=false){
@@ -660,7 +721,7 @@ if(typeof module!=='undefined')module.exports=EngineJob;
  }
  function getNotes(){return {p:$('note-p').value,o:$('note-o').value,e:$('note-e').value};}
  function saveJSON(){
-   pause();const data={format:'microscopic-engine-lab',version:Engine.VERSION,created:new Date().toISOString(),sim:state.sim.snapshot(),notes:getNotes(),snapshots:state.snapshots,scan:state.scan,view:{theme:state.theme,timeline:state.timeline}};
+   pause();const data={format:'microscopic-engine-lab',version:Engine.VERSION,created:new Date().toISOString(),sim:state.sim.snapshot(),notes:getNotes(),snapshots:state.snapshots,scan:state.scan,evidence:state.evidence,interfaceVersion:'1.1.0',view:{theme:state.theme,timeline:state.timeline}};
    if(data.scan.status==='running')data.scan={...data.scan,status:'partial'};
    const payload=JSON.stringify(data);
    if(new Blob([payload]).size>32*1024*1024){toast('實驗超過 32 MiB；請先匯出 CSV，再移除部分舊快照後儲存。');return;}
@@ -682,12 +743,13 @@ if(typeof module!=='undefined')module.exports=EngineJob;
    try{
      if(!file||file.size>32*1024*1024)throw Error('檔案過大；上限 32 MiB。');
      const data=JSON.parse(await file.text());if(data.format!=='microscopic-engine-lab'||data.version!==Engine.VERSION)throw Error('不是相容的微觀引擎實驗檔。');
-     const next=Engine.Sim.restore(data.sim);validateScan(data.scan);
+     const next=Engine.Sim.restore(data.sim);validateScan(data.scan);const evidence=validateEvidence(data.evidence);
      if(!data.notes||!['p','o','e'].every(k=>typeof data.notes[k]==='string'&&data.notes[k].length<=5000))throw Error('筆記格式不正確。');
      if(!Array.isArray(data.snapshots)||data.snapshots.length>6)throw Error('快照數量不正確。');
      data.snapshots.forEach(s=>{if(typeof s.name!=='string'||s.name.length>150)throw Error('快照名稱不正確。');if(s.kind==='scan')validateScan(s.scan);else if(s.kind==='lab'){Engine.validate(s.p);if(!Number.isFinite(s.mean)||!Number.isInteger(s.count)||s.count<0||!Array.isArray(s.records)||s.records.length>2000)throw Error('快照內容不正確。');}else throw Error('未知快照格式。');});
-     pause();cancelScan(false);state.sim=next;state.snapshots=data.snapshots.map(s=>s.kind==='scan'?{kind:'scan',name:s.name,scan:s.scan}:s);state.scan=data.scan;
+     pause();cancelScan(false);state.sim=next;state.snapshots=data.snapshots.map(s=>s.kind==='scan'?{kind:'scan',name:s.name,scan:s.scan}:s);state.scan=data.scan;state.evidence=evidence;state.suite=[];
      if(state.scan.status==='running')state.scan.status='partial';
+     if(data.evidence===undefined){state.snapshots.filter(s=>s.kind==='scan').forEach(s=>archiveEvidence(s.scan));archiveEvidence(state.scan);}
      ['p','o','e'].forEach(k=>$('note-'+k).value=data.notes[k]);
      reference=Engine.theory(next.p);writeForm();$('import-error').textContent='';$('scan-status').textContent='已載入實驗 · 掃描狀態：'+state.scan.status+' · '+state.scan.points.length+' 個完成點';$('scan-progress').value=state.scan.status==='complete'?1:0;
      renderAll();toast('載入完成。實驗已暫停，可繼續同一條軌跡。');
@@ -720,6 +782,95 @@ if(typeof module!=='undefined')module.exports=EngineJob;
    ['scan','速度與邊界會改變答案','操作时间掃描可切換功、功率與效率。搬運掃描計入平移功並配固定中心對照。雙週期使用平滑週期位能，須看自己的理論參考。'],
    ['notes','讓結果能被再次檢驗','用 POE 記錄預測、觀察與解釋。JSON 保留完整續跑狀態，CSV 保留原始數據；PNG 可放進報告。關閉頁面前記得儲存。']
  ];
+ // Completed experiments are retained separately from the currently selected scan.
+ function archiveEvidence(scan){
+   if(scan.status==='complete'&&scan.points.length)state.evidence[scan.type]=structuredClone(scan);
+ }
+ function evidenceScan(type){return state.evidence[type]||null;}
+ function evidenceFactor(point){return $('evidence-unit').value==='total'?point.p.N:1;}
+ function evidenceModel(type){
+   const scan=evidenceScan(type),points=scan?.points||[],data=points.map(p=>({x:p.x,y:p.mean*evidenceFactor(p),ci:p.ci*evidenceFactor(p)})),fit=Engine.regression(data);
+   const series=[{name:'實測 ± 95% CI',color:'accent',dots:true,line:false,data},{name:'模型準靜態',color:'gold',dash:true,data:points.map(p=>({x:p.x,y:p.theory*evidenceFactor(p)})).sort((a,b)=>a.x-b.x)}];
+   if(fit){const xs=data.map(d=>d.x);series.push({name:'線性擬合',color:'purple',dash:true,data:[Math.min(...xs),Math.max(...xs)].map(x=>({x,y:fit.slope*x+fit.intercept}))});}
+   return {xlabel:scanAxes[type],ylabel:$('evidence-unit').value==='total'?'每循環總功 Wout':'每粒子循環功 Wout/N',zero:true,empty:'執行掃描後，這裡會保留實際結果。',series,fit};
+ }
+ function evidenceMeta(type){
+   const scan=evidenceScan(type);if(!scan)return '';
+   const p=scan.points[0].p,j=scan.job;
+   return (p.mode==='wall'?'硬牆諧和':'雙週期餘弦')+' · N='+p.N+' · '+(type==='temperature'?'Tc='+p.Tc+' · κ='+p.kmin+'→'+p.kmax:'Tc/Th='+p.Tc+'/'+p.Th+' · κmin='+p.kmin)+' · γ='+p.gamma+' · Lx/Ly='+p.L+'/'+p.Ly+' · D='+p.D+'\nΔt='+p.dt+' · 曲率段='+p.ramp+' · 熱化段='+p.hold+' · 暖機='+p.burn+'\n每點 '+scan.points[0].R+' 次獨立重複 × '+scan.points[0].K+' 圈 · 基礎種子 '+j.p.seed+' · '+scan.points.length+' 點';
+ }
+ function renderEvidence(){
+   const positive=evidenceScan('positive'),result=$('positive-evidence');
+   result.replaceChildren();const verdict=document.createElement('span'),value=document.createElement('strong'),detail=document.createElement('p');verdict.className='verdict';
+   if(positive){const p=positive.points[0],supported=p.mean-p.ci>0;verdict.textContent=supported?'這組獨立重複支持平均正功':'這組資料尚未排除平均功為零或負值';value.textContent=fmt(p.mean,4)+' ± '+fmt(p.ci,4);detail.textContent='每粒子每循環功 · 95% CI ['+fmt(p.mean-p.ci,4)+', '+fmt(p.mean+p.ci,4)+'] · '+p.R+' 次獨立重複，各記錄 '+p.K+' 圈。平均總功 '+fmt(p.mean*p.p.N,3)+'；N='+p.p.N+'，Tc/Th='+p.p.Tc+'/'+p.p.Th+'，κ='+p.p.kmin+'→'+p.p.kmax+'，曲率段='+p.p.ramp+'，熱化段='+p.p.hold+'，Δt='+p.p.dt+'。';}
+   else{verdict.textContent='尚無獨立重複的正功驗證';value.textContent='等待實驗';detail.textContent='單圈正功不是統計證據。執行基準驗證後，這裡呈現實測平均及 95% 信賴區間。';}
+   result.append(verdict,value,detail);
+   for(const type of ['temperature','ratio']){
+     const scan=evidenceScan(type),model=evidenceModel(type);drawChart('evidence-'+type+'-chart',model);
+     $('evidence-'+type+'-state').textContent=scan?scan.points.length+' 點已完成':'尚無資料';
+     $('evidence-'+type+'-fit').textContent=model.fit?'斜率 '+fmt(model.fit.slope,4)+' ± '+fmt(model.fit.slopeSE,4)+' SE\n截距 '+fmt(model.fit.intercept,4)+' · R² '+fmt(model.fit.r2,5):'完成掃描後顯示斜率、截距與 R²。';
+     $('evidence-'+type+'-meta').textContent=scan?evidenceMeta(type):type==='temperature'?'固定冷浴溫度與曲率比。':'固定兩浴溫度與最小曲率。';
+     all('[data-evidence-png="'+type+'"],[data-evidence-csv="'+type+'"]').forEach(b=>b.disabled=!scan);
+   }
+   const q=$('quasistatic-evidence');q.replaceChildren();
+   for(const type of ['scale','rate','translation']){const s=evidenceScan(type),p=document.createElement('p');p.style.marginTop='12px';p.textContent=s?scanNames[type]+'：已完成 '+s.points.length+' 點，每點 '+s.points[0].R+' 次重複。功的範圍 '+fmt(Math.min(...s.points.map(p=>p.mean)),4)+' 至 '+fmt(Math.max(...s.points.map(p=>p.mean)),4)+' / 粒子。請回到掃描圖比較趨勢與誤差棒。':scanNames[type]+'：尚無完成資料。';q.append(p);}
+   const boundary=evidenceScan('boundary');$('boundary-evidence').textContent=boundary?'已保存 '+boundary.points.length+' 個邊界／容器配置，各有實際模型的理論參考與原始重複。':'尚無完成的邊界掃描。';
+   updateEvidenceProgress();
+ }
+ function updateEvidenceProgress(message){
+   const busy=!!state.worker||!!state.runner||state.suite.length>0;
+   for(const id of ['evidence-positive','evidence-suite','quick-positive','quick-suite','scan-positive'])$(id).disabled=busy;
+   $('evidence-cancel').disabled=!busy;
+   $('global-job').textContent=busy?'批次實驗執行中':'';
+   if(message?.kind==='progress')$('evidence-progress').textContent='正在執行'+scanNames[state.scan.type]+'：'+fmt(message.fraction*100,1)+'% · 第 '+Math.min(message.point,message.points)+' / '+message.points+' 點'+(state.suite.length?'；接著執行曲率比掃描。':'。');
+   else if(!busy)$('evidence-progress').textContent=state.scan.status==='cancelled'?'已停止。完成的實驗已保留；未完成點可在掃描頁查看。':'完成資料會保留在本頁；啟動新實驗不會預填或重寫舊結果。';
+ }
+ function runPositive(){
+   if(state.worker||state.runner||state.suite.length)return;
+   const job={type:'positive',p:{...Engine.defaults,N:64},R:20,K:5};
+   state.scan.points.length&&saveScanSnapshot(true);state.scan={type:'positive',points:[],status:'idle',job:null};switchTab('scan');startScan(job);
+ }
+ function runLinearitySuite(){
+   if(state.worker||state.runner||state.suite.length)return;
+   const p={...Engine.defaults,N:32,ramp:100,hold:20,burn:2},jobs=['temperature','ratio'].map(type=>({type,p:{...p},R:20,K:3}));
+   if(state.scan.points.length)saveScanSnapshot(true);
+   state.suite=[jobs[1]];state.scan={type:'temperature',points:[],status:'idle',job:null};switchTab('evidence');startScan(jobs[0]);
+ }
+ function viewEvidence(type){
+   if(state.worker||state.runner||state.suite.length){toast('先完成或停止批次，再查看其他結果。');return;}
+   const scan=evidenceScan(type);if(!scan){toast('這組實驗尚未完成。');return;}
+   state.scan=structuredClone(scan);$('scan-progress').value=1;$('scan-status').textContent='已載入保留的完整'+scanNames[type]+'實驗。';switchTab('scan');
+ }
+ function validateEvidence(value){
+   if(value===undefined)return {};
+   if(!value||typeof value!=='object'||Array.isArray(value)||Object.keys(value).length>7)throw Error('作業證據格式不正確。');
+   const out={};for(const [key,scan] of Object.entries(value)){
+     if(!Object.hasOwn(scanNames,key)||scan.type!==key)throw Error('作業證據標籤不正確。');validateScan(scan);
+     if(scan.status!=='complete'||!scan.job||scan.points.length!==Engine.makeScan(key,scan.job.p).length)throw Error('作業證據必須是已完成的完整實驗。');
+     for(const point of scan.points){const a=Engine.summary(point.reps.map(r=>r.w));if(Math.abs(a.mean-point.mean)>1e-8||Math.abs(a.ci-point.ci)>1e-8)throw Error('作業證據的平均或誤差與原始重複不一致。');}
+     out[key]=scan;
+   }return out;
+ }
+ function exportEvidenceCSV(type){
+   const s=evidenceScan(type);if(!s){toast('先完成這組掃描。');return;}
+   const model=evidenceModel(type),total=$('evidence-unit').value==='total';
+   csv('engine-figure-'+type+'.csv',['x','unit','mean_Wout','CI95_half_width','model_quasistatic','slope','slope_SE','intercept','R2','N','Tc','Th','kmin','kmax','dt','ramp','hold','R','K','burn','base_seed','mode','gamma','Lx','Ly','D'],s.points.map(p=>[p.x,total?'total':'per_particle',p.mean*evidenceFactor(p),p.ci*evidenceFactor(p),p.theory*evidenceFactor(p),model.fit?.slope,model.fit?.slopeSE,model.fit?.intercept,model.fit?.r2,p.p.N,p.p.Tc,p.p.Th,p.p.kmin,p.p.kmax,p.p.dt,p.p.ramp,p.p.hold,p.R,p.K,p.p.burn,s.job.p.seed,p.p.mode,p.p.gamma,p.p.L,p.p.Ly,p.p.D]));
+ }
+ function exportEvidencePNG(type){
+   const scan=evidenceScan(type);if(!scan){toast('先完成這組掃描。');return;}
+   const model=evidenceModel(type),cv=document.createElement('canvas');cv.style.cssText='position:fixed;left:-10000px;top:0;width:1100px;height:470px';document.body.append(cv);
+   const C={surface:'#ffffff',muted:'#44574c',text:'#18392f',line:'#d9ded6',accent:'#22694e',gold:'#9b6b13',purple:'#755196'};
+   drawChart('evidence-export',model,cv,C);
+   const output=document.createElement('canvas');output.width=2200;output.height=1440;const c=output.getContext('2d');c.fillStyle='#ffffff';c.fillRect(0,0,2200,1440);
+   c.fillStyle=C.text;c.font='bold 43px sans-serif';c.fillText(type==='temperature'?'圖 A｜溫差與循環輸出功':'圖 B｜ln 曲率比與循環輸出功',80,80);
+   c.font='27px sans-serif';c.fillStyle=C.muted;c.fillText('Langevin 實測平均與 95% CI；模型準靜態參考及含截距的 OLS 擬合',80,130);
+   c.drawImage(cv,0,170,2200,940);cv.remove();
+   c.font='28px sans-serif';c.fillStyle=C.text;const f=model.fit;if(f)c.fillText('斜率 = '+fmt(f.slope,5)+' ± '+fmt(f.slopeSE,5)+' SE；截距 = '+fmt(f.intercept,5)+'；R² = '+fmt(f.r2,6),80,1160);
+   c.font='24px sans-serif';c.fillStyle=C.muted;evidenceMeta(type).split('\n').forEach((line,i)=>c.fillText(line,80,1210+i*42));
+   c.fillText('功的單位：'+($('evidence-unit').value==='total'?'整個系統':'每粒子')+'；約化單位 m = kB = 1；請搭配原始 CSV / JSON。',80,1360);
+   output.toBlob(blob=>{if(blob)download('engine-figure-'+type+'.png','image/png',blob);});
+ }
+
  function showTour(){const [tab,title,text]=tour[state.tour];switchTab(tab);$('tour-step').textContent='GUIDED EXPERIMENT · '+(state.tour+1)+' / '+tour.length;$('tour-title').textContent=title;$('tour-text').textContent=text;$('tour-prev').disabled=state.tour===0;$('tour-next').textContent=state.tour===tour.length-1?'完成':'下一步';if(!$('tour-dialog').open)$('tour-dialog').showModal();}
  function frame(now){
    if(state.running&&!document.hidden){
@@ -731,7 +882,7 @@ if(typeof module!=='undefined')module.exports=EngineJob;
    previousFrame=now;requestAnimationFrame(frame);
  }
  all('[data-tab]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
- all('[role=tab]').forEach((b,i)=>b.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const tabs=all('[role=tab]'),index=e.key==='Home'?0:e.key==='End'?3:(i+(e.key==='ArrowRight'?1:3))%4;switchTab(tabs[index].dataset.tab);tabs[index].focus();}}));
+ all('[role=tab]').forEach((b,i)=>b.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const tabs=all('[role=tab]'),index=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length;switchTab(tabs[index].dataset.tab);tabs[index].focus();}}));
  $('play').onclick=()=>{state.running=!state.running;state.target=null;renderAll();};
  $('play-top').onclick=$('play').onclick;
  $('physics-play').onclick=$('play').onclick;
@@ -746,7 +897,7 @@ if(typeof module!=='undefined')module.exports=EngineJob;
  $('quick-move').onclick=()=>{safeApply({...state.sim.p,D:state.sim.p.D?0:Math.min(4,state.sim.p.L/4)});$('advanced').open=true;toast(state.sim.p.D?'搬運已加入循環，平移功會獨立記帳。':'已固定阱中心。');};
  all('[data-open-scan]').forEach(b=>b.onclick=()=>{selectScan(b.dataset.openScan);switchTab('scan');});
  all('[data-scan]').forEach(b=>b.onclick=()=>selectScan(b.dataset.scan));
- $('scan-start').onclick=startScan;$('scan-cancel').onclick=()=>cancelScan();$('scan-metric').onchange=renderScan;
+ $('scan-start').onclick=()=>startScan();$('scan-cancel').onclick=()=>cancelScan();$('scan-metric').onchange=renderScan;
  $('scan-csv').onclick=()=>exportScan();$('scan-raw').onclick=()=>exportScan(true);$('scan-snapshot').onclick=()=>saveScanSnapshot();
  $('snapshot').onclick=()=>takeSnapshot();$('cycles-csv').onclick=exportCycles;$('save-json').onclick=saveJSON;
  $('load-json').onclick=()=>$('file-input').click();$('file-input').onchange=()=>importFile($('file-input').files[0]);
@@ -760,13 +911,25 @@ if(typeof module!=='undefined')module.exports=EngineJob;
  $('run-checks').onclick=()=>{$('checks').replaceChildren();Engine.selfcheck().forEach(c=>{const li=document.createElement('li'),label=document.createElement('span'),result=document.createElement('span');label.textContent=c.label;result.textContent=c.pass?'通過':'未通過';result.className=c.pass?'check-status':'error';li.append(label,result);$('checks').append(li);});};
  $('tour-open').onclick=()=>{pause();state.tour=0;showTour();};$('tour-close').onclick=()=>$('tour-dialog').close();
  $('tour-prev').onclick=()=>{state.tour=Math.max(0,state.tour-1);showTour();};$('tour-next').onclick=()=>{if(state.tour===tour.length-1)$('tour-dialog').close();else{state.tour++;showTour();}};
- for(const id of ['cycle-chart','timeline-chart','sweep-chart','residual-chart','position-chart','velocity-chart']){
+ for(const id of ['cycle-chart','timeline-chart','sweep-chart','residual-chart','position-chart','velocity-chart','evidence-temperature-chart','evidence-ratio-chart']){
    const c=$(id);c.tabIndex=0;const show=(x,y)=>{const hits=c._hit||[];if(!hits.length)return;const best=hits.reduce((a,b)=>Math.hypot(b.x-x,b.y-y)<Math.hypot(a.x-x,a.y-y)?b:a);$(id+'-tip').textContent=best.text;};
    c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();show(e.clientX-r.left,e.clientY-r.top);});
    c.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();const h=c._hit||[];if(!h.length)return;c._index=((c._index||0)+(e.key==='ArrowRight'?1:h.length-1))%h.length;$(id+'-tip').textContent=h[c._index].text;}});
  }
  document.addEventListener('visibilitychange',()=>{previousFrame=0;if(document.hidden&&state.running){pause();toast('頁面隱藏，主實驗已暫停。背景掃描如已啟動仍會繼續。');}});
  let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(renderAll,80);});
+
+ all('[data-open-evidence]').forEach(b=>b.onclick=()=>switchTab('evidence'));
+ all('[data-open-physics]').forEach(b=>b.onclick=()=>switchTab('physics'));
+ all('[data-evidence-view]').forEach(b=>b.onclick=()=>viewEvidence(b.dataset.evidenceView));
+ all('[data-evidence-png]').forEach(b=>b.onclick=()=>exportEvidencePNG(b.dataset.evidencePng));
+ all('[data-evidence-csv]').forEach(b=>b.onclick=()=>exportEvidenceCSV(b.dataset.evidenceCsv));
+ $('evidence-positive').onclick=runPositive;$('quick-positive').onclick=runPositive;$('scan-positive').onclick=runPositive;
+ $('evidence-suite').onclick=runLinearitySuite;$('quick-suite').onclick=runLinearitySuite;
+ $('evidence-cancel').onclick=()=>{cancelScan();renderAll();};$('evidence-unit').onchange=renderEvidence;
+ $('evidence-save').onclick=saveJSON;
+ $('evidence-bath-step').onclick=()=>{safeApply({...Engine.defaults,N:256,Tc:1,Th:3,kmin:2,kmax:2,ramp:20,hold:20,burn:0});switchTab('lab');state.target=1;state.running=true;renderAll();toast('固定曲率：先從冷浴平衡態換到熱浴，觀察前段動能溫度的鬆弛。');};
+
  writeForm();renderAll();requestAnimationFrame(frame);
 })();
 

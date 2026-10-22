@@ -1,0 +1,122 @@
+{
+  "engine": "chromium",
+  "date": "2026-10-22T08:33:10.876Z",
+  "sha256": "67bdda9e6b642f92d8027794e929db779c4c6cf776ddda660f6618a3ce518a04",
+  "checks": [
+    {
+      "name": "New rubric, discoverable controls and fifth-tab keyboard",
+      "pass": true,
+      "ms": 117
+    },
+    {
+      "name": "Baseline positive work from 20 independent repeats",
+      "pass": true,
+      "ms": 6699,
+      "evidence": {
+        "mean": 1.2770410637752323,
+        "ci": 0.01581802060737552,
+        "R": 20,
+        "K": 5
+      }
+    },
+    {
+      "name": "Formal two-plot suite runs actual jobs and retains both",
+      "pass": true,
+      "ms": 85736,
+      "evidence": {
+        "temperature": {
+          "points": 7,
+          "R": 20,
+          "K": 3,
+          "fit": {
+            "slope": 0.6857855322222712,
+            "intercept": -0.014593010417614627,
+            "r2": 0.9998270788777561,
+            "residuals": [
+              -0.00307373743816243,
+              0.002304081786071943,
+              0.0006232242755933592,
+              -0.00984074052329209,
+              0.0011637204953436342,
+              0.024635400992164547,
+              -0.01581194958771781
+            ],
+            "slopeSE": 0.0040333405424135965
+          }
+        },
+        "ratio": {
+          "points": 6,
+          "R": 20,
+          "K": 3,
+          "fit": {
+            "slope": 0.9769445526608582,
+            "intercept": 0.005238570281702937,
+            "r2": 0.999945048420774,
+            "residuals": [
+              -0.005238570281702937,
+              0.004401987904590399,
+              0.006460821434882469,
+              -0.005104566868370575,
+              -0.0014295202399731144,
+              0.0009098480505741469
+            ],
+            "slopeSE": 0.0036211118684761558
+          }
+        }
+      }
+    },
+    {
+      "name": "Figure CSV total work and fit scale exactly with N",
+      "pass": true,
+      "ms": 48
+    },
+    {
+      "name": "Publication figure PNG exports at fixed 2200 by 1440",
+      "pass": true,
+      "ms": 177
+    },
+    {
+      "name": "Evidence survives switching scans and JSON reload",
+      "pass": true,
+      "ms": 153
+    },
+    {
+      "name": "Tampered evidence is rejected without changing the current experiment",
+      "pass": true,
+      "ms": 93
+    },
+    {
+      "name": "Legacy v1 JSON rebuilds completed evidence and keeps trajectory",
+      "pass": true,
+      "ms": 99
+    },
+    {
+      "name": "Cancelling the queued suite preserves finished evidence and starts no later job",
+      "pass": true,
+      "ms": 586
+    },
+    {
+      "name": "Viewing retained results restores their own configuration label",
+      "pass": true,
+      "ms": 61
+    },
+    {
+      "name": "Desktop, phone, tablet, landscape and dark evidence layouts",
+      "pass": true,
+      "ms": 2894
+    },
+    {
+      "name": "Bath-step demonstration evolves at fixed curvature",
+      "pass": true,
+      "ms": 85
+    },
+    {
+      "name": "Fresh offline context uses no requests and no uncaught errors",
+      "pass": true,
+      "ms": 3
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "browserVersion": "151.0.7922.34"
+}

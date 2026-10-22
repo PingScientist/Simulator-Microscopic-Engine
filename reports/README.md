@@ -2,7 +2,7 @@
 
 [開啟兩頁 PDF](微觀引擎-兩頁參考報告.pdf)
 
-依新版簡報第 9–11 張與評分項目整理，作為閱讀與討論的參考稿。內容包含控溫與溫度定義、控制功、正功證據、三種準靜態變因、兩張線性關係圖與雙週期邊界。本文的數值來自 Langevin 模擬，不是實驗室實測。
+依新版簡報第 9–11 張與評分項目整理，作為閱讀與討論的參考稿。內容包含控溫與溫度定義、控制功、正功證據、三種準靜態變因、兩張線性關係圖與雙週期邊界。本文的數值來自 Langevin 模擬，不是實驗室實測。公式、內文符號、表格數學與圖表座標均由 LaTeX 排版；`latex/main.tex` 為可編輯原稿，兩張圖由 PGFPlots 繪製。
 
 ## 資料來源
 
@@ -21,6 +21,12 @@ node reports/collect.cjs
 python3 reports/generate_report.py
 ```
 
-第一行會重算補跑資料；若只重新排版既有結果，只執行第二行。Python 需要 ReportLab；目前版面使用 macOS 的 STHeiti Light、STHeiti Medium 與 Arial Unicode 字型，PDF 已嵌入所用字型。其他平台重製時需改成可用的中文字型；閱讀 PDF 不需安裝這些依賴。腳本會檢查數值核心 hash 是否與原始資料相同。
+第一行會重算補跑資料；若只重新排版既有結果，只執行第二行。本次 LaTeX 排版修訂沒有重跑或修改模擬資料。
 
-`validation.json` 記錄交付 PDF 的頁數、hash 與檢查範圍。新資料的圈平均、跨重複平均、95% CI 與配對差皆另行核對；PDF 兩頁已轉成圖像逐頁檢視，修正缺字後才交付。本次沒有改動網站或重跑既有全套網站測試。
+產生器需要 Python 3、`pypdf` 與 Tectonic。它會優先使用 PATH 中的 Tectonic，或此 macOS 上 ChatGPT 應用程式隨附的編譯器；也可用 `--tectonic /path/to/tectonic` 指定。原稿使用 `fontspec`、`xeCJK`、`amsmath` 與 `pgfplots`，字型為 PingFang TC、Times New Roman、Arial。其他平台需在原稿中改成可用的字型；Tectonic 初次編譯可能下載 TeX 套件。閱讀交付 PDF 不需安裝這些依賴。
+
+腳本先核對數值核心 hash，再從原始 JSON 產生 `latex/data/` 的數據巨集和 CSV；圖表保留原始精度，表格才做顯示用四捨五入。`--prepare-only` 可只更新這些資料。`latex/` 也可直接在 LaTeX 編輯器開啟，以 XeLaTeX 或 Tectonic 編譯 `main.tex`。隨附的產生器會在暫存資料夾編譯，確認為兩頁 A4 且沒有缺字或超出版面的警告後，才更新上層 PDF；暫存檔及其資料夾會自動移除。
+
+此環境的 Codex 內建預覽目前無法讀取系統字型；本報告已由 Tectonic 命令列成功編譯，交付 PDF 的閱讀不受影響。
+
+`validation.json` 記錄交付 PDF 的頁數、hash 與檢查範圍。模擬資料的圈平均、跨重複平均、95% CI 與配對差已於資料產生時另行核對。本次針對 LaTeX 編譯、字型嵌入、頁數與兩頁實際渲染進行檢查；沒有改動網站，也沒有重跑既有網站或數值測試。

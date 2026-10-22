@@ -1,0 +1,697 @@
+{
+  "browser": "chromium",
+  "version": "151.0.7922.34",
+  "sha256": "2a1347b770330f60498832f54fdde4e5bc025a6abad7ec56f70bacf37dcbd3c1",
+  "views": [
+    {
+      "width": 320,
+      "tab": "lab",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".hero h2": "36px",
+        ".hero p": "16px",
+        ".nav button": "16px",
+        ".quick button": "16px",
+        ".metric .label": "14px",
+        ".metric .value": "28px",
+        ".field>label": "16px",
+        ".chart-help": "16px",
+        ".chart-card canvas": "14px"
+      }
+    },
+    {
+      "width": 320,
+      "tab": "scan",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px"
+      }
+    },
+    {
+      "width": 320,
+      "tab": "physics",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px",
+        ".prose p": "16px"
+      }
+    },
+    {
+      "width": 320,
+      "tab": "notes",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px"
+      }
+    },
+    {
+      "width": 320,
+      "tab": "evidence",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px",
+        ".evidence-title p": "16px",
+        ".evidence-figure .figure-meta": "14px"
+      }
+    },
+    {
+      "width": 375,
+      "tab": "lab",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".hero h2": "36px",
+        ".hero p": "16px",
+        ".nav button": "16px",
+        ".quick button": "16px",
+        ".metric .label": "14px",
+        ".metric .value": "28px",
+        ".field>label": "16px",
+        ".chart-help": "16px",
+        ".chart-card canvas": "14px"
+      }
+    },
+    {
+      "width": 375,
+      "tab": "scan",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px"
+      }
+    },
+    {
+      "width": 375,
+      "tab": "physics",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px",
+        ".prose p": "16px"
+      }
+    },
+    {
+      "width": 375,
+      "tab": "notes",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px"
+      }
+    },
+    {
+      "width": 375,
+      "tab": "evidence",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px",
+        ".evidence-title p": "16px",
+        ".evidence-figure .figure-meta": "14px"
+      }
+    },
+    {
+      "width": 768,
+      "tab": "lab",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".hero h2": "36px",
+        ".hero p": "16px",
+        ".nav button": "16px",
+        ".quick button": "16px",
+        ".metric .label": "14px",
+        ".metric .value": "28px",
+        ".field>label": "16px",
+        ".chart-help": "16px",
+        ".chart-card canvas": "14px"
+      }
+    },
+    {
+      "width": 768,
+      "tab": "scan",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px"
+      }
+    },
+    {
+      "width": 768,
+      "tab": "physics",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px",
+        ".prose p": "16px"
+      }
+    },
+    {
+      "width": 768,
+      "tab": "notes",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px"
+      }
+    },
+    {
+      "width": 768,
+      "tab": "evidence",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px",
+        ".evidence-title p": "16px",
+        ".evidence-figure .figure-meta": "14px"
+      }
+    },
+    {
+      "width": 1024,
+      "tab": "lab",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".hero h2": "44px",
+        ".hero p": "16px",
+        ".nav button": "16px",
+        ".quick button": "16px",
+        ".metric .label": "14px",
+        ".metric .value": "32px",
+        ".field>label": "16px",
+        ".chart-help": "16px",
+        ".chart-card canvas": "14px"
+      }
+    },
+    {
+      "width": 1024,
+      "tab": "scan",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px"
+      }
+    },
+    {
+      "width": 1024,
+      "tab": "physics",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px",
+        ".prose p": "16px"
+      }
+    },
+    {
+      "width": 1024,
+      "tab": "notes",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px"
+      }
+    },
+    {
+      "width": 1024,
+      "tab": "evidence",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px",
+        ".evidence-title p": "16px",
+        ".evidence-figure .figure-meta": "14px"
+      }
+    },
+    {
+      "width": 1440,
+      "tab": "lab",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".hero h2": "44px",
+        ".hero p": "16px",
+        ".nav button": "16px",
+        ".quick button": "16px",
+        ".metric .label": "14px",
+        ".metric .value": "32px",
+        ".field>label": "16px",
+        ".chart-help": "16px",
+        ".chart-card canvas": "14px"
+      }
+    },
+    {
+      "width": 1440,
+      "tab": "scan",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px"
+      }
+    },
+    {
+      "width": 1440,
+      "tab": "physics",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px",
+        ".prose p": "16px"
+      }
+    },
+    {
+      "width": 1440,
+      "tab": "notes",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px"
+      }
+    },
+    {
+      "width": 1440,
+      "tab": "evidence",
+      "overflow": false,
+      "small": [],
+      "sizes": {
+        ".nav button": "16px",
+        ".evidence-title p": "16px",
+        ".evidence-figure .figure-meta": "14px"
+      }
+    },
+    {
+      "width": 768,
+      "textScale": 2,
+      "tab": "lab",
+      "overflow": false,
+      "outside": []
+    },
+    {
+      "width": 768,
+      "textScale": 2,
+      "tab": "scan",
+      "overflow": false,
+      "outside": [
+        {
+          "tag": "TABLE",
+          "id": "scan-table",
+          "cls": "",
+          "width": 1234.109375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "CAPTION",
+          "id": "",
+          "cls": "",
+          "width": 1234.109375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "THEAD",
+          "id": "",
+          "cls": "",
+          "width": 1234.109375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TR",
+          "id": "",
+          "cls": "",
+          "width": 1234.109375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TH",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 827.21875
+        },
+        {
+          "tag": "TH",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 971.234375
+        },
+        {
+          "tag": "TH",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 1115.25
+        },
+        {
+          "tag": "TH",
+          "id": "",
+          "cls": "",
+          "width": 160.859375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TBODY",
+          "id": "",
+          "cls": "",
+          "width": 1234.109375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TR",
+          "id": "",
+          "cls": "",
+          "width": 1234.109375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 827.21875
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 971.234375
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 1115.25
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 160.859375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TR",
+          "id": "",
+          "cls": "",
+          "width": 1234.109375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 827.21875
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 971.234375
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 1115.25
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 160.859375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TR",
+          "id": "",
+          "cls": "",
+          "width": 1234.109375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 827.21875
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 971.234375
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 1115.25
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 160.859375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TR",
+          "id": "",
+          "cls": "",
+          "width": 1234.109375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 827.21875
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 971.234375
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 1115.25
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 160.859375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TR",
+          "id": "",
+          "cls": "",
+          "width": 1234.109375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 827.21875
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 971.234375
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 1115.25
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 160.859375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TR",
+          "id": "",
+          "cls": "",
+          "width": 1234.109375,
+          "right": 1276.109375
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 827.21875
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 971.234375
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 1115.25
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 160.859375,
+          "right": 1276.109375
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "textScale": 2,
+      "tab": "physics",
+      "overflow": false,
+      "outside": []
+    },
+    {
+      "width": 768,
+      "textScale": 2,
+      "tab": "notes",
+      "overflow": false,
+      "outside": [
+        {
+          "tag": "TABLE",
+          "id": "cycles-table",
+          "cls": "",
+          "width": 1222.640625,
+          "right": 1263.640625
+        },
+        {
+          "tag": "CAPTION",
+          "id": "",
+          "cls": "",
+          "width": 1222.640625,
+          "right": 1263.640625
+        },
+        {
+          "tag": "THEAD",
+          "id": "",
+          "cls": "",
+          "width": 1222.640625,
+          "right": 1263.640625
+        },
+        {
+          "tag": "TR",
+          "id": "",
+          "cls": "",
+          "width": 1222.640625,
+          "right": 1263.640625
+        },
+        {
+          "tag": "TH",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 781.0625
+        },
+        {
+          "tag": "TH",
+          "id": "",
+          "cls": "",
+          "width": 160.859375,
+          "right": 941.921875
+        },
+        {
+          "tag": "TH",
+          "id": "",
+          "cls": "",
+          "width": 160.859375,
+          "right": 1102.78125
+        },
+        {
+          "tag": "TH",
+          "id": "",
+          "cls": "",
+          "width": 160.859375,
+          "right": 1263.640625
+        },
+        {
+          "tag": "TBODY",
+          "id": "",
+          "cls": "",
+          "width": 1222.640625,
+          "right": 1263.640625
+        },
+        {
+          "tag": "TR",
+          "id": "",
+          "cls": "",
+          "width": 1222.640625,
+          "right": 1263.640625
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 144.015625,
+          "right": 781.0625
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 160.859375,
+          "right": 941.921875
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 160.859375,
+          "right": 1102.78125
+        },
+        {
+          "tag": "TD",
+          "id": "",
+          "cls": "",
+          "width": 160.859375,
+          "right": 1263.640625
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "textScale": 2,
+      "tab": "evidence",
+      "overflow": false,
+      "outside": []
+    }
+  ],
+  "errors": [],
+  "requests": []
+}

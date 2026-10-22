@@ -4,7 +4,7 @@
 
 **執行只需 `index.html`。直接用瀏覽器開啟，首次完全離線也可使用；不需安裝、build、伺服器或帳號。新版作業另外要求一份自行撰寫說明與作圖的 PDF；本次更新網站與資料工具，PDF 另行準備。**
 
-![微觀引擎實驗台：新版實驗台](docs/verification/2026-10-22/preview-desktop.png)
+![微觀引擎實驗台：新版實驗台](docs/verification/2026-10-22-typography/preview-desktop.png)
 
 ## 快速開始
 

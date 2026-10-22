@@ -1,145 +1,168 @@
 % !TeX program = xelatex
 \documentclass[a4paper,10pt]{article}
-\usepackage[margin=14mm,top=18mm,bottom=16mm,headheight=13pt,headsep=8pt,footskip=17pt]{geometry}
-\usepackage{fontspec,xeCJK,amsmath,amssymb,booktabs,tabularx,array,xcolor,pgfplots,fancyhdr,hyperref}
-\pgfplotsset{compat=1.18}
+\usepackage[top=17mm,bottom=17mm,left=17mm,right=17mm,footskip=9mm]{geometry}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,booktabs,tabularx,array,multicol,pgfplots,hyperref}
 \setmainfont{Times New Roman}
-\setsansfont{Arial}
-\setCJKmainfont{PingFang TC}
-\setCJKsansfont{PingFang TC}
-\definecolor{ink}{HTML}{18392F}
-\definecolor{green}{HTML}{22694E}
-\definecolor{muted}{HTML}{53635A}
-\definecolor{rule}{HTML}{D5DDD7}
-\definecolor{paper}{HTML}{F1F5EF}
-\definecolor{gold}{HTML}{9B6B13}
-\definecolor{purple}{HTML}{755196}
-\hypersetup{colorlinks=true,urlcolor=green,pdftitle={微觀引擎：兩頁參考報告},pdfauthor={Microscopic Engine Lab}}
-\color{ink}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{3pt}
-\setlength{\abovedisplayskip}{4pt}
-\setlength{\belowdisplayskip}{4pt}
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\arraystretch}{1.25}
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\fontsize{8.3}{10}\selectfont\color{muted}MICROSCOPIC ENGINE / 熱統計物理一}
-\fancyhead[R]{\fontsize{8.3}{10}\selectfont\color{muted}參考稿 · 2026.10.22}
-\fancyfoot[L]{\fontsize{8}{10}\selectfont\color{muted}約化單位 \(m=k_{\mathrm B}=1\) · \(w=W_{\mathrm{out}}/N\)（每粒子每循環功）}
-\fancyfoot[R]{\fontsize{8.5}{10}\selectfont\color{muted}\thepage\,/\,2}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{.3pt}
-\newcommand{\reporttitle}[2]{{\sffamily\bfseries\fontsize{22}{29}\selectfont #1\par}\vspace{2pt}{\color{muted}#2\par}\vspace{4pt}{\color{rule}\hrule}\vspace{5pt}}
-\newcommand{\sectiontitle}[2]{\par\vspace{5pt}{\sffamily\bfseries\fontsize{12.3}{17}\selectfont\textcolor{green}{#1}\quad #2\par}\vspace{1pt}}
-\newcommand{\eqbox}[1]{\par\vspace{2pt}\begingroup\setlength{\fboxsep}{5pt}\colorbox{paper}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\(\displaystyle #1\)}}\endgroup\par\vspace{2pt}}
-\newcommand{\smallnote}[1]{\par{\fontsize{9.3}{13}\selectfont\color{muted}#1\par}}
+\setCJKmainfont{Songti TC}
+\pgfplotsset{compat=1.18}
+\hypersetup{hidelinks,pdftitle={微觀引擎模擬報告},pdfauthor={}}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{2pt}
+\setlength{\columnsep}{7mm}
+\setlength{\multicolsep}{7pt}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.2}
+\pagestyle{plain}
+\renewcommand{\refname}{\centering\normalfont\bfseries\fontsize{11.3}{15}\selectfont 參考文獻}
+\newcommand{\sectiontitle}[2]{\par\addvspace{10pt}{\centering\bfseries\fontsize{11.3}{15}\selectfont #1、#2\par}\nobreak\vspace{4pt}}
+\newcommand{\captiontext}[1]{\par\vspace{3pt}{\noindent\fontsize{9.5}{13}\selectfont #1\par}}
 \input{data/results.tex}
 \begin{document}
-\fontsize{10.5}{15}\selectfont
-\reporttitle{從熱擾動到循環輸出功}{以 Langevin 熱浴建立微觀熱機，檢驗控溫、有限速率與準靜態近似。}
-\sectiontitle{01}{模型、控溫與溫度的意義}
-系統由 \(N\) 個二維、互不作用的粒子組成。基準位能為 \(V=\frac12\kappa(x-x_0)^2\)；\(x\) 方向為固定彈性硬牆，\(y\) 方向取週期邊界。熱浴在空間上均勻，以欠阻尼 Langevin 方程演化 [1]：
-\eqbox{\begin{aligned}
+\fontsize{10.5}{14.5}\selectfont
+\setlength{\abovedisplayskip}{5pt}
+\setlength{\belowdisplayskip}{5pt}
+\setlength{\abovedisplayshortskip}{3pt}
+\setlength{\belowdisplayshortskip}{4pt}
+\begin{center}
+{\bfseries\fontsize{16}{21}\selectfont 微觀引擎模擬報告\par}
+\vspace{5pt}
+熱統計物理一\quad 2026 年 10 月 22 日
+\end{center}
+\vspace{1pt}
+\noindent\textbf{摘要}\quad
+本文以欠阻尼朗之萬動力學模擬受控位能阱中的微觀熱機，討論粒子控溫、循環做功與準靜態條件。模擬顯示，適當的溫差與曲率操作可產生平均正功；放慢曲率改變或位能阱搬運可減少有限速率損失。循環輸出功對溫差及曲率比對數均呈近似線性。雙週期邊界則採平滑週期位能，並以相應配分函數檢查模型的一致性。
+\begin{multicols}{2}
+\raggedcolumns
+\sectiontitle{一}{模型與控溫方法}
+系統包含 \(N\) 個二維、互不作用的粒子，基準位能為 \(V=\frac12\kappa(x-x_0)^2\)。\(x\) 方向為固定彈性硬牆，\(y\) 方向取週期邊界。空間均勻的熱浴由欠阻尼朗之萬方程描述\cite{seifert}：
+\begin{equation}
+\begin{aligned}
 \mathrm d\mathbf r&=\mathbf v\,\mathrm dt,\\
-m\,\mathrm d\mathbf v&=(-\nabla V-\gamma\mathbf v)\,\mathrm dt+\sqrt{2\gamma k_{\mathrm B}T_{\mathrm b}}\,\mathrm d\mathbf B.
-\end{aligned}\qquad
-\begin{gathered}
-\Delta\mathbf B=\sqrt{\Delta t}\,\boldsymbol\xi,\\[-2pt]
-\boldsymbol\xi\sim\mathcal N(\mathbf0,\mathbf I).
-\end{gathered}}
-摩擦與獨立高斯噪聲共同維持熱平衡，並非逐幀重設速度。BAOAB 的熱浴子步採精確 OU 更新 [2]。\(T_{\mathrm b}\) 是指定熱浴溫度；二維動能估計 \(T_K=K/(Nk_{\mathrm B})\) 會波動且包含整體漂移，非平衡時不能視為唯一的熱力學溫度。
-\sectiontitle{02}{循環、做功記帳與正功驗證}
-固定中心時，循環依序為：固定 \(\kappa_{\max}\) 升溫 \(\to\) 高溫降低 \(\kappa\) \(\to\) 固定 \(\kappa_{\min}\) 降溫 \(\to\) 低溫提高 \(\kappa\)。若加入中心搬運，兩個固定曲率階段分別去程與回程。
-\eqbox{\begin{aligned}
-\mathrm dW_{\mathrm{in}}
-&=\sum_{i=1}^{N}\left[\frac{(x_i-x_0)^2}{2}\,\mathrm d\kappa-\kappa(x_i-x_0)\,\mathrm dx_0\right],
-& W_{\mathrm{out}}&=-W_{\mathrm{in}},\\
-\Delta E&=Q_{\mathrm{in}}-W_{\mathrm{out}}.
-\end{aligned}}
-\(Q\) 由 OU 子步的動能改變獨立累積。\textbf{正功基準：}\(N=64\)、\(T_{\mathrm H}/T_{\mathrm C}=3/1\)、\(\kappa=1\leftrightarrow4\)、\(L_x/L_y=24/12\)、\(\gamma=1\)、\(\Delta t=0.02\)；曲率段 30、換浴段 10，中心固定。20 次獨立重複，各暖機 2 圈再平均 5 圈，得到
-\[
- \boxed{w=\PosMean\pm\PosCI\quad(95\%\ \mathrm{CI})},
- \qquad \eta=\frac{\langle W_{\mathrm{out}}\rangle}{\langle Q_{\mathrm H}\rangle}=\PosEta.
-\]
-區間下界 \(1.2612>0\)，支持平均正功。
-\sectiontitle{03}{哪些操作比較接近準靜態？}
-操作時間須長於位置與速度的鬆弛時間。診斷指標為
-\[
- \tau_{\mathrm{rel}}\frac{|\dot\kappa|}{\kappa}\ll1,
- \qquad
+m\,\mathrm d\mathbf v&=(-\nabla V-\gamma\mathbf v)\,\mathrm dt\\
+&\quad+\sqrt{2\gamma k_{\mathrm B}T_{\mathrm b}}\,\mathrm d\mathbf B.
+\end{aligned}
+\label{eq:langevin}
+\end{equation}
+其中 \(\Delta\mathbf B=\sqrt{\Delta t}\,\boldsymbol\xi\)，\(\boldsymbol\xi\sim\mathcal N(\mathbf0,\mathbf I)\)。摩擦與獨立高斯噪聲共同維持熱平衡，並非逐幀重設速度；BAOAB 積分中的熱浴子步採精確的 Ornstein-Uhlenbeck（OU）更新\cite{baoab}。
+
+\(T_{\mathrm b}\) 為指定熱浴溫度，而二維動能估溫 \(T_K=K/(Nk_{\mathrm B})\) 會波動且包含整體漂移；非平衡時，不能將它視為唯一的熱力學溫度。以下採約化單位 \(m=k_{\mathrm B}=1\)，並以 \(w=W_{\mathrm{out}}/N\) 表示每粒子、每循環的輸出功。
+\sectiontitle{二}{循環與正功驗證}
+固定中心時，循環依序為：固定 \(\kappa_{\max}\) 升溫、高溫降低 \(\kappa\)、固定 \(\kappa_{\min}\) 降溫，以及低溫提高 \(\kappa\)。若加入中心搬運，則於兩個固定曲率階段分別去程與回程。控制參數對系統做功為
+\begin{equation}
+\begin{aligned}
+\mathrm dW_{\mathrm{in}}=\sum_{i=1}^{N}\bigg[&\frac{(x_i-x_0)^2}{2}\,\mathrm d\kappa\\
+&-\kappa(x_i-x_0)\,\mathrm dx_0\bigg].
+\end{aligned}
+\label{eq:work}
+\end{equation}
+對外做功與吸熱的符號約定為
+\begin{equation}
+ W_{\mathrm{out}}=-W_{\mathrm{in}},\qquad
+ \Delta E=Q_{\mathrm{in}}-W_{\mathrm{out}}.
+\label{eq:firstlaw}
+\end{equation}
+熱量由 OU 子步的動能變化獨立累積。
+\par\columnbreak
+正功基準採 \(N=64\)、\(T_{\mathrm H}/T_{\mathrm C}=3/1\)、\(\kappa=1\leftrightarrow4\)、\(L_x/L_y=24/12\)、\(\gamma=1\)、\(\Delta t=0.02\)，中心固定；曲率段與換浴段時間分別為 30、10。20 次獨立重複各暖機 2 圈，再平均 5 圈，得到
+\begin{equation}
+ w=\PosMean\pm\PosCI\quad(95\%\ \mathrm{CI}).
+\label{eq:positive}
+\end{equation}
+信賴區間下界 \(1.2612>0\)，支持平均正功。以平均值之比計算，效率為 \(\eta=\langle W_{\mathrm{out}}\rangle/\langle Q_{\mathrm H}\rangle=\PosEta\)。本系統無再生器，\(Q_{\mathrm H}\) 包含升溫、高溫操作與 \(y\) 方向動能的淨吸熱；直接換浴並非可逆過程，不能直接套用卡諾效率。
+\sectiontitle{三}{準靜態條件與參數影響}
+操作時間須長於系統的鬆弛時間 \(\tau_{\mathrm{rel}}\)。曲率與中心搬運可分別用下列無因次量判斷：
+\begin{equation}
+ \tau_{\mathrm{rel}}\frac{|\dot\kappa|}{\kappa}\ll1,\qquad
  \tau_{\mathrm{rel}}\frac{|\dot x_0|}{\sqrt{k_{\mathrm B}T/\kappa}}\ll1.
-\]
-弱阱可能使位置回復較慢；但增大曲率後，欠阻尼鬆弛受摩擦限制，不能保證「越硬越準靜態」。
-\par{\fontsize{9.5}{13}\selectfont
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.24\linewidth}>{\raggedright\arraybackslash}p{.38\linewidth}>{\raggedright\arraybackslash}X@{}}
-\toprule
-\textbf{控制變因}&\textbf{模擬結果（\(w\pm95\%\ \mathrm{CI}\)）}&\textbf{物理解讀}\\
-\midrule
-曲率段 \(4\to100\)&\RateFrom\(\to\)\RateTo\newline \(\eta:\RateEtaFrom\to\RateEtaTo\)&放慢後，功接近準靜態值 1.386；功率不必增加。\\
-曲率 \(0.5\leftrightarrow2\)\newline \(\to2\leftrightarrow8\)&\ScaleFrom\(\to\)\ScaleTo&此範圍略有改善；欠阻尼下仍受摩擦鬆弛限制。\\
-平均搬運速率\newline \(1.33\to0.10\)&\MoveFrom\(\to\)\MoveTo&相對同時序固定阱，功差 \(-16.005\to-0.994\)；慢速損失較小。\\
-\bottomrule
-\end{tabularx}\par}
-\smallnote{本表 \(N=32\)、20 次獨立重複，各暖機 2 圈、記錄 5 圈；其餘同基準。尺度掃描固定曲率段 30；搬運固定 \(D=4\)、曲率段 30，換浴／搬運段由 3 增至 40。誤差以每次重複的圈平均估計，不把同軌跡每圈當成獨立樣本。}
-本熱機沒有再生器；\(Q_{\mathrm H}\) 包含升溫、高溫操作及 \(y\) 方向動能的淨吸熱。放慢曲率操作不會使直接換浴可逆，不能直接套用 Carnot 效率。
-\smallnote{[1] Seifert, \textit{Rep. Prog. Phys.} 75, 126001 (2012). \href{https://arxiv.org/abs/1205.4176}{arXiv:1205.4176}.\\{}
-[2] Leimkuhler \& Matthews, \textit{J. Chem. Phys.} 138, 174102 (2013). \href{https://arxiv.org/abs/1304.3269}{arXiv:1304.3269}.}
+\label{eq:slow}
+\end{equation}
+以下皆採 \(N=32\)、20 次獨立重複，每次暖機 2 圈後記錄 5 圈，其餘參數同正功基準。所列誤差均為跨重複的 \(95\%\) 信賴區間，不將同一軌跡的每圈視為獨立樣本。
+
+\textbf{曲率變化時間。}曲率段由 4 增至 100 時，\(w\) 由 \RateFrom 增至 \RateTo，接近準靜態值 \(1.386\)；效率由 \(\RateEtaFrom\) 增至 \(\RateEtaTo\)，但功率不必隨之增加。
+
+\textbf{曲率尺度。}固定曲率段 30，將曲率範圍由 \(0.5\leftrightarrow2\) 改為 \(2\leftrightarrow8\)，\(w\) 由 \ScaleFrom 增至 \ScaleTo。弱阱的位置回復較慢，但欠阻尼鬆弛仍受摩擦限制，不能推論曲率越大就越接近準靜態。
+
+\textbf{中心搬運速率。}固定搬運距離 \(D=4\)、曲率段 30，換浴兼搬運段由 3 增至 40，使平均速率由 \(1.33\) 降至 \(0.10\)。此時 \(w\) 由 \MoveFrom 增至 \MoveTo；相對同時序的固定阱，功差由 \(-16.005\) 變為 \(-0.994\)，顯示慢速搬運的損失較小。
+\end{multicols}
 \newpage
-\reporttitle{線性關係與週期邊界}{以實際循環資料作圖；理論只作比較，不作為資料生成來源。}
-\sectiontitle{04}{每循環輸出功的兩個線性關係}
-無限域諧和阱的配分函數給出 \(F/N=(T/2)\ln\kappa+\) 與 \(\kappa\) 無關的項。因此固定中心、曲率段準靜態且換浴充分鬆弛時：
-\eqbox{w_{\mathrm{qs}}=\frac{k_{\mathrm B}(T_{\mathrm H}-T_{\mathrm C})}{2}
-\ln\!\left(\frac{\kappa_{\max}}{\kappa_{\min}}\right).}
-\smallnote{\textcolor{green}{綠點與誤差棒}：模擬平均與 \(95\%\) CI\quad
-\textcolor{purple}{紫虛線}：含截距 OLS\quad \textcolor{gold}{金虛線}：模型準靜態值}
-\pgfplotsset{report/.style={width=\linewidth,height=5.1cm,scale only axis=false,
- axis line style={rule},tick style={rule},grid=major,grid style={rule,thin},
- tick label style={font=\fontsize{8.5}{10}\selectfont,text=muted},
- label style={font=\fontsize{10}{12}\selectfont},title style={font=\fontsize{10}{13}\selectfont},
- ylabel={$w$},ylabel style={rotate=-90},legend style={draw=none},clip=false}}
-\begin{minipage}{.48\linewidth}
+\pgfplotsset{report/.style={width=\linewidth,height=5.0cm,
+ axis line style={black,thin},tick style={black,thin},
+ tick label style={font=\fontsize{9}{11}\selectfont},
+ label style={font=\fontsize{10}{12}\selectfont},
+ title style={font=\fontsize{10}{13}\selectfont},
+ ylabel={$w$},ylabel style={rotate=-90},clip=true}}
+\noindent\begin{minipage}{.48\linewidth}
+\centering
 \begin{tikzpicture}
-\begin{axis}[report,title={A\quad 固定 \(\kappa_{\max}/\kappa_{\min}=4\)},xmin=-.1,xmax=4.1,ymin=-.12,ymax=3,
+\begin{axis}[report,title={(甲)\quad 固定曲率比 \(r=4\)},xmin=-.1,xmax=4.1,ymin=-.12,ymax=3,
  xtick={0,1,2,3,4},ytick={0,1,2,3},xlabel={\(\Delta T=T_{\mathrm H}-T_{\mathrm C}\)}]
-\addplot[gold,densely dotted,thick] table[x=x,y=theory,col sep=comma]{data/temperature.csv};
-\addplot[purple,dashed,domain=0:4,samples=2]{\TempSlope*x+\TempIntercept};
-\addplot[green,only marks,mark=*,mark size=1.7pt,error bars/.cd,y dir=both,y explicit]
+\addplot[black!45,solid,thick] table[x=x,y=theory,col sep=comma]{data/temperature.csv};
+\addplot[black,dashed,domain=0:4,samples=2]{\TempSlope*x+\TempIntercept};
+\addplot[black,only marks,mark=*,mark size=1.7pt,error bars/.cd,y dir=both,y explicit]
  table[x=x,y=mean,y error=ci,col sep=comma]{data/temperature.csv};
 \end{axis}
 \end{tikzpicture}
 \end{minipage}\hfill
 \begin{minipage}{.48\linewidth}
+\centering
 \begin{tikzpicture}
-\begin{axis}[report,title={B\quad 固定 \(\Delta T=2\)},xmin=-.05,xmax=1.85,ymin=-.12,ymax=2,
- xtick={0,.5,1,1.5},ytick={0,.5,1,1.5,2},xlabel={\(\ln(\kappa_{\max}/\kappa_{\min})\)}]
-\addplot[gold,densely dotted,thick] table[x=x,y=theory,col sep=comma]{data/ratio.csv};
-\addplot[purple,dashed,domain=0:1.791759469,samples=2]{\RatioSlope*x+\RatioIntercept};
-\addplot[green,only marks,mark=*,mark size=1.7pt,error bars/.cd,y dir=both,y explicit]
+\begin{axis}[report,title={(乙)\quad 固定溫差 \(\Delta T=2\)},xmin=-.05,xmax=1.85,ymin=-.12,ymax=2,
+ xtick={0,.5,1,1.5},ytick={0,.5,1,1.5,2},xlabel={\(\ln r=\ln(\kappa_{\max}/\kappa_{\min})\)}]
+\addplot[black!45,solid,thick] table[x=x,y=theory,col sep=comma]{data/ratio.csv};
+\addplot[black,dashed,domain=0:1.791759469,samples=2]{\RatioSlope*x+\RatioIntercept};
+\addplot[black,only marks,mark=*,mark size=1.7pt,error bars/.cd,y dir=both,y explicit]
  table[x=x,y=mean,y error=ci,col sep=comma]{data/ratio.csv};
 \end{axis}
 \end{tikzpicture}
 \end{minipage}
-\par{\fontsize{9.5}{13}\selectfont
-\begin{tabularx}{\linewidth}{@{}Xccc@{}}
-\toprule \textbf{擬合 \(w=ax+b\)}&\textbf{斜率 \(a\pm\mathrm{SE}\)}&\textbf{截距 \(b\)}&\(\boldsymbol{R^2}\)\\ \midrule
-A：\(x=\Delta T\)&\(\TempSlopeShort\pm\TempSE\)&\(\TempB\)&\(\TempR\)\\
-B：\(x=\ln(\kappa_{\max}/\kappa_{\min})\)&\(\RatioSlopeShort\pm\RatioSE\)&\(\RatioB\)&\(\RatioR\)\\
+\captiontext{圖一、每粒子循環輸出功對溫差與曲率比對數的關係。黑點及誤差棒為模擬平均與 \(95\%\) 信賴區間，黑色虛線為含截距的線性擬合，灰色實線為模型的準靜態參考值。各點皆來自實際演化的循環資料。}
+\begin{multicols}{2}
+\raggedcolumns
+\sectiontitle{四}{輸出功的線性關係}
+無限域諧和阱的自由能可寫成 \(F/N=(k_{\mathrm B}T/2)\ln\kappa+C(T)\)。因此固定中心、曲率段準靜態且換浴後充分鬆弛時，
+\begin{equation}
+ w_{\mathrm{qs}}=\frac{k_{\mathrm B}(T_{\mathrm H}-T_{\mathrm C})}{2}
+ \ln\!\left(\frac{\kappa_{\max}}{\kappa_{\min}}\right).
+\label{eq:qs}
+\end{equation}
+圖一採硬牆、\(N=32\)、\(T_{\mathrm C}=1\)、\(\kappa_{\min}=1\)、固定中心、\(\gamma=1\)、\(\Delta t=0.02\)、\(L_x/L_y=24/12\)，曲率段與換浴段分別為 100、20。每點 20 次獨立重複，暖機 2 圈後各平均 3 圈。甲圖固定 \(r=4\)，掃描 \(\Delta T=0\sim4\)；乙圖固定 \(T_{\mathrm H}=3\)，掃描 \(r=1\sim6\)。
+
+以普通最小平方法擬合 \(w=ax+b\)，結果列於表一。理想斜率分別為 \(0.6931\) 與 \(1\)。數據支持此範圍內的近似線性，但仍有有限速率偏差；\(R^2\) 高不等於已達準靜態。表中 SE 為斜率標準誤，與圖上的 \(95\%\) 信賴區間不同；系統總功與相應擬合係數須再乘 \(N\)。
+\captiontext{表一、循環輸出功的線性擬合結果。}
+\noindent{\fontsize{9.3}{12}\selectfont
+\begin{tabularx}{\linewidth}{@{}>{\centering\arraybackslash}Xccc@{}}
+\toprule
+\(x\)&\(a\pm\mathrm{SE}\)&\(b\)&\(R^2\)\\
+\midrule
+\(\Delta T\)&\(\TempSlopeShort\pm\TempSE\)&\(\TempB\)&\(\TempR\)\\
+\(\ln r\)&\(\RatioSlopeShort\pm\RatioSE\)&\(\RatioB\)&\(\RatioR\)\\
 \bottomrule
 \end{tabularx}\par}
-\smallnote{兩圖皆為硬牆、\(N=32\)、\(T_{\mathrm C}=1\)、\(\kappa_{\min}=1\)、固定中心、\(\gamma=1\)、\(\Delta t=0.02\)、\(L_x/L_y=24/12\)；曲率段 100、換浴段 20。每點 20 次獨立重複，暖機 2 圈後各平均 3 圈。A 掃描 \(\Delta T=0\sim4\)；B 固定 \(T_{\mathrm H}=3\)，掃描曲率比 \(1\sim6\)。}
-理想斜率分別為 \(0.6931\) 與 \(1\)。數據支持此範圍內的近似線性；有限速率仍造成偏差，\(R^2\) 高不等於已達準靜態。SE 是 OLS 斜率標準誤，並非圖上 \(95\%\) CI；系統總功與擬合係數須再乘 \(N\)。
-\sectiontitle{05}{Bonus：雙週期邊界的物理一致性}
-直接接起非週期諧和位能會造成接縫問題，因此雙週期模式改用平滑週期位能；其阱底曲率仍為 \(\kappa\)：
-\eqbox{V=\frac{\kappa L^2}{4\pi^2}(1-\cos\theta),\qquad
- F_x=-\frac{\kappa L}{2\pi}\sin\theta,\qquad
- \theta=\frac{2\pi(x-x_0)}{L}.}
-跨界時 \(V\)、力與參數導數保持連續，回捲座標不產生額外功。以相應配分函數
-\[
- Z_x(T,\kappa,x_0)=\int_0^L
- \exp\!\left[-\frac{V(x;\kappa,x_0)}{k_{\mathrm B}T}\right]\mathrm dx
-\]
-計算參考值。\(L=24\)、曲率段 100、換浴段 20 的補跑（\(N=32\)、20 次獨立重複，暖機 2 圈後記錄 5 圈）中，硬牆 \(w=\WallMean\pm\WallCI\)，雙週期 \(w=\PeriodMean\pm\PeriodCI\)（均為 \(95\%\) CI）；準靜態參考分別為 \(\WallQS\)、\(\PeriodQS\)。兩模式全域位能也不同，不能將差異全部歸因於邊界。
-\vspace{4pt}
-\smallnote{資料：專案 bd51397 的數值核心；既有正功／線性資料及補跑均使用基礎種子 20260924，原始重複與逐圈記錄隨報告保存。依「微觀引擎.pptx」第 9--11 張整理。}
+\sectiontitle{五}{週期邊界與模型有效性}
+直接接起非週期諧和位能會造成接縫問題。雙週期模式改用平滑週期位能，令 \(\theta=2\pi(x-x_0)/L\)，則
+\begin{equation}
+ V=\frac{\kappa L^2}{4\pi^2}(1-\cos\theta),\qquad
+ F_x=-\frac{\kappa L}{2\pi}\sin\theta.
+\label{eq:periodic}
+\end{equation}
+此位能在阱底的曲率仍為 \(\kappa\)，且跨界時位能、力與參數導數皆連續；座標回捲不產生額外功。相應的位置配分函數為
+\begin{equation}
+ Z_x=\int_0^L\exp\!\left[-\frac{V(x;\kappa,x_0)}{k_{\mathrm B}T}\right]\mathrm dx.
+\label{eq:partition}
+\end{equation}
+以此計算準靜態參考，不能直接將無限域諧和公式套用於所有有限週期系統。
+
+\(L=24\)、曲率段 100、換浴段 20 的補跑採 \(N=32\)、20 次獨立重複，暖機 2 圈後記錄 5 圈。硬牆結果為 \(w=\WallMean\pm\WallCI\)，雙週期為 \(w=\PeriodMean\pm\PeriodCI\)（均為 \(95\%\) 信賴區間）；準靜態參考分別為 \(\WallQS\) 與 \(\PeriodQS\)。兩模式的全域位能亦不同，因此差異不能全部歸因於邊界。
+\sectiontitle{六}{結論}
+朗之萬熱浴可建立具有平均正功的微觀熱機。曲率操作與中心搬運須相對鬆弛時間夠慢，才能減少非平衡損失。模擬支持適當條件下的兩個線性關係；改變邊界時，則須同時檢查位能、力、做功與理論參考的一致性。
+
+{\fontsize{9.3}{12.5}\selectfont
+\noindent\textbf{資料來源：}本報告依「微觀引擎.pptx」第 9--11 張整理。數值來自專案 bd51397 的核心，基礎種子為 20260924；原始重複與逐圈記錄隨報告保存。\par}
+\begin{thebibliography}{9}
+\fontsize{9.2}{12}\selectfont\raggedright
+\setlength{\itemsep}{1pt}
+\bibitem{seifert} U. Seifert, \textit{Rep. Prog. Phys.} \textbf{75}, 126001 (2012). \href{https://arxiv.org/abs/1205.4176}{arXiv:1205.4176}.
+\bibitem{baoab} B. Leimkuhler and C. Matthews, \textit{J. Chem. Phys.} \textbf{138}, 174102 (2013). \href{https://arxiv.org/abs/1304.3269}{arXiv:1304.3269}.
+\end{thebibliography}
+\end{multicols}
 \end{document}

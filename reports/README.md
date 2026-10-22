@@ -2,7 +2,7 @@
 
 [開啟兩頁 PDF](微觀引擎-兩頁參考報告.pdf)
 
-依新版簡報第 9–11 張與評分項目整理，作為閱讀與討論的參考稿。內容包含控溫與溫度定義、控制功、正功證據、三種準靜態變因、兩張線性關係圖與雙週期邊界。本文的數值來自 Langevin 模擬，不是實驗室實測。公式、內文符號、表格數學與圖表座標均由 LaTeX 排版；`latex/main.tex` 為可編輯原稿，兩張圖由 PGFPlots 繪製。
+依新版簡報第 9–11 張與評分項目整理，作為閱讀與討論的參考稿。內容包含控溫與溫度定義、控制功、正功證據、三種準靜態變因、兩張線性關係圖與雙週期邊界。本文的數值來自 Langevin 模擬，不是實驗室實測。公式、內文符號、表格數學與圖表座標均由 LaTeX 排版；`latex/main.tex` 為可編輯原稿，兩張圖由 PGFPlots 繪製。現行版式採中文學術報告：置中標題與摘要、雙欄正文、連續編號公式、中文圖表說明及參考文獻；黑白圖表以點形與線型區分資料與理論，沒有彩色色塊或裝飾頁首。
 
 ## 資料來源
 
@@ -21,9 +21,9 @@ node reports/collect.cjs
 python3 reports/generate_report.py
 ```
 
-第一行會重算補跑資料；若只重新排版既有結果，只執行第二行。本次 LaTeX 排版修訂沒有重跑或修改模擬資料。
+第一行會重算補跑資料；若只重新排版既有結果，只執行第二行。本次學術版式修訂沒有重跑或修改模擬資料。
 
-產生器需要 Python 3、`pypdf` 與 Tectonic。它會優先使用 PATH 中的 Tectonic，或此 macOS 上 ChatGPT 應用程式隨附的編譯器；也可用 `--tectonic /path/to/tectonic` 指定。原稿使用 `fontspec`、`xeCJK`、`amsmath` 與 `pgfplots`，字型為 PingFang TC、Times New Roman、Arial。其他平台需在原稿中改成可用的字型；Tectonic 初次編譯可能下載 TeX 套件。閱讀交付 PDF 不需安裝這些依賴。
+產生器需要 Python 3、`pypdf` 與 Tectonic。它會優先使用 PATH 中的 Tectonic，或此 macOS 上 ChatGPT 應用程式隨附的編譯器；也可用 `--tectonic /path/to/tectonic` 指定。原稿使用 `fontspec`、`xeCJK`、`amsmath` 與 `pgfplots`，中文字型為 Songti TC（宋體），西文字型為 Times New Roman。其他平台需在原稿中改成可用的字型；Tectonic 初次編譯可能下載 TeX 套件。閱讀交付 PDF 不需安裝這些依賴。
 
 腳本先核對數值核心 hash，再從原始 JSON 產生 `latex/data/` 的數據巨集和 CSV；圖表保留原始精度，表格才做顯示用四捨五入。`--prepare-only` 可只更新這些資料。`latex/` 也可直接在 LaTeX 編輯器開啟，以 XeLaTeX 或 Tectonic 編譯 `main.tex`。隨附的產生器會在暫存資料夾編譯，確認為兩頁 A4 且沒有缺字或超出版面的警告後，才更新上層 PDF；暫存檔及其資料夾會自動移除。
 

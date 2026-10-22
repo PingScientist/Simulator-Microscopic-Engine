@@ -1,8 +1,8 @@
 {
   "date": "2026-10-22",
   "pages": 2,
-  "pdfBytes": 185453,
-  "pdfSha256": "9d636062256ee0172847269c3d20b7d0b1bec030b6bbd8bd02dbe93af51cb07b",
+  "pdfBytes": 226380,
+  "pdfSha256": "738c4bd978aeb32f26dac96bc0cf20307538633a0908965fc9beeb80f242b41b",
   "coreSha256": "5243daaf1f84a06b25326e84a354ce294512067c28fa19f1394519f731af98d4",
   "htmlSha256": "2a1347b770330f60498832f54fdde4e5bc025a6abad7ec56f70bacf37dcbd3c1",
   "newScanPoints": 26,
@@ -13,23 +13,27 @@
     "Per-repeat means verified against recorded cycles",
     "Paired translation differences verified"
   ],
-  "revision": "LaTeX typesetting only; all saved simulation data unchanged",
+  "revision": "Chinese monochrome academic layout; saved simulation data unchanged",
   "latex": {
     "engine": "Tectonic 0.17.0 (XeTeX)",
     "source": "latex/main.tex",
     "generator": "generate_report.py",
     "figureEngine": "PGFPlots",
-    "embeddedFontCount": 20,
+    "embeddedFontCount": 15,
     "allFontsEmbedded": true,
-    "nativeEditorPreview": "System font access denied by app preview sandbox; CLI compilation succeeded"
+    "nativeEditorPreview": "Not rerun; previous revision exposed system font access limits in app preview. Current CLI compilation succeeded.",
+    "bodyFonts": [
+      "Songti TC",
+      "Times New Roman"
+    ]
   },
   "checks": [
-    "Two A4 pages; extracted key numerical results checked after whitespace normalization",
-    "Temperature (7 points) and log-curvature (6 points) plot CSV values exactly match saved JSON",
+    "Two A4 pages; Chinese title, abstract, references and key numerical results extracted",
+    "Both delivered pages rendered at 150 dpi and visually inspected, including column flow and numbered equations",
+    "Both rendered pages contain only grayscale pixels",
     "Formal generator completed with no missing-glyph or overfull-box diagnostics",
-    "Both delivered PDF pages rendered at 140 dpi and visually inspected",
-    "All 20 PDF fonts are embedded",
-    "index.html and saved numerical datasets unchanged; no numerical simulations rerun",
-    "Compiler temporary directory automatically removed after generation"
+    "All 15 PDF fonts are embedded",
+    "index.html, plot CSV files and saved numerical datasets unchanged; no simulations rerun",
+    "Compiler temporary directories automatically removed after generation"
   ]
 }

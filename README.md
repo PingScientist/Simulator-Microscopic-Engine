@@ -2,7 +2,7 @@
 
 熱統計物理一的單檔互動實驗室。以真正的 Langevin 動力學，探索曲率控制、熱浴、平移成本、有限速度與週期邊界。
 
-**執行只需 `index.html`。直接用瀏覽器開啟，首次完全離線也可使用；不需安裝、build、伺服器或帳號。新版作業另外要求一份自行撰寫說明與作圖的 PDF；本次更新網站與資料工具，PDF 另行準備。**
+**執行只需 `index.html`。直接用瀏覽器開啟，首次完全離線也可使用；不需安裝、build、伺服器或帳號。新版作業另需文字說明與作圖的 PDF；專案已附[兩頁參考稿](reports/微觀引擎-兩頁參考報告.pdf)，搭配原始模擬資料閱讀。**
 
 ![微觀引擎實驗台：新版實驗台](docs/verification/2026-10-22-typography/preview-desktop.png)
 
@@ -43,6 +43,7 @@
 
 ## 文件與開發測試
 
+- [兩頁參考報告與重製來源](reports/README.md)
 - [物理模型](docs/physics-models.md)
 - [數值與統計](docs/numerical-methods.md)
 - [新版評分對照](docs/rubric-mapping.md)

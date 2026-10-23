@@ -12,11 +12,11 @@
 \renewcommand{\arraystretch}{1.2}
 \pagestyle{plain}
 \renewcommand{\refname}{\normalfont\bfseries\fontsize{12}{16}\selectfont 參考文獻}
-\newcommand{\sectiontitle}[2]{\par\addvspace{6pt}{\noindent\bfseries\fontsize{12}{16}\selectfont #1、#2\par}\nobreak\vspace{2pt}}
+\newcommand{\sectiontitle}[2]{\par\addvspace{12pt}{\noindent\bfseries\fontsize{12}{16}\selectfont #1、#2\par}\nobreak\vspace{4pt}}
 \newcommand{\captiontext}[1]{\par\vspace{3pt}{\noindent\fontsize{9.5}{13}\selectfont #1\par}}
 \makeatletter
 \renewenvironment{thebibliography}[1]
- {\par\addvspace{6pt}{\noindent\bfseries\fontsize{11}{15}\selectfont 參考文獻\par}\nobreak\vspace{2pt}
+ {\par\addvspace{12pt}{\noindent\bfseries\fontsize{11}{15}\selectfont 參考文獻\par}\nobreak\vspace{4pt}
   \list{\@biblabel{\@arabic\c@enumiv}}
   {\settowidth\labelwidth{\@biblabel{#1}}\leftmargin\labelwidth
    \advance\leftmargin\labelsep\usecounter{enumiv}
@@ -34,69 +34,66 @@
 \begin{center}
 {\bfseries\fontsize{16}{21}\selectfont 微觀引擎模擬報告\par}
 \vspace{5pt}
-熱統計物理一\quad 2026 年 10 月 22 日
+熱統計物理一
 \end{center}
-\sectiontitle{一}{模型與控溫方法}
-系統包含 \(N\) 個二維、互不作用的粒子，基準位能為 \(V=\frac12\kappa(x-x_0)^2\)。\(x\) 方向為固定彈性硬牆，\(y\) 方向取週期邊界。空間均勻的熱浴由欠阻尼朗之萬方程描述\cite{seifert}：
+\sectiontitle{一}{模型與控溫方式}
+系統由 \(N\) 個二維、互不作用的粒子組成。粒子受諧和位能 \(V=\frac12\kappa(x-x_0)^2\) 束縛；\(x\) 方向為彈性硬牆，\(y\) 方向為週期邊界。控溫採欠阻尼朗之萬方程\cite{seifert}：
 \begin{equation}
-\begin{aligned}
-\mathrm d\mathbf r&=\mathbf v\,\mathrm dt,\\
-m\,\mathrm d\mathbf v&=(-\nabla V-\gamma\mathbf v)\,\mathrm dt+\sqrt{2\gamma k_{\mathrm B}T_{\mathrm b}}\,\mathrm d\mathbf B.
-\end{aligned}
+\mathrm d\mathbf r=\mathbf v\,\mathrm dt,\qquad
+m\,\mathrm d\mathbf v=(-\nabla V-\gamma\mathbf v)\,\mathrm dt
++\sqrt{2\gamma k_{\mathrm B}T_{\mathrm b}}\,\mathrm d\mathbf B.
 \label{eq:langevin}
 \end{equation}
-其中 \(\Delta\mathbf B=\sqrt{\Delta t}\,\boldsymbol\xi\)，\(\boldsymbol\xi\sim\mathcal N(\mathbf0,\mathbf I)\)。摩擦與獨立高斯噪聲共同維持熱平衡，並非逐幀重設速度；BAOAB 積分中的熱浴子步採精確的 Ornstein-Uhlenbeck（OU）更新\cite{baoab}。
+摩擦耗散能量，隨機力提供熱擾動；兩者依熱浴溫度 \(T_{\mathrm b}\) 配對，使固定參數下的粒子趨向熱平衡。數值積分採 BAOAB\cite{baoab}，隨機增量為 \(\Delta\mathbf B=\sqrt{\Delta t}\,\boldsymbol\xi\)，其中 \(\boldsymbol\xi\) 為獨立的標準高斯變數。
 
-\(T_{\mathrm b}\) 為指定熱浴溫度，而二維動能估溫 \(T_K=K/(Nk_{\mathrm B})\) 會波動且包含整體漂移；非平衡時，不能將它視為唯一的熱力學溫度。以下採約化單位 \(m=k_{\mathrm B}=1\)，並以 \(w=W_{\mathrm{out}}/N\) 表示每粒子、每循環的輸出功。
-\sectiontitle{二}{循環與正功驗證}
-固定中心時，循環依序為：固定 \(\kappa_{\max}\) 升溫、高溫降低 \(\kappa\)、固定 \(\kappa_{\min}\) 降溫，以及低溫提高 \(\kappa\)。若加入中心搬運，則於兩個固定曲率階段分別去程與回程。控制參數對系統做功為
+\textbf{熱浴溫度與粒子估溫不同：}\(T_{\mathrm b}\) 是設定值；由二維動能估得的 \(T_K=K/(Nk_{\mathrm B})\) 會波動，非平衡時還可能包含整體漂移。
+\captiontext{共用設定：\(m=k_{\mathrm B}=\gamma=1\)、\(\Delta t=0.02\)、\(L_x/L_y=24/12\)。以下以 \(w=W_{\mathrm{out}}/N\) 表示每粒子、每循環的輸出功；除另註外，中心固定。}
+\sectiontitle{二}{循環操作與正功結果}
+循環依序為：固定 \(\kappa_{\max}\) 升溫 \(\to\) 高溫降低曲率 \(\to\) 固定 \(\kappa_{\min}\) 降溫 \(\to\) 低溫提高曲率。改變曲率或搬運阱中心時，對系統做功為
 \begin{equation}
-\mathrm dW_{\mathrm{in}}=\sum_{i=1}^{N}\left[\frac{(x_i-x_0)^2}{2}\,\mathrm d\kappa-\kappa(x_i-x_0)\,\mathrm dx_0\right].
+\mathrm dW_{\mathrm{in}}=\sum_{i=1}^{N}\left[\frac{(x_i-x_0)^2}{2}\,\mathrm d\kappa-\kappa(x_i-x_0)\,\mathrm dx_0\right],
+\qquad W_{\mathrm{out}}=-W_{\mathrm{in}}.
 \label{eq:work}
 \end{equation}
-對外做功與吸熱的符號約定為
-\begin{equation}
- W_{\mathrm{out}}=-W_{\mathrm{in}},\qquad
- \Delta E=Q_{\mathrm{in}}-W_{\mathrm{out}}.
-\label{eq:firstlaw}
-\end{equation}
-熱量由 OU 子步的動能變化獨立累積。
+熱量由熱浴子步的動能變化累積，符號約定為 \(\Delta E=Q_{\mathrm{in}}-W_{\mathrm{out}}\)。
 
-正功基準採 \(N=64\)、\(T_{\mathrm H}/T_{\mathrm C}=3/1\)、\(\kappa=1\leftrightarrow4\)、\(L_x/L_y=24/12\)、\(\gamma=1\)、\(\Delta t=0.02\)，中心固定；曲率段與換浴段時間分別為 30、10。20 次獨立重複各暖機 2 圈，再平均 5 圈，得到
+取 \(N=64\)、\(T_{\mathrm H}=3\)、\(T_{\mathrm C}=1\)、\(\kappa_{\min}=1\)、\(\kappa_{\max}=4\)，曲率段與換浴段時間分別為 30、10。20 次獨立重複各暖機 2 圈，再平均 5 圈，得到
 \begin{equation}
- w=\PosMean\pm\PosCI\quad(95\%\ \mathrm{CI}).
+ w=\PosMean\pm\PosCI\quad\text{（95\% 信賴區間）}.
 \label{eq:positive}
 \end{equation}
-信賴區間下界 \(1.2612>0\)，支持平均正功。以平均值之比計算，效率為 \(\eta=\langle W_{\mathrm{out}}\rangle/\langle Q_{\mathrm H}\rangle=\PosEta\)。本系統無再生器，\(Q_{\mathrm H}\) 包含升溫、高溫操作與 \(y\) 方向動能的淨吸熱；直接換浴並非可逆過程，不能直接套用卡諾效率。
-\sectiontitle{三}{準靜態條件與參數影響}
-操作時間須長於系統的鬆弛時間 \(\tau_{\mathrm{rel}}\)。曲率與中心搬運可分別用下列無因次量判斷：
-\begin{equation}
- \tau_{\mathrm{rel}}\frac{|\dot\kappa|}{\kappa}\ll1,\qquad
- \tau_{\mathrm{rel}}\frac{|\dot x_0|}{\sqrt{k_{\mathrm B}T/\kappa}}\ll1.
-\label{eq:slow}
-\end{equation}
-以下皆採 \(N=32\)、20 次獨立重複，每次暖機 2 圈後記錄 5 圈，其餘參數同正功基準。所列誤差均為跨重複的 \(95\%\) 信賴區間，不將同一軌跡的每圈視為獨立樣本。
-
-\textbf{曲率變化時間。}曲率段由 4 增至 100 時，\(w\) 由 \RateFrom 增至 \RateTo，接近準靜態值 \(1.386\)；效率由 \(\RateEtaFrom\) 增至 \(\RateEtaTo\)，但功率不必隨之增加。
-
-\textbf{曲率尺度。}固定曲率段 30，將曲率範圍由 \(0.5\leftrightarrow2\) 改為 \(2\leftrightarrow8\)，\(w\) 由 \ScaleFrom 增至 \ScaleTo。弱阱的位置回復較慢，但欠阻尼鬆弛仍受摩擦限制，不能推論曲率越大就越接近準靜態。
-
-\textbf{中心搬運速率。}固定搬運距離 \(D=4\)、曲率段 30，換浴兼搬運段由 3 增至 40，使平均速率由 \(1.33\) 降至 \(0.10\)。此時 \(w\) 由 \MoveFrom 增至 \MoveTo；相對同時序的固定阱，功差由 \(-16.005\) 變為 \(-0.994\)，顯示慢速搬運的損失較小。
+\textbf{信賴區間整段大於零，支持系統能輸出平均正功。}
+\sectiontitle{三}{準靜態條件的比較}
+準靜態要求操作慢於粒子分布回復平衡的時間。表一比較操作時間、曲率尺度及搬運速率；數值均來自實際模擬，\(\pm\) 表示 \(95\%\) 信賴區間。
+\captiontext{表一、參數改變對循環輸出功的影響。}
+\noindent{\fontsize{10.5}{14}\selectfont
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.23\linewidth}>{\raggedright\arraybackslash}p{.40\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{改變的條件}&\textbf{輸出功 \(w\) 的變化}&\textbf{結果解讀}\\
+\midrule
+曲率段時間\newline \(4\to100\)&\RateFrom{} 至 \RateTo&放慢後接近準靜態值 \(1.386\)；每圈功增加不代表功率增加。\\[3pt]
+曲率範圍\newline \(0.5\leftrightarrow2\) 改為 \(2\leftrightarrow8\)&\ScaleFrom{} 至 \ScaleTo&此範圍內略有改善；不能推論曲率越大就越準靜態。\\[3pt]
+平均搬運速率\newline \(1.33\to0.10\)&\MoveFrom{} 至 \MoveTo&相對同時序固定阱，功損失由 \(16.005\) 降至 \(0.994\)。\\
+\bottomrule
+\end{tabularx}\par}
+\captiontext{表一皆取 \(N=32\)、20 次獨立重複，各暖機 2 圈後記錄 5 圈，其餘同正功設定。曲率尺度比較固定曲率段 30；搬運固定距離 \(D=4\)、曲率段 30，換浴兼搬運段由 3 增至 40。誤差由每次重複的圈平均計算，不把同一軌跡每圈當成獨立樣本。}
+弱阱的位置回復較慢；曲率增大後，欠阻尼鬆弛仍受摩擦限制。因此，\textbf{「慢」須相對於系統的鬆弛時間判斷}。
 \newpage
 \sectiontitle{四}{輸出功的線性關係}
-無限域諧和阱的自由能可寫成 \(F/N=(k_{\mathrm B}T/2)\ln\kappa+C(T)\)。因此固定中心、曲率段準靜態且換浴後充分鬆弛時，
+對無限域諧和阱，固定中心、曲率操作足夠慢且換浴後充分鬆弛時，
 \begin{equation}
  w_{\mathrm{qs}}=\frac{k_{\mathrm B}(T_{\mathrm H}-T_{\mathrm C})}{2}
  \ln\!\left(\frac{\kappa_{\max}}{\kappa_{\min}}\right).
 \label{eq:qs}
 \end{equation}
-\pgfplotsset{report/.style={width=\linewidth,height=4.2cm,
+因此，\textbf{固定曲率比時，\(w\) 對溫差近似線性；固定溫差時，\(w\) 對曲率比的對數近似線性。}
+\pgfplotsset{report/.style={width=\linewidth,height=5.0cm,
  axis line style={black,thin},tick style={black,thin},
  tick label style={font=\fontsize{9}{11}\selectfont},
  label style={font=\fontsize{10}{12}\selectfont},
  title style={font=\fontsize{10}{13}\selectfont},
  ylabel={$w$},ylabel style={rotate=-90},clip=true}}
-\noindent\begin{minipage}{.48\linewidth}
+\par\noindent\begin{minipage}{.48\linewidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[report,title={(甲)\quad 固定曲率比 \(r=4\)},xmin=-.1,xmax=4.1,ymin=-.12,ymax=3,
@@ -120,40 +117,39 @@ m\,\mathrm d\mathbf v&=(-\nabla V-\gamma\mathbf v)\,\mathrm dt+\sqrt{2\gamma k_{
 \end{axis}
 \end{tikzpicture}
 \end{minipage}
-\captiontext{圖一、每粒子循環輸出功對溫差與曲率比對數的關係。黑點及誤差棒為模擬平均與 \(95\%\) 信賴區間，黑色虛線為含截距的線性擬合，灰色實線為模型的準靜態參考值。各點皆來自實際演化的循環資料。}
-圖一採硬牆、\(N=32\)、\(T_{\mathrm C}=1\)、\(\kappa_{\min}=1\)、固定中心、\(\gamma=1\)、\(\Delta t=0.02\)、\(L_x/L_y=24/12\)，曲率段與換浴段分別為 100、20。每點 20 次獨立重複，暖機 2 圈後各平均 3 圈。甲圖固定 \(r=4\)，掃描 \(\Delta T=0\sim4\)；乙圖固定 \(T_{\mathrm H}=3\)，掃描 \(r=1\sim6\)。
-
-以普通最小平方法擬合 \(w=ax+b\)，結果列於表一。理想斜率分別為 \(0.6931\) 與 \(1\)。數據支持此範圍內的近似線性，但仍有有限速率偏差；\(R^2\) 高不等於已達準靜態。表中 SE 為斜率標準誤，與圖上的 \(95\%\) 信賴區間不同；系統總功與相應擬合係數須再乘 \(N\)。
-\captiontext{表一、循環輸出功的線性擬合結果。}
+\captiontext{圖一、黑點與誤差棒為模擬平均及 \(95\%\) 信賴區間；黑虛線為含截距的線性擬合，灰實線為模型的準靜態參考。}
+\captiontext{條件：硬牆、\(N=32\)、\(T_{\mathrm C}=1\)、\(\kappa_{\min}=1\)，其餘共用參數同前；曲率段 100、換浴段 20。每點 20 次獨立重複，各暖機 2 圈後平均 3 圈。甲圖掃描 \(\Delta T=0\sim4\)；乙圖固定 \(T_{\mathrm H}=3\)，掃描曲率比 \(r=1\sim6\)。}
+\captiontext{表二、以 \(w=ax+b\) 擬合的結果；SE 為斜率標準誤。}
 \noindent{\fontsize{10.5}{14}\selectfont
-\begin{tabularx}{\linewidth}{@{}*{4}{>{\centering\arraybackslash}X}@{}}
+\begin{tabularx}{\linewidth}{@{}*{5}{>{\centering\arraybackslash}X}@{}}
 \toprule
-\(x\)&\(a\pm\mathrm{SE}\)&\(b\)&\(R^2\)\\
+變因 \(x\)&斜率 \(a\pm\mathrm{SE}\)&理想斜率&截距 \(b\)&\(R^2\)\\
 \midrule
-\(\Delta T\)&\(\TempSlopeShort\pm\TempSE\)&\(\TempB\)&\(\TempR\)\\
-\(\ln r\)&\(\RatioSlopeShort\pm\RatioSE\)&\(\RatioB\)&\(\RatioR\)\\
+\(\Delta T\)&\(\TempSlopeShort\pm\TempSE\)&\(0.6931\)&\(\TempB\)&\(\TempR\)\\
+\(\ln r\)&\(\RatioSlopeShort\pm\RatioSE\)&\(1\)&\(\RatioB\)&\(\RatioR\)\\
 \bottomrule
 \end{tabularx}\par}
-\sectiontitle{五}{週期邊界與模型有效性}
-直接接起非週期諧和位能會造成接縫問題。雙週期模式改用平滑週期位能，令 \(\theta=2\pi(x-x_0)/L\)，則
+兩組資料都支持近似線性。斜率與理想值的差異仍須考慮有限速率與統計誤差，\textbf{不能僅憑 \(R^2\) 高就判定已達準靜態}。系統總功為 \(Nw\)，相應的斜率與截距亦乘上 \(N\)。
+\sectiontitle{五}{雙週期邊界的處理}
+直接把諧和阱兩端接起來會產生接縫。因此雙週期模式改用平滑週期位能；令 \(\theta=2\pi(x-x_0)/L\)，則
 \begin{equation}
  V=\frac{\kappa L^2}{4\pi^2}(1-\cos\theta),\qquad
  F_x=-\frac{\kappa L}{2\pi}\sin\theta.
 \label{eq:periodic}
 \end{equation}
-此位能在阱底的曲率仍為 \(\kappa\)，且跨界時位能、力與參數導數皆連續；座標回捲不產生額外功。相應的位置配分函數為
-\begin{equation}
- Z_x=\int_0^L\exp\!\left[-\frac{V(x;\kappa,x_0)}{k_{\mathrm B}T}\right]\mathrm dx.
-\label{eq:partition}
-\end{equation}
-以此計算準靜態參考，不能直接將無限域諧和公式套用於所有有限週期系統。
-
-\(L=24\)、曲率段 100、換浴段 20 的補跑採 \(N=32\)、20 次獨立重複，暖機 2 圈後記錄 5 圈。硬牆結果為 \(w=\WallMean\pm\WallCI\)，雙週期為 \(w=\PeriodMean\pm\PeriodCI\)（均為 \(95\%\) 信賴區間）；準靜態參考分別為 \(\WallQS\) 與 \(\PeriodQS\)。兩模式的全域位能亦不同，因此差異不能全部歸因於邊界。
-\sectiontitle{六}{結論}
-模擬確認朗之萬熱浴可驅動具有平均正功的微觀熱機。曲率變化與中心搬運須相對鬆弛時間夠慢；線性關係與邊界比較則須使用各模型一致的做功定義及理論參考。
-
-{\fontsize{9.3}{12.5}\selectfont
-\noindent\textbf{資料來源：}數值核心版本 bd51397，基礎種子 20260924；原始重複與逐圈記錄隨報告保存。\par}
+此位能的阱底曲率仍為 \(\kappa\)。力與控制功皆依此位能計算，跨界時保持一致，座標回捲不額外產生功；準靜態參考也須由此位能的配分函數重新計算。
+\captiontext{表三、相同循環設定下的兩種模型比較。}
+\noindent{\fontsize{10.5}{14}\selectfont
+\begin{tabularx}{\linewidth}{@{}*{3}{>{\centering\arraybackslash}X}@{}}
+\toprule
+模型&\(w\)（\(95\%\) 信賴區間）&準靜態參考\\
+\midrule
+硬牆諧和阱&\(\WallMean\pm\WallCI\)&\(\WallQS\)\\
+雙週期平滑阱&\(\PeriodMean\pm\PeriodCI\)&\(\PeriodQS\)\\
+\bottomrule
+\end{tabularx}\par}
+\captiontext{表三採 \(L=24\)、\(N=32\)、曲率段 100、換浴段 20，其餘同正功設定；20 次獨立重複，各暖機 2 圈後平均 5 圈。}
+\textbf{兩種模型的全域位能不同，不能把功的差異全部歸因於邊界。}模擬參數與原始逐圈記錄均隨程式保存。
 \begin{thebibliography}{9}
 \fontsize{9.2}{12}\selectfont\raggedright
 \setlength{\itemsep}{1pt}

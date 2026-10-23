@@ -1,8 +1,8 @@
 {
-  "date": "2026-10-22",
+  "date": "2026-10-23",
   "pages": 2,
-  "pdfBytes": 271667,
-  "pdfSha256": "22b54c55e077d71d40766627876dce3a1b63b1cf882d3a26e53c1fdd1d12f89d",
+  "pdfBytes": 279967,
+  "pdfSha256": "7e9c6da0b23717f716ff3b7a118e309e72d3a0b7e96eaf5f362c533299dfb8ec",
   "coreSha256": "5243daaf1f84a06b25326e84a354ce294512067c28fa19f1394519f731af98d4",
   "htmlSha256": "2a1347b770330f60498832f54fdde4e5bc025a6abad7ec56f70bacf37dcbd3c1",
   "newScanPoints": 26,
@@ -13,13 +13,13 @@
     "Per-repeat means verified against recorded cycles",
     "Paired translation differences verified"
   ],
-  "revision": "Traditional Chinese academic report, DFKai-SB, single-column body, no abstract; saved simulation data unchanged",
+  "revision": "Concise five-section Traditional Chinese academic report; three comparison tables; date removed; increased section spacing; saved simulation data unchanged",
   "latex": {
     "engine": "Tectonic 0.17.0 (XeTeX)",
     "source": "latex/main.tex",
     "generator": "generate_report.py",
     "figureEngine": "PGFPlots",
-    "embeddedFontCount": 18,
+    "embeddedFontCount": 20,
     "allFontsEmbedded": true,
     "nativeEditorPreview": "Not rerun; previous revision exposed system font access limits in app preview. Current CLI compilation succeeded.",
     "bodyFonts": [
@@ -28,12 +28,12 @@
     ]
   },
   "checks": [
-    "Two A4 pages; no abstract; Chinese title, references and key numerical results extracted",
-    "Single-column body checked in source and rendered pages",
-    "Both delivered pages rendered at 145 dpi and visually inspected, including formulas, table and reference placement",
-    "Both rendered pages contain only grayscale pixels",
+    "Two A4 pages; no abstract or title date; Chinese title, references and key numerical results extracted",
+    "Single-column body with increased section spacing checked in source and rendered pages",
+    "Both delivered pages rendered at 145 dpi and visually inspected, including formulas, all three tables, chart labels and reference placement",
+    "Both rendered pages contain only grayscale pixels and match the reviewed draft pixel for pixel",
     "Formal generator completed with no missing-glyph or overfull-box diagnostics",
-    "All 18 PDF fonts are embedded, including DFKai-SB",
+    "All 20 PDF fonts are embedded, including DFKai-SB",
     "index.html, plot CSV files and saved numerical datasets unchanged; no simulations rerun",
     "Compiler temporary directory automatically removed after generation"
   ],
@@ -42,6 +42,17 @@
     "abstract": false,
     "bodyFontPt": 11,
     "bodyLeadingPt": 15.2,
-    "color": "grayscale"
+    "color": "grayscale",
+    "headerDate": false,
+    "headingBeforePt": 12,
+    "headingAfterPt": 4,
+    "sectionCount": 5,
+    "numberedEquationCount": 5,
+    "comparisonTableCount": 3
+  },
+  "textComparison": {
+    "method": "pypdf text extraction with whitespace removed",
+    "previousCharacters": 2393,
+    "currentCharacters": 2034
   }
 }

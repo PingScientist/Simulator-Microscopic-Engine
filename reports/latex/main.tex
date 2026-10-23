@@ -44,18 +44,18 @@ m\,\mathrm d\mathbf v=(-\nabla V-\gamma\mathbf v)\,\mathrm dt
 +\sqrt{2\gamma k_{\mathrm B}T_{\mathrm b}}\,\mathrm d\mathbf B.
 \label{eq:langevin}
 \end{equation}
-摩擦耗散能量，隨機力提供熱擾動；兩者依熱浴溫度 \(T_{\mathrm b}\) 配對，使固定參數下的粒子趨向熱平衡。數值積分採 BAOAB\cite{baoab}，隨機增量為 \(\Delta\mathbf B=\sqrt{\Delta t}\,\boldsymbol\xi\)，其中 \(\boldsymbol\xi\) 為獨立的標準高斯變數。
+摩擦與隨機力共同控溫。BAOAB\cite{baoab} 的熱浴子步為 \(\mathbf v^+=c\mathbf v^-+\sqrt{k_{\mathrm B}T_{\mathrm b}(1-c^2)/m}\,\boldsymbol\xi\)，\(c=e^{-\gamma\Delta t/m}\)。各粒子、方向及步的 \(\boldsymbol\xi\) 分量皆為獨立標準高斯數；小步長噪聲尺度為 \(\sqrt{\Delta t}\)。
 
 \textbf{熱浴溫度與粒子估溫不同：}\(T_{\mathrm b}\) 是設定值；由二維動能估得的 \(T_K=K/(Nk_{\mathrm B})\) 會波動，非平衡時還可能包含整體漂移。
-\captiontext{共用設定：\(m=k_{\mathrm B}=\gamma=1\)、\(\Delta t=0.02\)、\(L_x/L_y=24/12\)。以下以 \(w=W_{\mathrm{out}}/N\) 表示每粒子、每循環的輸出功；除另註外，中心固定。}
+\captiontext{共用約化單位與設定：\(m=k_{\mathrm B}=\gamma=1\)、\(\Delta t=0.02\)、\(L_x/L_y=24/12\)。以下以 \(w=W_{\mathrm{out}}/N\) 表示每粒子、每循環的輸出功；除另註外，中心固定於 \(x_0=L_x/2\)。}
 \sectiontitle{二}{循環操作與正功結果}
-循環依序為：固定 \(\kappa_{\max}\) 升溫 \(\to\) 高溫降低曲率 \(\to\) 固定 \(\kappa_{\min}\) 降溫 \(\to\) 低溫提高曲率。改變曲率或搬運阱中心時，對系統做功為
+循環依序為：固定 \(\kappa_{\max}\) 換至熱浴 \(\to\) 高溫降低曲率 \(\to\) 固定 \(\kappa_{\min}\) 換至冷浴 \(\to\) 低溫提高曲率。控制量為 \(\lambda=\kappa,x_0\)，廣義力為 \(-\partial V/\partial\lambda\)。控制輸入功為
 \begin{equation}
 \mathrm dW_{\mathrm{in}}=\sum_{i=1}^{N}\left[\frac{(x_i-x_0)^2}{2}\,\mathrm d\kappa-\kappa(x_i-x_0)\,\mathrm dx_0\right],
 \qquad W_{\mathrm{out}}=-W_{\mathrm{in}}.
 \label{eq:work}
 \end{equation}
-熱量由熱浴子步的動能變化累積，符號約定為 \(\Delta E=Q_{\mathrm{in}}-W_{\mathrm{out}}\)。
+功由固定位置的位能差累積，熱由熱浴子步的動能差累積。有限步長下 \(\Delta E=Q_{\mathrm{in}}-W_{\mathrm{out}}+R_{\mathrm{num}}\)，\(R_{\mathrm{num}}\) 另記為數值誤差。
 
 取 \(N=64\)、\(T_{\mathrm H}=3\)、\(T_{\mathrm C}=1\)、\(\kappa_{\min}=1\)、\(\kappa_{\max}=4\)，曲率段與換浴段時間分別為 30、10。20 次獨立重複各暖機 2 圈，再平均 5 圈，得到
 \begin{equation}
@@ -72,12 +72,12 @@ m\,\mathrm d\mathbf v=(-\nabla V-\gamma\mathbf v)\,\mathrm dt
 \textbf{改變的條件}&\textbf{輸出功 \(w\) 的變化}&\textbf{結果解讀}\\
 \midrule
 曲率段時間\newline \(4\to100\)&\RateFrom{} 至 \RateTo&放慢後接近準靜態值 \(1.386\)；每圈功增加不代表功率增加。\\[3pt]
-曲率範圍\newline \(0.5\leftrightarrow2\) 改為 \(2\leftrightarrow8\)&\ScaleFrom{} 至 \ScaleTo&此範圍內略有改善；不能推論曲率越大就越準靜態。\\[3pt]
+曲率範圍\newline \(0.5\leftrightarrow2\) 改為 \(2\leftrightarrow8\)&\ScaleFrom{} 至 \ScaleTo&弱阱回復較慢；增大曲率後仍受摩擦限制，不能推論越大越好。\\[3pt]
 平均搬運速率\newline \(1.33\to0.10\)&\MoveFrom{} 至 \MoveTo&相對同時序固定阱，功損失由 \(16.005\) 降至 \(0.994\)。\\
 \bottomrule
 \end{tabularx}\par}
 \captiontext{表一皆取 \(N=32\)、20 次獨立重複，各暖機 2 圈後記錄 5 圈，其餘同正功設定。曲率尺度比較固定曲率段 30；搬運固定距離 \(D=4\)、曲率段 30，換浴兼搬運段由 3 增至 40。誤差由每次重複的圈平均計算，不把同一軌跡每圈當成獨立樣本。}
-弱阱的位置回復較慢；曲率增大後，欠阻尼鬆弛仍受摩擦限制。因此，\textbf{「慢」須相對於系統的鬆弛時間判斷}。
+曲率段由 4 放慢至 100 時，效率點估計 \(\eta=\langle W_{\mathrm{out}}\rangle/\langle Q_{\mathrm H}\rangle\) 由 \(\RateEtaFrom\) 增至 \(\RateEtaTo\)；\(Q_{\mathrm H}\) 是兩個高溫段的淨吸熱。本模型無再生器，直接換浴仍不可逆，\textbf{慢速不等同 Carnot 效率}。
 \newpage
 \sectiontitle{四}{輸出功的線性關係}
 對無限域諧和阱，固定中心、曲率操作足夠慢且換浴後充分鬆弛時，
@@ -137,7 +137,7 @@ m\,\mathrm d\mathbf v=(-\nabla V-\gamma\mathbf v)\,\mathrm dt
  F_x=-\frac{\kappa L}{2\pi}\sin\theta.
 \label{eq:periodic}
 \end{equation}
-此位能的阱底曲率仍為 \(\kappa\)。力與控制功皆依此位能計算，跨界時保持一致，座標回捲不額外產生功；準靜態參考也須由此位能的配分函數重新計算。
+此位能的阱底曲率仍為 \(\kappa\)。力與控制功皆依此位能計算，跨界時保持一致，座標回捲不額外產生功；準靜態參考由此模型的 \(Z_x=\int_0^L e^{-V/(k_{\mathrm B}T)}\,\mathrm dx\) 計算，不能直接套用式\eqref{eq:qs}。
 \captiontext{表三、相同循環設定下的兩種模型比較。}
 \noindent{\fontsize{10.5}{14}\selectfont
 \begin{tabularx}{\linewidth}{@{}*{3}{>{\centering\arraybackslash}X}@{}}

@@ -1,0 +1,61 @@
+{
+  "coreSha256": "5243daaf1f84a06b25326e84a354ce294512067c28fa19f1394519f731af98d4",
+  "htmlSha256": "2a1347b770330f60498832f54fdde4e5bc025a6abad7ec56f70bacf37dcbd3c1",
+  "counts": {
+    "points": 40,
+    "repeats": 800,
+    "cyclesIncludingControls": 5780,
+    "pairedControlRepeats": 100
+  },
+  "maxAbsoluteErrors": {
+    "aggregate": 3.552713678800501e-15,
+    "ledger": 1.3228399495593401e-13,
+    "theory": 2.156053113822054e-12,
+    "fit": 5.776629175002768e-16
+  },
+  "confidenceIntervals": {
+    "independentT19": 2.093024054408329,
+    "engineTabulatedT19": 2.093,
+    "maxRelativeDifference": 1.1492657374101434e-05,
+    "displayRoundingUnaffected": true
+  },
+  "fits": {
+    "temperature": {
+      "slope": 0.6857855322222709,
+      "intercept": -0.014593010417613827,
+      "r2": 0.9998270788777561,
+      "slopeSE": 0.004033340542413555
+    },
+    "ratio": {
+      "slope": 0.9769445526608583,
+      "intercept": 0.005238570281702962,
+      "r2": 0.999945048420774,
+      "slopeSE": 0.0036211118684761293
+    }
+  },
+  "positiveMean": 1.2770410637752323,
+  "positiveCI95": 0.01581802060737552,
+  "replay": {
+    "runs": 45,
+    "cycles": 289,
+    "steps": 2301100,
+    "maxAbsoluteDifference": 2.0872192862952943e-14,
+    "selection": "First saved repeat at every point, plus every paired control"
+  },
+  "date": "2026-10-23",
+  "formalScanReplay": "Both complete scans match saved JSON exactly, including every repeat and cycle.",
+  "physicsChecks": "audit-numerical.json: 22 checks passed against current index.html",
+  "scope": "All saved records aggregated independently; first repeat of every point replayed, plus paired controls. Both formal scans fully replayed. UI browser tests were not rerun.",
+  "methods": {
+    "aggregation": "Python statistics over retained cycles and repeat means",
+    "ci": "Independent Gauss-Legendre integration and inversion of the Student density; displayed rounding checked",
+    "regression": "NumPy least squares and covariance matrix",
+    "partitionFunction": "Analytic Gaussian erf for walls; Bessel I0 for periodic potential",
+    "dynamicsReplay": "Actual engine-core extracted from current index.html; first stored seed at every point"
+  },
+  "sources": [
+    "https://arxiv.org/abs/1205.4176",
+    "https://arxiv.org/abs/1304.3269",
+    "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.3.011007"
+  ]
+}

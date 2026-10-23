@@ -1,8 +1,8 @@
 {
   "date": "2026-10-23",
   "pages": 2,
-  "pdfBytes": 279967,
-  "pdfSha256": "7e9c6da0b23717f716ff3b7a118e309e72d3a0b7e96eaf5f362c533299dfb8ec",
+  "pdfBytes": 282931,
+  "pdfSha256": "03677b44f09ec077105e521a2a9772d000900716f99bc9ce99293f5d584ee3a4",
   "coreSha256": "5243daaf1f84a06b25326e84a354ce294512067c28fa19f1394519f731af98d4",
   "htmlSha256": "2a1347b770330f60498832f54fdde4e5bc025a6abad7ec56f70bacf37dcbd3c1",
   "newScanPoints": 26,
@@ -13,13 +13,13 @@
     "Per-repeat means verified against recorded cycles",
     "Paired translation differences verified"
   ],
-  "revision": "Concise five-section Traditional Chinese academic report; three comparison tables; date removed; increased section spacing; saved simulation data unchanged",
+  "revision": "Rubric and physics/data audit; clarified exact OU thermostat substep, generalized control force, finite-step energy residual, efficiency comparison and periodic partition function; saved simulation data unchanged",
   "latex": {
     "engine": "Tectonic 0.17.0 (XeTeX)",
     "source": "latex/main.tex",
     "generator": "generate_report.py",
     "figureEngine": "PGFPlots",
-    "embeddedFontCount": 20,
+    "embeddedFontCount": 21,
     "allFontsEmbedded": true,
     "nativeEditorPreview": "Not rerun; previous revision exposed system font access limits in app preview. Current CLI compilation succeeded.",
     "bodyFonts": [
@@ -28,13 +28,17 @@
     ]
   },
   "checks": [
-    "Two A4 pages; no abstract or title date; Chinese title, references and key numerical results extracted",
-    "Single-column body with increased section spacing checked in source and rendered pages",
-    "Both delivered pages rendered at 145 dpi and visually inspected, including formulas, all three tables, chart labels and reference placement",
-    "Both rendered pages contain only grayscale pixels and match the reviewed draft pixel for pixel",
+    "Two A4 pages; Traditional Chinese; DFKai-SB embedded; single column; no abstract or title date",
+    "Both final pages rendered at 145 dpi and visually inspected; section spacing, formulas, three tables, charts and references readable",
+    "Both rendered pages contain only grayscale pixels",
     "Formal generator completed with no missing-glyph or overfull-box diagnostics",
-    "All 20 PDF fonts are embedded, including DFKai-SB",
-    "index.html, plot CSV files and saved numerical datasets unchanged; no simulations rerun",
+    "All 21 PDF fonts embedded",
+    "PPTX slides 9-11 and provided rubric screenshot cross-checked against five report sections; four grading categories covered",
+    "All 40 saved points, 800 primary repeats and 100 paired control repeats independently reaggregated from 5780 cycle records",
+    "Independent OLS, Student quantile and analytic Gaussian/Bessel partition checks passed; printed CI rounding unchanged",
+    "First saved seed at every point and paired control replayed: 45 runs, 289 cycles; maximum difference below 2.1e-14",
+    "All 22 existing numerical checks passed against current HTML; both complete formal scans exactly reproduced saved JSON",
+    "index.html, plot CSV files and saved original datasets unchanged; browser UI tests not rerun",
     "Compiler temporary directory automatically removed after generation"
   ],
   "layout": {
@@ -52,7 +56,14 @@
   },
   "textComparison": {
     "method": "pypdf text extraction with whitespace removed",
-    "previousCharacters": 2393,
-    "currentCharacters": 2034
+    "previousCharacters": 2034,
+    "currentCharacters": 2162,
+    "note": "Added concise details required by the rubric and discrete simulation; two-page limit retained"
+  },
+  "audit": {
+    "data": "audit-data.json",
+    "numerical": "audit-numerical.json",
+    "script": "verify_report.py",
+    "date": "2026-10-23"
   }
 }

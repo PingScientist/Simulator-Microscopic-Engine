@@ -66,3 +66,10 @@ python3 reports/verify_report.py --node /path/to/node
 用碗的陡峭程度介紹曲率，以阻力與分子碰撞說明熱浴，再逐步帶入隨機運動方程與速度更新式。雙週期部分補充座標接合與力的接縫、阱底近似、兩個控制導數、跨界功記帳及自由能參考的計算。正文採中文術語，圖標與圖說改為「ㄅ、ㄆ」。依本輪批註採用先直覺、後公式的說明順序。
 
 本輪重新執行 `verify_report.py` 的資料核對，結果通過；公式補述對照目前數值核心，所有原始數據與宏保持相同。先前 2026-10-23 的完整重跑紀錄仍保留，沒有將其日期改成這次修訂。逐頁渲染檢查四頁內容、公式、字型及ㄅㄆ標記後交付。
+
+
+## 2026-10-29 英文術語修訂
+
+依後續七項批註，專有名詞改用英文，保留中文的直覺說明。統一 Langevin equation、harmonic trap／potential、confidence interval（CI）、linear fit、quasistatic reference、generalized force、Carnot efficiency、partition function 與 free energy；表三模型名稱改為 Hard-wall harmonic trap 與 Doubly periodic smooth trap。此版取代前一輪的中文術語設定，仍為四頁，ㄅ／ㄆ標記保留。
+
+本輪重新編譯並逐頁渲染，檢查英文術語、字型與表格寬度；七個顯示公式除英文文字標籤外相同，原始數據、CSV 與數值宏相同，資料稽核腳本再次通過。

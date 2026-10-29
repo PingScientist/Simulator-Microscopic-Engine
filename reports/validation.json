@@ -1,8 +1,8 @@
 {
   "date": "2026-10-29",
   "pages": 4,
-  "pdfBytes": 372562,
-  "pdfSha256": "02e82f67a7b365e1b29ba0d742d03e4cdc85e06a3b8f75b82bfeb9785c1712c8",
+  "pdfBytes": 370618,
+  "pdfSha256": "56de245dc4be9749b23021ea9f2c0f78126052eefb297be9b7d248e1cd79975f",
   "coreSha256": "5243daaf1f84a06b25326e84a354ce294512067c28fa19f1394519f731af98d4",
   "htmlSha256": "2a1347b770330f60498832f54fdde4e5bc025a6abad7ec56f70bacf37dcbd3c1",
   "newScanPoints": 26,
@@ -13,7 +13,7 @@
     "Per-repeat means verified against recorded cycles",
     "Paired translation differences verified"
   ],
-  "revision": "Reader-friendly Traditional Chinese narrative; expanded thermostat and periodic-boundary explanations; Chinese terminology; Bopomofo panel labels; maximum four pages",
+  "revision": "English technical terminology throughout Chinese narrative; seven PDF comments addressed; four-page layout and Bopomofo panels retained",
   "latex": {
     "engine": "Tectonic 0.17.0 (XeTeX)",
     "source": "latex/main.tex",
@@ -36,7 +36,8 @@
     "reports/verify_report.py passed independent aggregation, confidence interval, OLS and partition checks",
     "Original index.html, JSON/CSV datasets and generated numerical macros unchanged",
     "No dynamics replay or browser tests rerun for this prose and layout revision; prior audit retained",
-    "Compiler temporary directory automatically removed"
+    "Compiler temporary directory automatically removed",
+    "English terms verified in extracted PDF text; all seven displayed equations unchanged except translated text label; four final pages visually rechecked"
   ],
   "layout": {
     "columns": 1,
@@ -58,9 +59,9 @@
   },
   "textComparison": {
     "method": "pypdf text extraction with whitespace removed",
-    "previousCharacters": 2162,
-    "currentCharacters": 4194,
-    "note": "User removed the two-page constraint; explanatory narrative expanded to four pages"
+    "previousCharacters": 4194,
+    "currentCharacters": 4520,
+    "note": "Terminology translation only; Chinese narrative, formulas, data and four-page layout preserved"
   },
   "audit": {
     "data": "audit-data.json",

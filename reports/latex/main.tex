@@ -102,7 +102,7 @@ w=\PosMean\pm\PosCI\quad\text{(95\% confidence interval, CI)}.
 
 搬運測試還要多留意一件事：延長搬運時間，也延長了接觸熱浴的時間。因此每個搬運案例都配一組相同時序、中心固定的對照，才較能分辨額外搬運的代價。本模型也沒有回收換浴熱量的再生器；直接切換冷熱浴仍有不可逆性，不能期待只靠放慢操作就達到 Carnot efficiency。
 \newpage
-\sectiontitle{四}{把溫差與曲率比的效果畫出來}
+\sectiontitle{四}{對溫差與曲率比進行作圖}
 確認熱機能做正功後，接著問：熱浴溫差增加一倍，輸出功會不會也增加一倍？如果改的是曲率比，又會怎麼變？對固定中心、粒子離牆夠遠的 harmonic trap，當曲率改變很慢，且換浴後有充分時間回復平衡時，可以用無限域近似。
 
 等溫下，每粒子的平均共軛量為 \(\langle(x-x_0)^2/2\rangle=k_{\mathrm B}T/(2\kappa)\)。沿曲率積分，再把高溫、低溫兩段的功相加，得到每粒子的 quasistatic 輸出功
@@ -161,28 +161,36 @@ w_{\mathrm{qs}}=\frac{k_{\mathrm B}(T_{\mathrm H}-T_{\mathrm C})}{2}
 
 圖與表使用每粒子功 \(w\)。如果要看整個系統，一圈總輸出功就是 \(Nw\)；平均、誤差、斜率與截距一起乘上 \(N\)，\(R^2\) 則維持相同。
 \newpage
-\sectiontitle{五}{把兩個方向都接起來，模型還成立嗎？}
-原本的硬牆會把粒子彈回來，粒子可以到達的位置也因此受限。週期邊界則像把平面的左右兩側接成一個環：粒子從右側出去，就從左側繼續走。對自由的 \(y\) 方向，這樣處理很直接；但 \(x\) 方向還有位能阱，事情就多了一層。
-
-如果只把座標回捲，卻照用原來的 harmonic potential，接縫兩側一般會對不上。即使把中心放在正中間，兩端的位能剛好相等，拉力方向仍會突然反轉。因此，\textbf{要接起來的除了座標，還包括粒子感受到的位能與力}。
-
-本專案改用餘弦形狀的平滑週期位能。令 \(L=L_x\)、\(\theta=2\pi(x-x_0)/L\)，則
+\sectiontitle{五}{從無限積分回到實際邊界}
+簡報計算 harmonic trap 的 partition function 時，把位置 \(x\) 從 \(-\infty\) 積到 \(\infty\)。這相當於先考慮沒有硬牆、向兩側無限延伸的阱。設分布寬度 \(\sigma=\sqrt{k_{\mathrm B}T/\kappa}\)，位置部分為
 \begin{equation}
-V=\frac{\kappa L^2}{4\pi^2}(1-\cos\theta),\qquad
+Z_{x,\infty}=\int_{-\infty}^{\infty}e^{-(x-x_0)^2/(2\sigma^2)}\,\mathrm dx
+=\sqrt{2\pi}\,\sigma.
+\label{eq:infinite}
+\end{equation}
+但程式中的硬牆把位置限制在 \(0\leq x\leq L\)，牆外的狀態根本到不了。只有中心到兩側牆的距離都遠大於 \(\sigma\)，被截掉的分布尾端很小，才能把有限範圍近似成全實軸。溫度較高、阱較鬆或中心靠牆時，就需要重新檢查。這裡修正的是位置積分；兩個動量的積分仍各為 \((-\infty,\infty)\)，\(y\) 位置仍只取一個長度 \(L_y\)。
+
+\textbf{保留硬牆時，先修正積分範圍，不必改掉 harmonic potential。}有限範圍的結果可寫成
+\begin{equation}
+\begin{aligned}
+Z_{x,\mathrm{wall}}&=\int_0^L e^{-(x-x_0)^2/(2\sigma^2)}\,\mathrm dx
+=Z_{x,\infty}A,\\
+A&=\frac12\left[\operatorname{erf}\!\left(\frac{L-x_0}{\sqrt2\sigma}\right)
++\operatorname{erf}\!\left(\frac{x_0}{\sqrt2\sigma}\right)\right].
+\end{aligned}
+\label{eq:finite}
+\end{equation}
+其中 error function 為 \(\operatorname{erf}(z)=2\int_0^z e^{-u^2}\,\mathrm du/\sqrt\pi\)。\(A\) 就是無限域分布落在兩牆之間的比例；\(A\simeq1\) 時，才回到簡報的近似。硬牆會改變可用的組態數，\textbf{固定彈性牆的反射本身不額外做功}。
+
+接著用 \(f_x=-k_{\mathrm B}T\ln Z_x\) 計算同溫操作的 free energy 差；硬牆修正為 \(f_{x,\mathrm{wall}}=f_{x,\infty}-k_{\mathrm B}T\ln A\)。中心固定的循環功為 \(w_{\mathrm{qs}}=-(\Delta f_{x,\mathrm H}+\Delta f_{x,\mathrm C})\)，兩個差值各沿實際曲率方向計算。由於 \(A\) 會隨溫度、曲率和中心改變，式\eqref{eq:qs} 的簡單對數關係不再處處精確。程式已依實際位能在 \([0,L]\) 數值積分，再計算各段 free energy 差。
+
+\textbf{若要進一步拿掉硬牆、改成雙週期，還要讓位能與力首尾相接。}直接回捲原來的 harmonic potential，會在接縫遇到位能或力的不連續。因此本專案選擇平滑週期位能；令 \(L=L_x\)、\(\theta=2\pi(x-x_0)/L\)，則
+\begin{equation}
+V_{\mathrm{per}}=\frac{\kappa L^2}{4\pi^2}(1-\cos\theta),\qquad
 F_x=-\frac{\kappa L}{2\pi}\sin\theta.
 \label{eq:periodic}
 \end{equation}
-把 \(x\) 換成 \(x+L\)，位能與力都相同，粒子跨界時就不會遇到接縫。靠近阱底時，\(1-\cos\theta\simeq\theta^2/2\)，所以又回到 \(V\simeq\kappa(x-x_0)^2/2\)：\(\kappa\) 仍代表阱底的陡峭程度。
-
-做功也要跟著新位能一起改。週期模型中，曲率對應的位能導數為 \(\partial V/\partial\kappa=L^2(1-\cos\theta)/(4\pi^2)\)。中心位置對應的導數為 \(\partial V/\partial x_0=-\kappa L\sin\theta/(2\pi)\)。程式仍以固定位置的位能差計算控制功；單純把 \(x\) 換成 \(x\bmod L\) 時，位能不變，因此不額外記一筆功。\(y\) 方向沒有位能，回捲也不改變速度與動能。
-
-換了模型，理論參考也要重算。我們先算粒子在一個週期內的空間 partition function，再求每粒子的 free energy：
-\begin{equation}
-Z_x(T,\kappa)=\int_0^L e^{-V(x)/(k_{\mathrm B}T)}\,\mathrm dx,
-\qquad f_x=-k_{\mathrm B}T\ln Z_x.
-\label{eq:partition}
-\end{equation}
-同溫下，動量與 \(y\) 方向的因子在 free energy 差中相消。把高、低溫曲率段的 free energy 變化取負相加，就得到這個模型自己的 quasistatic 功。週期模型的 partition function 不依中心位置；因此中心平移的 quasistatic 淨功為零，但有限速度搬運仍可能耗功。
+跨過一個週期，位能與力相同，座標回捲不產生額外功；控制功仍由同一位能的參數改變計算。阱底附近 \(1-\cos\theta\simeq\theta^2/2\)，所以局部曲率仍是 \(\kappa\)。此時使用 \(Z_{x,\mathrm{per}}=\int_0^L e^{-V_{\mathrm{per}}/(k_{\mathrm B}T)}\,\mathrm dx\)：只積一個週期，因為首尾已代表同一位置。若把週期位能積到整條實軸，就會重複計數而發散，不能沿用式\eqref{eq:infinite}。
 \captiontext{表三、相同循環設定下的兩種模型比較。}
 \noindent{\fontsize{10.5}{14}\selectfont
 \begin{tabularx}{\linewidth}{@{}*{3}{>{\centering\arraybackslash}X}@{}}
@@ -195,9 +203,8 @@ Doubly periodic smooth trap&\(\PeriodMean\pm\PeriodCI\)&\(\PeriodQS\)\\
 \end{tabularx}\par}
 \captiontext{表三採 \(L=24\)、\(N=32\)、曲率段 100、換浴段 20，其餘同正功設定；20 次獨立重複，各暖機 2 圈後平均 5 圈。}
 
-表三顯示，雙週期模型也能輸出正功，但它的 quasistatic reference 值已由約 1.386 變成 1.448。原因是粒子遠離阱底時，看到的位能形狀不同了；\textbf{不能把兩個平均功的差異，全部解讀成「拿掉硬牆」的效果}。只有粒子大多待在阱底附近時，兩種模型才會接近相同的 harmonic approximation。
 
-因此，這個延伸的重點是建立一套首尾相接、力與功記帳一致的模型，再用它自己的平衡理論作比較。原始參數、逐圈資料與數值檢查均隨程式保存，包含週期接縫、位能導數與 partition function 的交叉檢查。
+兩種模型各用自己的 partition function，才得到表三不同的 quasistatic reference。兩者都輸出正功，但週期模型連遠離阱底的位能形狀也改變了，因此不能把功的差異全歸因於拿掉硬牆。\textbf{修正的原則是：積分範圍對應可到達且不重複的組態，理論與模擬則使用相同的位能。}
 \begin{thebibliography}{9}
 \fontsize{9.2}{12}\selectfont\raggedright
 \setlength{\itemsep}{1pt}

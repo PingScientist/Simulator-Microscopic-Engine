@@ -1,8 +1,8 @@
 {
   "date": "2026-10-29",
   "pages": 4,
-  "pdfBytes": 370618,
-  "pdfSha256": "56de245dc4be9749b23021ea9f2c0f78126052eefb297be9b7d248e1cd79975f",
+  "pdfBytes": 385000,
+  "pdfSha256": "146acb127738acde812e16eff559d482bd5b41eddec8b88de44115da294ea970",
   "coreSha256": "5243daaf1f84a06b25326e84a354ce294512067c28fa19f1394519f731af98d4",
   "htmlSha256": "2a1347b770330f60498832f54fdde4e5bc025a6abad7ec56f70bacf37dcbd3c1",
   "newScanPoints": 26,
@@ -13,13 +13,13 @@
     "Per-repeat means verified against recorded cycles",
     "Paired translation differences verified"
   ],
-  "revision": "English technical terminology throughout Chinese narrative; seven PDF comments addressed; four-page layout and Bopomofo panels retained",
+  "revision": "Clarify slide infinite-domain partition integral, validity condition, finite-wall erf correction and free-energy work reference; distinguish one-cell periodic integral; update plotting heading",
   "latex": {
     "engine": "Tectonic 0.17.0 (XeTeX)",
     "source": "latex/main.tex",
     "generator": "generate_report.py",
     "figureEngine": "PGFPlots",
-    "embeddedFontCount": 21,
+    "embeddedFontCount": 22,
     "allFontsEmbedded": true,
     "nativeEditorPreview": "Not rerun; previous revision exposed system font access limits in app preview. Current CLI compilation succeeded.",
     "bodyFonts": [
@@ -37,7 +37,9 @@
     "Original index.html, JSON/CSV datasets and generated numerical macros unchanged",
     "No dynamics replay or browser tests rerun for this prose and layout revision; prior audit retained",
     "Compiler temporary directory automatically removed",
-    "English terms verified in extracted PDF text; all seven displayed equations unchanged except translated text label; four final pages visually rechecked"
+    "Plotting heading and revised partition-domain narrative verified in final PDF; eight numbered equations",
+    "Finite-wall Z = Z_infinity A and free-energy correction independently checked against 256-point Gauss-Legendre quadrature for four configurations; see partition-domain-check.json",
+    "PPTX slide 5 infinite position/momentum ranges distinguished; current core logZ and theory confirmed to integrate actual potential on [0,L]"
   ],
   "layout": {
     "columns": 1,
@@ -49,7 +51,7 @@
     "headingBeforePt": 12,
     "headingAfterPt": 4,
     "sectionCount": 5,
-    "numberedEquationCount": 7,
+    "numberedEquationCount": 8,
     "comparisonTableCount": 3,
     "maximumPages": 4,
     "panelLabels": [
@@ -59,16 +61,17 @@
   },
   "textComparison": {
     "method": "pypdf text extraction with whitespace removed",
-    "previousCharacters": 4194,
-    "currentCharacters": 4520,
-    "note": "Terminology translation only; Chinese narrative, formulas, data and four-page layout preserved"
+    "previousCharacters": 4520,
+    "currentCharacters": 4581,
+    "note": "Replaced boundary discussion with infinite-domain approximation and finite-domain correction; retained four pages"
   },
   "audit": {
     "data": "audit-data.json",
     "numerical": "audit-numerical.json",
     "script": "verify_report.py",
     "date": "2026-10-23",
-    "currentDataCheck": "2026-10-29: verify_report.py passed without --node; prior replay and numerical audit remain dated 2026-10-23"
+    "currentDataCheck": "2026-10-29: verify_report.py passed without --node; prior replay and numerical audit remain dated 2026-10-23",
+    "partitionDomainCheck": "partition-domain-check.json"
   },
   "pdfFile": "微觀引擎-參考報告.pdf"
 }

@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "L": 24,
+      "T": 3,
+      "kappa": 1,
+      "x0": 12,
+      "A": 0.9999999999957379,
+      "Zwall": 4.341607527331101,
+      "quadratureAbsoluteError": 9.769962616701378e-15,
+      "freeEnergyCorrection": 1.2786438574635176e-11
+    },
+    {
+      "L": 8,
+      "T": 3,
+      "kappa": 0.25,
+      "x0": 1,
+      "A": 0.5919309322523802,
+      "Zwall": 5.139863582276007,
+      "quadratureAbsoluteError": 1.7763568394002505e-15,
+      "freeEnergyCorrection": 1.5730959581910908
+    },
+    {
+      "L": 8,
+      "T": 3,
+      "kappa": 1,
+      "x0": 4,
+      "A": 0.9790786646622059,
+      "Zwall": 4.250775300364833,
+      "quadratureAbsoluteError": 7.993605777301127e-15,
+      "freeEnergyCorrection": 0.0634298628729344
+    },
+    {
+      "L": 12,
+      "T": 1,
+      "kappa": 4,
+      "x0": 6,
+      "A": 1.0,
+      "Zwall": 1.2533141373155001,
+      "quadratureAbsoluteError": 2.4424906541753444e-15,
+      "freeEnergyCorrection": -0.0
+    }
+  ],
+  "method": "256-point Gauss-Legendre integration independent of Gaussian erf formula; kB=1"
+}

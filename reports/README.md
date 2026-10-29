@@ -73,3 +73,10 @@ python3 reports/verify_report.py --node /path/to/node
 依後續七項批註，專有名詞改用英文，保留中文的直覺說明。統一 Langevin equation、harmonic trap／potential、confidence interval（CI）、linear fit、quasistatic reference、generalized force、Carnot efficiency、partition function 與 free energy；表三模型名稱改為 Hard-wall harmonic trap 與 Doubly periodic smooth trap。此版取代前一輪的中文術語設定，仍為四頁，ㄅ／ㄆ標記保留。
 
 本輪重新編譯並逐頁渲染，檢查英文術語、字型與表格寬度；七個顯示公式除英文文字標籤外相同，原始數據、CSV 與數值宏相同，資料稽核腳本再次通過。
+
+
+## 2026-10-29 Partition function 積分範圍修訂
+
+第三頁標題改為「對溫差與曲率比進行作圖」。第四頁改從簡報第 5 張的位置積分談起：說明無限域 Gaussian 近似需兩側距牆遠大於分布寬度，分清位置與動量的積分範圍。保留硬牆時，使用有限範圍的 Z 與 error function 截斷因子 A，再以 free energy 修正循環功；固定彈性牆本身不額外做功。雙週期則使用週期位能並只積一個週期，避免把同一組態重複計數。既有核心原已在 [0,L] 對實際位能積分，本輪修正文稿與推導，不改動動力學或原始掃描資料。
+
+`partition-domain-check.json` 保存新增公式的四組交叉檢查（kB=1）：以 256 點 Gauss–Legendre 積分核對 Z_infinity A，以及 -T ln A 的 free energy 修正。原有 `verify_report.py` 也再次通過。error function 定義核對 [NIST DLMF 7.2.1](https://dlmf.nist.gov/7.2.E1)。四頁最終渲染、字型與原有功／誤差／擬合數字均已檢查。

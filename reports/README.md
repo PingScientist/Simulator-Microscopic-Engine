@@ -80,3 +80,8 @@ python3 reports/verify_report.py --node /path/to/node
 第三頁標題改為「對溫差與曲率比進行作圖」。第四頁改從簡報第 5 張的位置積分談起：說明無限域 Gaussian 近似需兩側距牆遠大於分布寬度，分清位置與動量的積分範圍。保留硬牆時，使用有限範圍的 Z 與 error function 截斷因子 A，再以 free energy 修正循環功；固定彈性牆本身不額外做功。雙週期則使用週期位能並只積一個週期，避免把同一組態重複計數。既有核心原已在 [0,L] 對實際位能積分，本輪修正文稿與推導，不改動動力學或原始掃描資料。
 
 `partition-domain-check.json` 保存新增公式的四組交叉檢查（kB=1）：以 256 點 Gauss–Legendre 積分核對 Z_infinity A，以及 -T ln A 的 free energy 修正。原有 `verify_report.py` 也再次通過。error function 定義核對 [NIST DLMF 7.2.1](https://dlmf.nist.gov/7.2.E1)。四頁最終渲染、字型與原有功／誤差／擬合數字均已檢查。
+
+
+## 2026-10-29 章節留白與圖表標籤
+
+第二、三節之間的標題前留白由 12 pt 增加至 22 pt；PDF 中實際間距增加 10 pt。圖說及正文引用統一為 FIGURE I，三張表依序為 TABLE I、TABLE II、TABLE III。已重新編譯並檢查四頁渲染；八個顯示公式與原數據維持相同。

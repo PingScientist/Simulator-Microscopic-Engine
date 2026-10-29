@@ -1,8 +1,8 @@
 {
   "date": "2026-10-29",
   "pages": 4,
-  "pdfBytes": 385000,
-  "pdfSha256": "146acb127738acde812e16eff559d482bd5b41eddec8b88de44115da294ea970",
+  "pdfBytes": 387063,
+  "pdfSha256": "d3ba865a66d4a0a854d489df90c527ff66c431daab0ace73486a4c86fddc4f1c",
   "coreSha256": "5243daaf1f84a06b25326e84a354ce294512067c28fa19f1394519f731af98d4",
   "htmlSha256": "2a1347b770330f60498832f54fdde4e5bc025a6abad7ec56f70bacf37dcbd3c1",
   "newScanPoints": 26,
@@ -13,7 +13,7 @@
     "Per-repeat means verified against recorded cycles",
     "Paired translation differences verified"
   ],
-  "revision": "Clarify slide infinite-domain partition integral, validity condition, finite-wall erf correction and free-energy work reference; distinguish one-cell periodic integral; update plotting heading",
+  "revision": "Increase separation before section III and use FIGURE I and TABLE I/II/III in captions and narrative references",
   "latex": {
     "engine": "Tectonic 0.17.0 (XeTeX)",
     "source": "latex/main.tex",
@@ -39,7 +39,8 @@
     "Compiler temporary directory automatically removed",
     "Plotting heading and revised partition-domain narrative verified in final PDF; eight numbered equations",
     "Finite-wall Z = Z_infinity A and free-energy correction independently checked against 256-point Gauss-Legendre quadrature for four configurations; see partition-domain-check.json",
-    "PPTX slide 5 infinite position/momentum ranges distinguished; current core logZ and theory confirmed to integrate actual potential on [0,L]"
+    "PPTX slide 5 infinite position/momentum ranges distinguished; current core logZ and theory confirmed to integrate actual potential on [0,L]",
+    "Four final pages visually inspected; section II/III gap increased by 10 pt; FIGURE I and TABLE I/II/III extracted; eight equation bodies unchanged"
   ],
   "layout": {
     "columns": 1,
@@ -57,13 +58,22 @@
     "panelLabels": [
       "ㄅ",
       "ㄆ"
+    ],
+    "sectionThreeBeforePt": 22,
+    "figureLabels": [
+      "FIGURE I"
+    ],
+    "tableLabels": [
+      "TABLE I",
+      "TABLE II",
+      "TABLE III"
     ]
   },
   "textComparison": {
     "method": "pypdf text extraction with whitespace removed",
-    "previousCharacters": 4520,
-    "currentCharacters": 4581,
-    "note": "Replaced boundary discussion with infinite-domain approximation and finite-domain correction; retained four pages"
+    "previousCharacters": 4581,
+    "currentCharacters": 4626,
+    "note": "Formatting and caption/reference labels only"
   },
   "audit": {
     "data": "audit-data.json",

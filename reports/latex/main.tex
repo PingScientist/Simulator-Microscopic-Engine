@@ -83,9 +83,10 @@ w=\PosMean\pm\PosCI\quad\text{(95\% confidence interval, CI)}.
 \label{eq:positive}
 \end{equation}
 \textbf{區間整段大於零，支持這組設定能輸出平均正功。}單圈仍有波動，所以判斷依據是多次運轉的平均，而不是挑出某一圈的好結果。
+\par\addvspace{22pt}
 \sectiontitle{三}{操作放慢，粒子就跟得上嗎？}
-所謂接近 quasistatic，是讓每次改變都慢到粒子有時間重新分布。表一整理三種測試：放慢曲率操作、改變阱的陡峭程度，以及放慢搬運。這裡的「慢」，都要和系統回復平衡的時間比較。
-\captiontext{表一、參數改變對循環輸出功的影響。}
+所謂接近 quasistatic，是讓每次改變都慢到粒子有時間重新分布。TABLE I 整理三種測試：放慢曲率操作、改變阱的陡峭程度，以及放慢搬運。這裡的「慢」，都要和系統回復平衡的時間比較。
+\captiontext{TABLE I. 參數改變對循環輸出功的影響。}
 \noindent{\fontsize{10.5}{14}\selectfont
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.23\linewidth}>{\raggedright\arraybackslash}p{.40\linewidth}>{\raggedright\arraybackslash}X@{}}
 \toprule
@@ -96,7 +97,7 @@ w=\PosMean\pm\PosCI\quad\text{(95\% confidence interval, CI)}.
 平均搬運速率\newline \(1.33\to0.10\)&\MoveFrom{} 至 \MoveTo&相對同時序固定阱，功損失由 \(16.005\) 降至 \(0.994\)。\\
 \bottomrule
 \end{tabularx}\par}
-\captiontext{表一皆取 \(N=32\)、20 次獨立重複，各暖機 2 圈後記錄 5 圈，其餘同正功設定。曲率尺度比較固定曲率段 30；搬運固定距離 \(D=4\)、曲率段 30，換浴兼搬運段由 3 增至 40。誤差由每次重複的圈平均計算，不把同一軌跡每圈當成獨立樣本。}
+\captiontext{TABLE I 皆取 \(N=32\)、20 次獨立重複，各暖機 2 圈後記錄 5 圈，其餘同正功設定。曲率尺度比較固定曲率段 30；搬運固定距離 \(D=4\)、曲率段 30，換浴兼搬運段由 3 增至 40。誤差由每次重複的圈平均計算，不把同一軌跡每圈當成獨立樣本。}
 
 曲率段由 4 放慢至 100，輸出功更接近 quasistatic reference；效率 \(\eta=\langle W_{\mathrm{out}}\rangle/\langle Q_{\mathrm H}\rangle\) 的點估計也由 \(\RateEtaFrom\) 增至 \(\RateEtaTo\)。\(Q_{\mathrm H}\) 是兩個高溫段的淨吸熱。每圈耗時同時增加，因此每圈功較大，不保證平均功率較高。
 
@@ -111,7 +112,7 @@ w_{\mathrm{qs}}=\frac{k_{\mathrm B}(T_{\mathrm H}-T_{\mathrm C})}{2}
 \ln\!\left(\frac{\kappa_{\max}}{\kappa_{\min}}\right).
 \label{eq:qs}
 \end{equation}
-這個式子給出兩個可以直接測試的預期：\textbf{固定曲率比時，功對溫差近似線性；固定溫差時，功對曲率比的對數近似線性。}圖一的點都來自實際運轉，每個點先在各次重複內平均，再用 20 個重複均值估計誤差。
+這個式子給出兩個可以直接測試的預期：\textbf{固定曲率比時，功對溫差近似線性；固定溫差時，功對曲率比的對數近似線性。}FIGURE I 的點都來自實際運轉，每個點先在各次重複內平均，再用 20 個重複均值估計誤差。
 \pgfplotsset{report/.style={width=\linewidth,height=5.0cm,
  axis line style={black,thin},tick style={black,thin},
  tick label style={font=\fontsize{9}{11}\selectfont},
@@ -142,9 +143,9 @@ w_{\mathrm{qs}}=\frac{k_{\mathrm B}(T_{\mathrm H}-T_{\mathrm C})}{2}
 \end{axis}
 \end{tikzpicture}
 \end{minipage}
-\captiontext{圖一、黑點與誤差棒為模擬平均及 \(95\%\) CI；黑虛線為含截距的 linear fit，灰實線為模型的 quasistatic reference。}
+\captiontext{FIGURE I. 黑點與誤差棒為模擬平均及 \(95\%\) CI；黑虛線為含截距的 linear fit，灰實線為模型的 quasistatic reference。}
 \captiontext{條件：硬牆、\(N=32\)、\(T_{\mathrm C}=1\)、\(\kappa_{\min}=1\)，其餘共用參數同前；曲率段 100、換浴段 20。每點 20 次獨立重複，各暖機 2 圈後平均 3 圈。ㄅ圖掃描 \(\Delta T=0\sim4\)；ㄆ圖固定 \(T_{\mathrm H}=3\)，掃描曲率比 \(r=1\sim6\)。}
-\captiontext{表二、以 \(w=ax+b\) 擬合的結果；斜率後的誤差為 standard error（SE）。}
+\captiontext{TABLE II. 以 \(w=ax+b\) 擬合的結果；斜率後的誤差為 standard error（SE）。}
 \noindent{\fontsize{10.5}{14}\selectfont
 \begin{tabularx}{\linewidth}{@{}*{5}{>{\centering\arraybackslash}X}@{}}
 \toprule
@@ -191,7 +192,7 @@ F_x=-\frac{\kappa L}{2\pi}\sin\theta.
 \label{eq:periodic}
 \end{equation}
 跨過一個週期，位能與力相同，座標回捲不產生額外功；控制功仍由同一位能的參數改變計算。阱底附近 \(1-\cos\theta\simeq\theta^2/2\)，所以局部曲率仍是 \(\kappa\)。此時使用 \(Z_{x,\mathrm{per}}=\int_0^L e^{-V_{\mathrm{per}}/(k_{\mathrm B}T)}\,\mathrm dx\)：只積一個週期，因為首尾已代表同一位置。若把週期位能積到整條實軸，就會重複計數而發散，不能沿用式\eqref{eq:infinite}。
-\captiontext{表三、相同循環設定下的兩種模型比較。}
+\captiontext{TABLE III. 相同循環設定下的兩種模型比較。}
 \noindent{\fontsize{10.5}{14}\selectfont
 \begin{tabularx}{\linewidth}{@{}*{3}{>{\centering\arraybackslash}X}@{}}
 \toprule
@@ -201,10 +202,10 @@ Hard-wall harmonic trap&\(\WallMean\pm\WallCI\)&\(\WallQS\)\\
 Doubly periodic smooth trap&\(\PeriodMean\pm\PeriodCI\)&\(\PeriodQS\)\\
 \bottomrule
 \end{tabularx}\par}
-\captiontext{表三採 \(L=24\)、\(N=32\)、曲率段 100、換浴段 20，其餘同正功設定；20 次獨立重複，各暖機 2 圈後平均 5 圈。}
+\captiontext{TABLE III 採 \(L=24\)、\(N=32\)、曲率段 100、換浴段 20，其餘同正功設定；20 次獨立重複，各暖機 2 圈後平均 5 圈。}
 
 
-兩種模型各用自己的 partition function，才得到表三不同的 quasistatic reference。兩者都輸出正功，但週期模型連遠離阱底的位能形狀也改變了，因此不能把功的差異全歸因於拿掉硬牆。\textbf{修正的原則是：積分範圍對應可到達且不重複的組態，理論與模擬則使用相同的位能。}
+兩種模型各用自己的 partition function，才得到TABLE III 不同的 quasistatic reference。兩者都輸出正功，但週期模型連遠離阱底的位能形狀也改變了，因此不能把功的差異全歸因於拿掉硬牆。\textbf{修正的原則是：積分範圍對應可到達且不重複的組態，理論與模擬則使用相同的位能。}
 \begin{thebibliography}{9}
 \fontsize{9.2}{12}\selectfont\raggedright
 \setlength{\itemsep}{1pt}

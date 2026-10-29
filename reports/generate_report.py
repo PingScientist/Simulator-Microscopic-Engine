@@ -1,4 +1,4 @@
-"""Typeset the two-page reference with LaTeX, using saved simulation data only."""
+"""Typeset the reference report (at most four pages) with LaTeX, using saved simulation data only."""
 from pathlib import Path
 import argparse
 import csv
@@ -12,7 +12,7 @@ import tempfile
 REPO = Path(__file__).resolve().parents[1]
 REPORTS = REPO / 'reports'
 LATEX = REPORTS / 'latex'
-OUTPUT = REPORTS / '微觀引擎-兩頁參考報告.pdf'
+OUTPUT = REPORTS / '微觀引擎-參考報告.pdf'
 
 
 def prepare_data():
@@ -88,8 +88,8 @@ def build_pdf(compiler=None):
                         str(LATEX / 'main.tex')], cwd=LATEX, check=True)
         pdf = Path(build) / 'main.pdf'
         reader = PdfReader(pdf)
-        if len(reader.pages) != 2:
-            raise ValueError(f'Expected 2 pages, got {len(reader.pages)}')
+        if not 1 <= len(reader.pages) <= 4:
+            raise ValueError(f'Expected 1 to 4 pages, got {len(reader.pages)}')
         if any(abs(float(p.mediabox.width) - 595.276) > 1 or
                abs(float(p.mediabox.height) - 841.89) > 1 for p in reader.pages):
             raise ValueError('Expected A4 pages')
@@ -97,7 +97,7 @@ def build_pdf(compiler=None):
         if re.search(r'Missing character:|Overfull \\[hv]box', log):
             raise ValueError('LaTeX reported missing glyphs or overflowing content')
         shutil.copyfile(pdf, OUTPUT)
-    print(f'{OUTPUT}\n2 pages; SHA-256 {hashlib.sha256(OUTPUT.read_bytes()).hexdigest()}')
+    print(f'{OUTPUT}\n{len(reader.pages)} pages; SHA-256 {hashlib.sha256(OUTPUT.read_bytes()).hexdigest()}')
 
 
 def main():

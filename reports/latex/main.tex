@@ -36,35 +36,55 @@
 \vspace{5pt}
 熱統計物理一
 \end{center}
-\sectiontitle{一}{模型與控溫方式}
-系統由 \(N\) 個二維、互不作用的粒子組成。粒子受諧和位能 \(V=\frac12\kappa(x-x_0)^2\) 束縛；\(x\) 方向為彈性硬牆，\(y\) 方向為週期邊界。控溫採欠阻尼朗之萬方程\cite{seifert}：
+\sectiontitle{一}{先讓粒子和熱浴交換能量}
+這個專題想問的是：如果我們能控制一個困住粒子的位能阱，能不能靠反覆放鬆、收緊，把冷熱浴的能量轉成對外做功？先把位能阱想成一個碗：粒子偏離碗底時，會受到拉回中心的力。曲率 \(\kappa\) 越大，碗越陡；中心 \(x_0\) 則決定碗底的位置。
+
+模擬中有 \(N\) 個在平面上運動、彼此不作用的粒子。最初使用諧和位能 \(V=\kappa(x-x_0)^2/2\)：\(x\) 方向有兩面固定的彈性硬牆，\(y\) 方向則首尾相接，粒子從上方離開就由下方進入。牆只讓速度反向，不改變粒子的動能。
+
+接下來要處理溫度。我們把粒子想成浸在液體裡：它往前走時受到阻力，也不斷被周圍的分子從不同方向碰撞。這兩件事一起作用，才形成這裡的控溫方式。用含慣性的\textbf{隨機運動方程（朗之萬方程）}\cite{seifert}寫成
 \begin{equation}
 \mathrm d\mathbf r=\mathbf v\,\mathrm dt,\qquad
 m\,\mathrm d\mathbf v=(-\nabla V-\gamma\mathbf v)\,\mathrm dt
 +\sqrt{2\gamma k_{\mathrm B}T_{\mathrm b}}\,\mathrm d\mathbf B.
 \label{eq:langevin}
 \end{equation}
-摩擦與隨機力共同控溫。BAOAB\cite{baoab} 的熱浴子步為 \(\mathbf v^+=c\mathbf v^-+\sqrt{k_{\mathrm B}T_{\mathrm b}(1-c^2)/m}\,\boldsymbol\xi\)，\(c=e^{-\gamma\Delta t/m}\)。各粒子、方向及步的 \(\boldsymbol\xi\) 分量皆為獨立標準高斯數；小步長噪聲尺度為 \(\sqrt{\Delta t}\)。
+式中三個作用可以分開看：\(-\nabla V\) 把粒子拉回碗底；\(-\gamma\mathbf v\) 讓運動逐漸減慢；最後一項則代表熱浴的隨機碰撞。熱浴越熱，隨機碰撞帶來的擾動越大。只有阻力時，粒子最後會停下；加入強度與阻力相配的擾動後，固定參數下才能維持熱平衡。
 
-\textbf{熱浴溫度與粒子估溫不同：}\(T_{\mathrm b}\) 是設定值；由二維動能估得的 \(T_K=K/(Nk_{\mathrm B})\) 會波動，非平衡時還可能包含整體漂移。
-\captiontext{共用約化單位與設定：\(m=k_{\mathrm B}=\gamma=1\)、\(\Delta t=0.02\)、\(L_x/L_y=24/12\)。以下以 \(w=W_{\mathrm{out}}/N\) 表示每粒子、每循環的輸出功；除另註外，中心固定於 \(x_0=L_x/2\)。}
-\sectiontitle{二}{循環操作與正功結果}
-循環依序為：固定 \(\kappa_{\max}\) 換至熱浴 \(\to\) 高溫降低曲率 \(\to\) 固定 \(\kappa_{\min}\) 換至冷浴 \(\to\) 低溫提高曲率。控制量為 \(\lambda=\kappa,x_0\)，廣義力為 \(-\partial V/\partial\lambda\)。控制輸入功為
+程式每一步依序做「受力、移動、接觸熱浴、再移動、再受力」\cite{baoab}，其中受力與移動各分成兩個半步。在熱浴這一段，速度更新為
+\begin{equation}
+\mathbf v^+=c\mathbf v^-+
+\sqrt{\frac{k_{\mathrm B}T_{\mathrm b}}m(1-c^2)}\,\boldsymbol\xi,
+\qquad c=e^{-\gamma\Delta t/m}.
+\label{eq:bath}
+\end{equation}
+第一項保留一部分原本的速度，第二項加入一次隨機碰撞。\(\boldsymbol\xi\) 的各分量是平均為零、變異數為一的常態亂數，各粒子、方向與時間步分別取樣。當步長很小時，隨機速度增量的尺度正比於 \(\sqrt{\Delta t}\)。
+
+所以，切換熱浴時，我們改的是「接下來碰撞的強度」，粒子的速度仍從原來的狀態繼續演化。剛把冷浴換成熱浴，粒子需要一段時間吸收能量；換回冷浴時，也需要時間散熱。這段等待，正是後面討論準靜態條件的起點。
+
+\textbf{熱浴的設定溫度，和粒子當下量到的溫度要分開。}熱浴溫度記為 \(T_{\mathrm b}\)；二維粒子的動能估溫為 \(T_K=K/(Nk_{\mathrm B})\)。粒子數有限時，\(T_K\) 本來就會波動；如果整團粒子正在漂移，動能還包含整體運動，因此非平衡時不能只靠這個數字判定已經熱平衡。
+\captiontext{共用約化單位與設定：\(m=k_{\mathrm B}=\gamma=1\)、\(\Delta t=0.02\)、\(L_x/L_y=24/12\)。以下以 \(w=W_{\mathrm{out}}/N\) 表示每粒子、每循環的輸出功；除另註外，阱中心固定於 \(x_0=L_x/2\)。}
+\newpage
+\sectiontitle{二}{怎麼讓一個循環留下正功？}
+粒子在高溫時通常分布得比較開。這時把碗放鬆，粒子能對控制裝置輸出功；低溫時分布較集中，再把碗收緊，需要付出的功比較少。我們希望兩段相減後，還能留下正的淨輸出。
+
+循環分成四段：固定最大曲率接觸熱浴，接著在高溫降低曲率；固定最小曲率接觸冷浴，再於低溫提高曲率。中心固定時，只有中間兩段改變位能形狀。如果另外搬動中心，搬運所付出的功也要一起算。
+
+控制量為 \(\lambda\in\{\kappa,x_0\}\)。依「輸入功為廣義力乘上控制量變化的負值」的記法，單粒子的廣義力為 \(-\partial V/\partial\lambda\)，因此
 \begin{equation}
 \mathrm dW_{\mathrm{in}}=\sum_{i=1}^{N}\left[\frac{(x_i-x_0)^2}{2}\,\mathrm d\kappa-\kappa(x_i-x_0)\,\mathrm dx_0\right],
-\qquad W_{\mathrm{out}}=-W_{\mathrm{in}}.
+\quad W_{\mathrm{out}}=-W_{\mathrm{in}}.
 \label{eq:work}
 \end{equation}
-功由固定位置的位能差累積，熱由熱浴子步的動能差累積。有限步長下 \(\Delta E=Q_{\mathrm{in}}-W_{\mathrm{out}}+R_{\mathrm{num}}\)，\(R_{\mathrm{num}}\) 另記為數值誤差。
+第一項是放鬆、收緊的功，第二項是搬運的功。程式在粒子位置固定時，用控制參數改變造成的位能差累積功；接觸熱浴造成的動能差則累積為熱。有限步長下，帳本滿足 \(\Delta E=Q_{\mathrm{in}}-W_{\mathrm{out}}+R_{\mathrm{num}}\)，其中 \(R_{\mathrm{num}}\) 另記為數值誤差。
 
-取 \(N=64\)、\(T_{\mathrm H}=3\)、\(T_{\mathrm C}=1\)、\(\kappa_{\min}=1\)、\(\kappa_{\max}=4\)，曲率段與換浴段時間分別為 30、10。20 次獨立重複各暖機 2 圈，再平均 5 圈，得到
+取 \(N=64\)、\(T_{\mathrm H}=3\)、\(T_{\mathrm C}=1\)、\(\kappa_{\min}=1\)、\(\kappa_{\max}=4\)，曲率段與換浴段時間分別為 30、10。做 20 次獨立重複，每次先捨棄前 2 圈，再平均後 5 圈，得到
 \begin{equation}
- w=\PosMean\pm\PosCI\quad\text{（95\% 信賴區間）}.
+w=\PosMean\pm\PosCI\quad\text{（95\% 信賴區間）}.
 \label{eq:positive}
 \end{equation}
-\textbf{信賴區間整段大於零，支持系統能輸出平均正功。}
-\sectiontitle{三}{準靜態條件的比較}
-準靜態要求操作慢於粒子分布回復平衡的時間。表一比較操作時間、曲率尺度及搬運速率；數值均來自實際模擬，\(\pm\) 表示 \(95\%\) 信賴區間。
+\textbf{區間整段大於零，支持這組設定能輸出平均正功。}單圈仍有波動，所以判斷依據是多次運轉的平均，而不是挑出某一圈的好結果。
+\sectiontitle{三}{操作放慢，粒子就跟得上嗎？}
+所謂接近準靜態，是讓每次改變都慢到粒子有時間重新分布。表一整理三種測試：放慢曲率操作、改變阱的陡峭程度，以及放慢搬運。這裡的「慢」，都要和系統回復平衡的時間比較。
 \captiontext{表一、參數改變對循環輸出功的影響。}
 \noindent{\fontsize{10.5}{14}\selectfont
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.23\linewidth}>{\raggedright\arraybackslash}p{.40\linewidth}>{\raggedright\arraybackslash}X@{}}
@@ -77,16 +97,21 @@ m\,\mathrm d\mathbf v=(-\nabla V-\gamma\mathbf v)\,\mathrm dt
 \bottomrule
 \end{tabularx}\par}
 \captiontext{表一皆取 \(N=32\)、20 次獨立重複，各暖機 2 圈後記錄 5 圈，其餘同正功設定。曲率尺度比較固定曲率段 30；搬運固定距離 \(D=4\)、曲率段 30，換浴兼搬運段由 3 增至 40。誤差由每次重複的圈平均計算，不把同一軌跡每圈當成獨立樣本。}
-曲率段由 4 放慢至 100 時，效率點估計 \(\eta=\langle W_{\mathrm{out}}\rangle/\langle Q_{\mathrm H}\rangle\) 由 \(\RateEtaFrom\) 增至 \(\RateEtaTo\)；\(Q_{\mathrm H}\) 是兩個高溫段的淨吸熱。本模型無再生器，直接換浴仍不可逆，\textbf{慢速不等同 Carnot 效率}。
+
+曲率段由 4 放慢至 100，輸出功更接近準靜態參考；效率 \(\eta=\langle W_{\mathrm{out}}\rangle/\langle Q_{\mathrm H}\rangle\) 的點估計也由 \(\RateEtaFrom\) 增至 \(\RateEtaTo\)。\(Q_{\mathrm H}\) 是兩個高溫段的淨吸熱。每圈耗時同時增加，因此每圈功較大，不保證平均功率較高。
+
+搬運測試還要多留意一件事：延長搬運時間，也延長了接觸熱浴的時間。因此每個搬運案例都配一組相同時序、中心固定的對照，才較能分辨額外搬運的代價。本模型也沒有回收換浴熱量的再生器；直接切換冷熱浴仍有不可逆性，不能期待只靠放慢操作就達到卡諾效率。
 \newpage
-\sectiontitle{四}{輸出功的線性關係}
-對無限域諧和阱，固定中心、曲率操作足夠慢且換浴後充分鬆弛時，
+\sectiontitle{四}{把溫差與曲率比的效果畫出來}
+確認熱機能做正功後，接著問：熱浴溫差增加一倍，輸出功會不會也增加一倍？如果改的是曲率比，又會怎麼變？對固定中心、粒子離牆夠遠的諧和阱，當曲率改變很慢，且換浴後有充分時間回復平衡時，可以用無限域近似。
+
+等溫下，每粒子的平均共軛量為 \(\langle(x-x_0)^2/2\rangle=k_{\mathrm B}T/(2\kappa)\)。沿曲率積分，再把高溫、低溫兩段的功相加，得到每粒子的準靜態輸出功
 \begin{equation}
- w_{\mathrm{qs}}=\frac{k_{\mathrm B}(T_{\mathrm H}-T_{\mathrm C})}{2}
- \ln\!\left(\frac{\kappa_{\max}}{\kappa_{\min}}\right).
+w_{\mathrm{qs}}=\frac{k_{\mathrm B}(T_{\mathrm H}-T_{\mathrm C})}{2}
+\ln\!\left(\frac{\kappa_{\max}}{\kappa_{\min}}\right).
 \label{eq:qs}
 \end{equation}
-因此，\textbf{固定曲率比時，\(w\) 對溫差近似線性；固定溫差時，\(w\) 對曲率比的對數近似線性。}
+這個式子給出兩個可以直接測試的預期：\textbf{固定曲率比時，功對溫差近似線性；固定溫差時，功對曲率比的對數近似線性。}圖一的點都來自實際運轉，每個點先在各次重複內平均，再用 20 個重複均值估計誤差。
 \pgfplotsset{report/.style={width=\linewidth,height=5.0cm,
  axis line style={black,thin},tick style={black,thin},
  tick label style={font=\fontsize{9}{11}\selectfont},
@@ -96,7 +121,7 @@ m\,\mathrm d\mathbf v=(-\nabla V-\gamma\mathbf v)\,\mathrm dt
 \par\noindent\begin{minipage}{.48\linewidth}
 \centering
 \begin{tikzpicture}
-\begin{axis}[report,title={(甲)\quad 固定曲率比 \(r=4\)},xmin=-.1,xmax=4.1,ymin=-.12,ymax=3,
+\begin{axis}[report,title={(ㄅ)\quad 固定曲率比 \(r=4\)},xmin=-.1,xmax=4.1,ymin=-.12,ymax=3,
  xtick={0,1,2,3,4},ytick={0,1,2,3},xlabel={\(\Delta T=T_{\mathrm H}-T_{\mathrm C}\)}]
 \addplot[black!45,solid,thick] table[x=x,y=theory,col sep=comma]{data/temperature.csv};
 \addplot[black,dashed,domain=0:4,samples=2]{\TempSlope*x+\TempIntercept};
@@ -108,7 +133,7 @@ m\,\mathrm d\mathbf v=(-\nabla V-\gamma\mathbf v)\,\mathrm dt
 \begin{minipage}{.48\linewidth}
 \centering
 \begin{tikzpicture}
-\begin{axis}[report,title={(乙)\quad 固定溫差 \(\Delta T=2\)},xmin=-.05,xmax=1.85,ymin=-.12,ymax=2,
+\begin{axis}[report,title={(ㄆ)\quad 固定溫差 \(\Delta T=2\)},xmin=-.05,xmax=1.85,ymin=-.12,ymax=2,
  xtick={0,.5,1,1.5},ytick={0,.5,1,1.5,2},xlabel={\(\ln r=\ln(\kappa_{\max}/\kappa_{\min})\)}]
 \addplot[black!45,solid,thick] table[x=x,y=theory,col sep=comma]{data/ratio.csv};
 \addplot[black,dashed,domain=0:1.791759469,samples=2]{\RatioSlope*x+\RatioIntercept};
@@ -118,8 +143,8 @@ m\,\mathrm d\mathbf v=(-\nabla V-\gamma\mathbf v)\,\mathrm dt
 \end{tikzpicture}
 \end{minipage}
 \captiontext{圖一、黑點與誤差棒為模擬平均及 \(95\%\) 信賴區間；黑虛線為含截距的線性擬合，灰實線為模型的準靜態參考。}
-\captiontext{條件：硬牆、\(N=32\)、\(T_{\mathrm C}=1\)、\(\kappa_{\min}=1\)，其餘共用參數同前；曲率段 100、換浴段 20。每點 20 次獨立重複，各暖機 2 圈後平均 3 圈。甲圖掃描 \(\Delta T=0\sim4\)；乙圖固定 \(T_{\mathrm H}=3\)，掃描曲率比 \(r=1\sim6\)。}
-\captiontext{表二、以 \(w=ax+b\) 擬合的結果；SE 為斜率標準誤。}
+\captiontext{條件：硬牆、\(N=32\)、\(T_{\mathrm C}=1\)、\(\kappa_{\min}=1\)，其餘共用參數同前；曲率段 100、換浴段 20。每點 20 次獨立重複，各暖機 2 圈後平均 3 圈。ㄅ圖掃描 \(\Delta T=0\sim4\)；ㄆ圖固定 \(T_{\mathrm H}=3\)，掃描曲率比 \(r=1\sim6\)。}
+\captiontext{表二、以 \(w=ax+b\) 擬合的結果；斜率後的誤差為標準誤（表中以 SE 表示）。}
 \noindent{\fontsize{10.5}{14}\selectfont
 \begin{tabularx}{\linewidth}{@{}*{5}{>{\centering\arraybackslash}X}@{}}
 \toprule
@@ -129,15 +154,35 @@ m\,\mathrm d\mathbf v=(-\nabla V-\gamma\mathbf v)\,\mathrm dt
 \(\ln r\)&\(\RatioSlopeShort\pm\RatioSE\)&\(1\)&\(\RatioB\)&\(\RatioR\)\\
 \bottomrule
 \end{tabularx}\par}
-兩組資料都支持近似線性。斜率與理想值的差異仍須考慮有限速率與統計誤差，\textbf{不能僅憑 \(R^2\) 高就判定已達準靜態}。系統總功為 \(Nw\)，相應的斜率與截距亦乘上 \(N\)。
-\sectiontitle{五}{雙週期邊界的處理}
-直接把諧和阱兩端接起來會產生接縫。因此雙週期模式改用平滑週期位能；令 \(\theta=2\pi(x-x_0)/L\)，則
+
+兩組資料都呈現明顯的線性趨勢。固定曲率比 \(r=4\) 時，理想斜率為 \(\ln4/2\simeq0.6931\)，擬合得到 \(\TempSlopeShort\)；固定溫差為 2 時，理想斜率為 1，擬合得到 \(\RatioSlopeShort\)。這支持式\eqref{eq:qs} 預期的關係，但斜率仍和理想值有差距，需要一起考慮有限操作時間與統計誤差。
+
+表中的 \(R^2\) 描述資料有多接近一條直線，\textbf{它很高，不代表粒子在每一刻都達到平衡}。若要再確認準靜態程度，仍要回到前一節，延長操作時間並檢查結果是否收斂。
+
+圖與表使用每粒子功 \(w\)。如果要看整個系統，一圈總輸出功就是 \(Nw\)；平均、誤差、斜率與截距一起乘上 \(N\)，\(R^2\) 則維持相同。
+\newpage
+\sectiontitle{五}{把兩個方向都接起來，模型還成立嗎？}
+原本的硬牆會把粒子彈回來，粒子可以到達的位置也因此受限。週期邊界則像把平面的左右兩側接成一個環：粒子從右側出去，就從左側繼續走。對自由的 \(y\) 方向，這樣處理很直接；但 \(x\) 方向還有位能阱，事情就多了一層。
+
+如果只把座標回捲，卻照用原來的諧和位能，接縫兩側一般會對不上。即使把中心放在正中間，兩端的位能剛好相等，拉力方向仍會突然反轉。因此，\textbf{要接起來的除了座標，還包括粒子感受到的位能與力}。
+
+本專案改用餘弦形狀的平滑週期位能。令 \(L=L_x\)、\(\theta=2\pi(x-x_0)/L\)，則
 \begin{equation}
- V=\frac{\kappa L^2}{4\pi^2}(1-\cos\theta),\qquad
- F_x=-\frac{\kappa L}{2\pi}\sin\theta.
+V=\frac{\kappa L^2}{4\pi^2}(1-\cos\theta),\qquad
+F_x=-\frac{\kappa L}{2\pi}\sin\theta.
 \label{eq:periodic}
 \end{equation}
-此位能的阱底曲率仍為 \(\kappa\)。力與控制功皆依此位能計算，跨界時保持一致，座標回捲不額外產生功；準靜態參考由此模型的 \(Z_x=\int_0^L e^{-V/(k_{\mathrm B}T)}\,\mathrm dx\) 計算，不能直接套用式\eqref{eq:qs}。
+把 \(x\) 換成 \(x+L\)，位能與力都相同，粒子跨界時就不會遇到接縫。靠近阱底時，\(1-\cos\theta\simeq\theta^2/2\)，所以又回到 \(V\simeq\kappa(x-x_0)^2/2\)：\(\kappa\) 仍代表阱底的陡峭程度。
+
+做功也要跟著新位能一起改。週期模型中，曲率對應的位能導數為 \(\partial V/\partial\kappa=L^2(1-\cos\theta)/(4\pi^2)\)。中心位置對應的導數為 \(\partial V/\partial x_0=-\kappa L\sin\theta/(2\pi)\)。程式仍以固定位置的位能差計算控制功；單純把 \(x\) 換成 \(x\bmod L\) 時，位能不變，因此不額外記一筆功。\(y\) 方向沒有位能，回捲也不改變速度與動能。
+
+換了模型，理論參考也要重算。我們先算粒子在一個週期內的空間配分函數，再求每粒子的自由能：
+\begin{equation}
+Z_x(T,\kappa)=\int_0^L e^{-V(x)/(k_{\mathrm B}T)}\,\mathrm dx,
+\qquad f_x=-k_{\mathrm B}T\ln Z_x.
+\label{eq:partition}
+\end{equation}
+同溫下，動量與 \(y\) 方向的因子在自由能差中相消。把高、低溫曲率段的自由能變化取負相加，就得到這個模型自己的準靜態功。週期模型的配分函數不依中心位置；因此中心平移的準靜態淨功為零，但有限速度搬運仍可能耗功。
 \captiontext{表三、相同循環設定下的兩種模型比較。}
 \noindent{\fontsize{10.5}{14}\selectfont
 \begin{tabularx}{\linewidth}{@{}*{3}{>{\centering\arraybackslash}X}@{}}
@@ -149,7 +194,10 @@ m\,\mathrm d\mathbf v=(-\nabla V-\gamma\mathbf v)\,\mathrm dt
 \bottomrule
 \end{tabularx}\par}
 \captiontext{表三採 \(L=24\)、\(N=32\)、曲率段 100、換浴段 20，其餘同正功設定；20 次獨立重複，各暖機 2 圈後平均 5 圈。}
-\textbf{兩種模型的全域位能不同，不能把功的差異全部歸因於邊界。}模擬參數與原始逐圈記錄均隨程式保存。
+
+表三顯示，雙週期模型也能輸出正功，但它的準靜態參考值已由約 1.386 變成 1.448。原因是粒子遠離阱底時，看到的位能形狀不同了；\textbf{不能把兩個平均功的差異，全部解讀成「拿掉硬牆」的效果}。只有粒子大多待在阱底附近時，兩種模型才會接近相同的諧和近似。
+
+因此，這個延伸的重點是建立一套首尾相接、力與功記帳一致的模型，再用它自己的平衡理論作比較。原始參數、逐圈資料與數值檢查均隨程式保存，包含週期接縫、位能導數與配分函數的交叉檢查。
 \begin{thebibliography}{9}
 \fontsize{9.2}{12}\selectfont\raggedright
 \setlength{\itemsep}{1pt}
